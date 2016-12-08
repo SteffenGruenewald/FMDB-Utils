@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0AA4671DF95E8000E959B3 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AA4661DF95E8000E959B3 /* UserTableViewCell.swift */; };
+		3A0AA4691DF96A7800E959B3 /* ChatHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AA4681DF96A7800E959B3 /* ChatHistoryTableViewCell.swift */; };
+		3A0AA46B1DF96C1500E959B3 /* ChatHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0AA46A1DF96C1500E959B3 /* ChatHistoryViewController.swift */; };
 		3A2F33441DF86C0C00DEA22C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33431DF86C0C00DEA22C /* LoginViewController.swift */; };
 		3A2F33461DF86C1D00DEA22C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33451DF86C1D00DEA22C /* SignUpViewController.swift */; };
 		3A2F33481DF86C3500DEA22C /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33471DF86C3500DEA22C /* ChattingViewController.swift */; };
 		3A2F334A1DF86C4E00DEA22C /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33491DF86C4E00DEA22C /* FriendsViewController.swift */; };
 		3A2F334C1DF86C6000DEA22C /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F334B1DF86C6000DEA22C /* MyProfileViewController.swift */; };
 		3A2F33521DF86EE000DEA22C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A2F33501DF86EE000DEA22C /* Main.storyboard */; };
-		3A2F33551DF8B32600DEA22C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33541DF8B32600DEA22C /* SearchViewController.swift */; };
 		3A2F33581DF8B7D200DEA22C /* FirebaseUserAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33571DF8B7D200DEA22C /* FirebaseUserAuthentication.swift */; };
 		3A2F335A1DF8B7FD00DEA22C /* FirebaseRealTimeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33591DF8B7FD00DEA22C /* FirebaseRealTimeMessage.swift */; };
 		3A2F335C1DF8B9A100DEA22C /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F335B1DF8B9A100DEA22C /* CommonUtils.swift */; };
@@ -32,6 +34,7 @@
 		3A2F337D1DF908AB00DEA22C /* UITableView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F337B1DF908AB00DEA22C /* UITableView+ChatAdditions.swift */; };
 		3A2F337F1DF908BA00DEA22C /* UIView+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F337E1DF908BA00DEA22C /* UIView+Extesion.swift */; };
 		3A2F33811DF908C800DEA22C /* NSObject+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33801DF908C800DEA22C /* NSObject+String.swift */; };
+		3A2F33851DF958D200DEA22C /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33841DF958D200DEA22C /* SearchUserViewController.swift */; };
 		3A9A0ECE1DF5EFE500893FE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9A0ECC1DF5EFE500893FE3 /* LaunchScreen.storyboard */; };
 		3A9A0EE51DF5F31000893FE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A0ED71DF5F31000893FE3 /* AppDelegate.swift */; };
 		3A9A0EE61DF5F31000893FE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9A0ED81DF5F31000893FE3 /* Assets.xcassets */; };
@@ -44,13 +47,15 @@
 
 /* Begin PBXFileReference section */
 		36E6DF4030D4BF2BFFF2B90C /* Pods-FelineFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FelineFitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-FelineFitness/Pods-FelineFitness.release.xcconfig"; sourceTree = "<group>"; };
+		3A0AA4661DF95E8000E959B3 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		3A0AA4681DF96A7800E959B3 /* ChatHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatHistoryTableViewCell.swift; sourceTree = "<group>"; };
+		3A0AA46A1DF96C1500E959B3 /* ChatHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatHistoryViewController.swift; sourceTree = "<group>"; };
 		3A2F33431DF86C0C00DEA22C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3A2F33451DF86C1D00DEA22C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3A2F33471DF86C3500DEA22C /* ChattingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
 		3A2F33491DF86C4E00DEA22C /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		3A2F334B1DF86C6000DEA22C /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		3A2F33511DF86EE000DEA22C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3A2F33541DF8B32600DEA22C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3A2F33571DF8B7D200DEA22C /* FirebaseUserAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseUserAuthentication.swift; sourceTree = "<group>"; };
 		3A2F33591DF8B7FD00DEA22C /* FirebaseRealTimeMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseRealTimeMessage.swift; sourceTree = "<group>"; };
 		3A2F335B1DF8B9A100DEA22C /* CommonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
@@ -69,6 +74,7 @@
 		3A2F337B1DF908AB00DEA22C /* UITableView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ChatAdditions.swift"; sourceTree = "<group>"; };
 		3A2F337E1DF908BA00DEA22C /* UIView+Extesion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extesion.swift"; sourceTree = "<group>"; };
 		3A2F33801DF908C800DEA22C /* NSObject+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+String.swift"; sourceTree = "<group>"; };
+		3A2F33841DF958D200DEA22C /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserViewController.swift; path = Search/SearchUserViewController.swift; sourceTree = "<group>"; };
 		3A9A0EC01DF5EFE500893FE3 /* FelineFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FelineFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9A0ECD1DF5EFE500893FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A9A0ECF1DF5EFE500893FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,7 +123,8 @@
 		3A2F33531DF8B30A00DEA22C /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				3A2F33541DF8B32600DEA22C /* SearchViewController.swift */,
+				3A2F33841DF958D200DEA22C /* SearchUserViewController.swift */,
+				3A0AA4661DF95E8000E959B3 /* UserTableViewCell.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -139,6 +146,7 @@
 			children = (
 				3A2F336B1DF9077200DEA22C /* ChatTextCell.swift */,
 				3A2F336C1DF9077200DEA22C /* ChatImageCell.swift */,
+				3A0AA4681DF96A7800E959B3 /* ChatHistoryTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -188,10 +196,10 @@
 				3A9A0ED61DF5F31000893FE3 /* Application */,
 				3A9A0EE01DF5F31000893FE3 /* Model */,
 				3A9A0ED91DF5F31000893FE3 /* Controller */,
-				3A9A0EE11DF5F31000893FE3 /* Resource */,
 				3A9A0EE21DF5F31000893FE3 /* Utils */,
 				3A9A0EE31DF5F31000893FE3 /* Vendor */,
 				3A9A0EE41DF5F31000893FE3 /* View */,
+				3A9A0EE11DF5F31000893FE3 /* Resource */,
 				3A9A0EEC1DF6143600893FE3 /* Supporting Files */,
 			);
 			path = FelineFitness;
@@ -239,6 +247,7 @@
 				3A2F33681DF9072C00DEA22C /* Views */,
 				3A2F33691DF9073C00DEA22C /* ChatHelper */,
 				3A2F33471DF86C3500DEA22C /* ChattingViewController.swift */,
+				3A0AA46A1DF96C1500E959B3 /* ChatHistoryViewController.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -456,11 +465,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2F337C1DF908AB00DEA22C /* ChattingViewController+ChatAdditions.swift in Sources */,
+				3A0AA4691DF96A7800E959B3 /* ChatHistoryTableViewCell.swift in Sources */,
 				3A2F335C1DF8B9A100DEA22C /* CommonUtils.swift in Sources */,
 				3A2F335E1DF8B9D900DEA22C /* FriendModel.swift in Sources */,
+				3A2F33851DF958D200DEA22C /* SearchUserViewController.swift in Sources */,
 				3A2F33781DF9080900DEA22C /* CameraButton.swift in Sources */,
 				3A2F33641DF8E61200DEA22C /* DateExtension.swift in Sources */,
-				3A2F33551DF8B32600DEA22C /* SearchViewController.swift in Sources */,
 				3A2F33621DF8C4B400DEA22C /* MessageUtils.swift in Sources */,
 				3A2F337F1DF908BA00DEA22C /* UIView+Extesion.swift in Sources */,
 				3A2F335A1DF8B7FD00DEA22C /* FirebaseRealTimeMessage.swift in Sources */,
@@ -471,6 +481,7 @@
 				3A2F336F1DF9077200DEA22C /* ChatTextCell.swift in Sources */,
 				3A2F334C1DF86C6000DEA22C /* MyProfileViewController.swift in Sources */,
 				3A2F33771DF9080900DEA22C /* SendButton.swift in Sources */,
+				3A0AA4671DF95E8000E959B3 /* UserTableViewCell.swift in Sources */,
 				3A2F33661DF8FE2B00DEA22C /* FirebaseStorageUtils.swift in Sources */,
 				3A2F33811DF908C800DEA22C /* NSObject+String.swift in Sources */,
 				3A9A0EEB1DF5F8BF00893FE3 /* UserModel.swift in Sources */,
@@ -478,6 +489,7 @@
 				3A2F33701DF9077200DEA22C /* ChatImageCell.swift in Sources */,
 				3A2F33601DF8C3C700DEA22C /* MessageModel.swift in Sources */,
 				3A9A0EE71DF5F31000893FE3 /* BaseViewController.swift in Sources */,
+				3A0AA46B1DF96C1500E959B3 /* ChatHistoryViewController.swift in Sources */,
 				3A2F33581DF8B7D200DEA22C /* FirebaseUserAuthentication.swift in Sources */,
 				3A2F33761DF9080900DEA22C /* ChatActionBarView.swift in Sources */,
 				3A2F33441DF86C0C00DEA22C /* LoginViewController.swift in Sources */,

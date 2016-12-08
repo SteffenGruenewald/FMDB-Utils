@@ -8,12 +8,23 @@
 
 import UIKit
 
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewController, UITextFieldDelegate {
+
+    //UI controls
+    @IBOutlet weak var emailView: UIView!
+    @IBOutlet weak var passwordView: UIView!
+
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationController?.isNavigationBarHidden = true
+
+        setViewBorders()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +42,50 @@ class LoginViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    func setViewBorders()
+    {
+
+        emailView.layer.borderColor = UIColor.white.cgColor
+        emailView.layer.borderWidth = 2
+        txtEmail.tintColor = UIColor.white
+
+        passwordView.layer.borderWidth = 2
+        passwordView.layer.borderColor = UIColor.white.cgColor
+        txtPassword.tintColor = UIColor.white
+    }
+
+
+    @IBAction func btnLoginTapped(_ sender: Any) {
+
+        doLogin()
+    }
+
+    func doLogin()
+    {
+        gotoMainScene()
+    }
+
+
+
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        return true
+    }
+
+    func gotoMainScene()
+    {
+        let mainNavVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar")
+        self.present(mainNavVC!, animated: true, completion: nil)
+    }
+
+
+
+
+
 
 }

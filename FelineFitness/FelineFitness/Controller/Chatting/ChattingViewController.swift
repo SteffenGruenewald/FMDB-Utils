@@ -12,7 +12,8 @@ class ChattingViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
     }
 

@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseStorage
+
+class FirebaseStorageUtils
+{
+
+}

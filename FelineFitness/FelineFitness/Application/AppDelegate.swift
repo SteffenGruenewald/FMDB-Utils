@@ -98,8 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func tokenRefreshNotification(_ notification: Notification) {
         if let refreshedToken = FIRInstanceID.instanceID().token() {
             print("InstanceID token: \(refreshedToken)")
-
-
+            UserDefaults.standard.setValue("\(refreshedToken)", forKey: Constants.DEVICE_TOKEN)
             
         }
 

@@ -15,10 +15,8 @@ class UserModel{
     var user_name = ""
     var user_EmailAddress = ""
     var user_status = ""
+    var user_imageUrl = ""
     var user_devices : [String] = []
 
 }
 
-var currentUser = UserModel()
-var myFriends : [FriendModel] = []
-var currentFriend = UserModel()

@@ -55,11 +55,32 @@ class Constants {
     static let FIR_USERINFODIRECTORY = "UserInfos"
     static let FIR_FRIENDDIRECTORY = "Friends"
     //static let FIR
+
+
+    ///////////*********  Error Messages *****************///////////////
+
+
+
+    ///////////*********  UserDefault Keywords *****************///////////////
+
+    static let DEVICE_TOKEN = "token"
+    //static let
+
+
+
 }
 
 
+//current user
+var currentUser = UserModel()
+//friend array
+var myFriends : [FriendModel] = []
+//current friend in chatting room
+var currentFriend = UserModel()
+//all users in server
+var globalUsersArray : [UserModel] = []
 
 
 
 
-var paymentStatus = false
+

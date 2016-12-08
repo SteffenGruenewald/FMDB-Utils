@@ -13,6 +13,7 @@ class FriendModel{
 
     var friend_user = UserModel()
     var friend_roomid = ""
-    var friend_unreadmessages : [String] = []
-    
+    var friend_lastmessage = ""
+    var friend_lastmessagetime = ""
+
 }
