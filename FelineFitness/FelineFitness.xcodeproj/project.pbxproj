@@ -246,8 +246,8 @@
 				3A2F33671DF9072400DEA22C /* Cells */,
 				3A2F33681DF9072C00DEA22C /* Views */,
 				3A2F33691DF9073C00DEA22C /* ChatHelper */,
-				3A2F33471DF86C3500DEA22C /* ChattingViewController.swift */,
 				3A0AA46A1DF96C1500E959B3 /* ChatHistoryViewController.swift */,
+				3A2F33471DF86C3500DEA22C /* ChattingViewController.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";

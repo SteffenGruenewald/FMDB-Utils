@@ -19,5 +19,7 @@ class ChatImageCell: UITableViewCell {
     @IBOutlet weak var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageLeadingContraint: NSLayoutConstraint!
     @IBOutlet weak var imageTrailingConstraint: NSLayoutConstraint!
+
+    
     
 }

@@ -84,3 +84,5 @@ class FirebaseRealTimeMessage{
     }
 
 }
+
+var firebaseRealTimeMessageInstance = FirebaseRealTimeMessage()
