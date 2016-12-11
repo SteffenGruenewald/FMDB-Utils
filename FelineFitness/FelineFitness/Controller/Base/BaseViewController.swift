@@ -51,5 +51,18 @@ class BaseViewController: UIViewController {
 
     }
 
+
+    func gotoMainScene()
+    {
+        let mainTabBar = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar")
+        self.present(mainTabBar!, animated: true, completion: nil)
+    }
+
+    func gotoStartScene()
+    {
+        let mainNavVC = self.storyboard?.instantiateViewController(withIdentifier: "StartNavBar")
+        self.present(mainNavVC!, animated: true, completion: nil)
+    }
+
 }
 

@@ -45,7 +45,7 @@ class SearchUserViewController: BaseViewController {
 
     func getUsers()
     {
-        var user = UserModel()
+        /*var user = UserModel()
         user.user_id = "a123"
         user.user_name = "Steffen Gruenewald"
         user.user_imageUrl = "http://35.162.10.72/shopping/upload/0c4bc85e48d664ccd64a62c184d5b19c.png"
@@ -68,9 +68,15 @@ class SearchUserViewController: BaseViewController {
         user.user_id = "uiO00swfew"
         user.user_name = "Zhuxian"
         user.user_imageUrl = "http://35.162.10.72/shopping/upload/bdf03c9c8938c1c0577b3f943d27afbc.png"
-        searchUsersArray.append(user)
+        searchUsersArray.append(user)*/
+        showLoadingView()
+        FirebaseUserAuthentication.getAllUsers(completion: {
+            users in
+            self.hideLoadingView()
+            globalUsersArray = users
+            self.tblUserList.reloadData()
+        })
 
-        //tblUserList.reloadData()
     }
 
     func getStringMatchUsers(_ keyword: String)

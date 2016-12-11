@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class CommonUtils{
@@ -19,6 +20,7 @@ class CommonUtils{
         return emailTest.evaluate(with: email)
     }
 
+    
     //static func s
     static func getSortedUserArrayByName(users: [UserModel]) -> [UserModel]{
         let sortedArray = users.sorted {
@@ -26,6 +28,46 @@ class CommonUtils{
         }
         return sortedArray
     }
+
+
+    /*
+
+    static func saveDataToLocal (srcImageData: Data, filePath: String, fileName: String, resize: Bool) -> String {
+
+        let outputFileName = fileName
+
+
+        let fileManager = FileManager.default
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        var documentDirectory: NSString! = paths[0] as NSString!
+
+        // current document directory
+        fileManager.changeCurrentDirectoryPath(documentDirectory as String)
+
+        do {
+            try fileManager.createDirectory(atPath: filePath, withIntermediateDirectories: true, attributes: nil)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+
+        documentDirectory = documentDirectory.appendingPathComponent(filePath) as NSString!
+        let savedFilePath = documentDirectory.appendingPathComponent(outputFileName)
+
+        // if the file exists already, delete and write, else if create filePath
+        if (fileManager.fileExists(atPath: savedFilePath)) {
+            do {
+                try fileManager.removeItem(atPath: savedFilePath)
+            }
+            catch let error as NSError {
+                print("Ooops! Something went wrong: \(error)")
+            }
+        } else {
+            fileManager.createFile(atPath: savedFilePath, contents: nil, attributes: nil)
+            (srcImageData as NSData).write(toFile: savedFilePath, atomically: true)
+        }
+
+        return savedFilePath
+    }*/
 
 }
 

@@ -8,14 +8,13 @@
 
 import Foundation
 import Firebase
-import FirebaseMessaging
+//import FirebaseMessaging
 import FirebaseDatabase
 
 class FirebaseRealTimeMessage{
 
     var ref: FIRDatabaseReference!
     // var refUser: FIRDatabaseReference!
-    var refHandle: UInt!
 
     static var lastReadMessageid = ""
     static var lastReadMessageNumber = 0
@@ -23,7 +22,7 @@ class FirebaseRealTimeMessage{
     func createCurrentReference(_ roomid: String)
     {
         ref = FIRDatabase.database().reference(withPath: Constants.FIR_MESSAGEROOM).child(roomid)
-        refHandle = ref.observe(FIRDataEventType.value, with: {
+        ref.observe(FIRDataEventType.value, with: {
             (snapshot) in
 
             if snapshot.value == nil {

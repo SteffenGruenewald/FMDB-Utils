@@ -13,7 +13,7 @@ class MessageUtils{
     static func createMessageObject(_ message: MessageModel) -> [String : AnyObject] {
         var post : [String : AnyObject] = [:]
         post[Constants.MESSAGE_ID] = message.message_id as AnyObject?
-        post[Constants.MESSAGE_TIME] = message.message_time as AnyObject?
+        post[Constants.MESSAGE_TIME] = Int(message.message_time) as AnyObject?
         post[Constants.MESSAGE_TYPE] = message.message_type as AnyObject?
         post[Constants.MESSAGE_CONTENT] = message.message_content as AnyObject?
         post[Constants.MESSAGE_SENDER_ID] = message.message_senderid as AnyObject?
@@ -26,7 +26,7 @@ class MessageUtils{
     {
         let message = MessageModel()
         message.message_id = (snapShotItem?[Constants.MESSAGE_ID] as! String?)!
-        message.message_time = (snapShotItem?[Constants.MESSAGE_TIME] as! String?)!
+        message.message_time = "\(snapShotItem?[Constants.MESSAGE_TIME] as! Int)"
         message.message_type = (snapShotItem?[Constants.MESSAGE_TYPE] as! String?)!
         message.message_content = (snapShotItem?[Constants.MESSAGE_CONTENT] as! String?)!
         message.message_senderid = (snapShotItem?[Constants.MESSAGE_SENDER_ID] as! String?)!

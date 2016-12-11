@@ -12,8 +12,9 @@ import Foundation
 class UserModel{
 
     var user_id = ""
+    var user_password = ""
     var user_name = ""
-    var user_EmailAddress = ""
+    var user_emailAddress = ""
     var user_status = ""
     var user_imageUrl = ""
     var user_devices : [String] = []

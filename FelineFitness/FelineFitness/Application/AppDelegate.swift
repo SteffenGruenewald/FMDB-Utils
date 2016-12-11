@@ -99,6 +99,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let refreshedToken = FIRInstanceID.instanceID().token() {
             print("InstanceID token: \(refreshedToken)")
             UserDefaults.standard.setValue("\(refreshedToken)", forKey: Constants.DEVICE_TOKEN)
+
+            if currentUser.user_id.characters.count > 0{
+
+                firebaseUserAuthInstance.createUserReference(userid: currentUser.user_id)
+                firebaseUserAuthInstance.setUserDeviceStatus(userid: currentUser.user_id, token: "\(refreshedToken)", status: Constants.USER_DEVICE_ONLINE)
+            }
             
         }
 

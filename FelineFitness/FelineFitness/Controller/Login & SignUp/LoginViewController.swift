@@ -24,6 +24,13 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
         navigationController?.isNavigationBarHidden = true
 
+        if (defaults.value(forKey: Constants.USER_EMAIL) != nil)
+        {
+            txtEmail.text = defaults.value(forKey: Constants.USER_EMAIL) as? String
+            txtPassword.text = defaults.value(forKey: Constants.USER_PASSWORD) as? String
+
+            doLogin(email: txtEmail!.text!, password: txtPassword!.text!)
+        }
         setViewBorders()
     }
 
@@ -57,13 +64,33 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
 
     @IBAction func btnLoginTapped(_ sender: Any) {
-
-        doLogin()
+        doLogin(email: txtEmail!.text!, password: txtPassword!.text!)
     }
 
-    func doLogin()
+    func doLogin(email: String, password: String)
     {
-        gotoMainScene()
+        let message = checkValid(email: email, password: password)
+        if  message == Constants.SUCCESS_PROCESS
+        {
+            showLoadingView()
+            FirebaseUserAuthentication.signIn(email: email, password: password, completion: {
+                userid, success in
+                self.hideLoadingView()
+                if success{
+                    self.gotoMainScene()
+                }
+                else
+                {
+                    self.showToastWithDuration(string: "Firebase connection failed", duration: 3.0)
+                }
+                
+            })
+
+        }
+        else
+        {
+            showToastWithDuration(string: message, duration: 3.0)
+        }
     }
 
 
@@ -74,13 +101,31 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
+        if textField == txtEmail{
+            txtPassword.becomeFirstResponder()
+        }
+        else {
+            doLogin(email: txtEmail!.text!, password: txtPassword!.text!)
+        }
+        textField.resignFirstResponder()
         return true
     }
 
-    func gotoMainScene()
-    {
-        let mainNavVC = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar")
-        self.present(mainNavVC!, animated: true, completion: nil)
+
+    func checkValid(email: String, password: String) -> String{
+        if(email.characters.count == 0)
+        {
+            return Constants.ERROR_EMPTY_EMAIL
+        }
+        else if !CommonUtils.isValideEmail(email){
+            return Constants.ERROR_INVALID_EMAIL
+        }
+        else if (password.characters.count == 0)
+        {
+            return Constants.ERROR_EMPTY_PASSWORD
+        }
+
+        return Constants.SUCCESS_PROCESS
     }
 
 

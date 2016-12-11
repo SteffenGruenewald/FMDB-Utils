@@ -37,6 +37,7 @@ let kChatActionBarTextViewMaxHeight: CGFloat = 51   //Expandable textview max
         }
     }
 
+    /*
 	func drawChatBox (textBox: CGRect = CGRect(x: 0, y: 53, width: 375, height: 78)) {
 
 		let path = UIBezierPath()
@@ -92,8 +93,9 @@ let kChatActionBarTextViewMaxHeight: CGFloat = 51   //Expandable textview max
 		path.stroke()
 	}
 
+ */
 	override func draw(_ rect: CGRect) {
-		drawChatBox(textBox: rect)
+		//drawChatBox(textBox: rect)
 	}
 
 

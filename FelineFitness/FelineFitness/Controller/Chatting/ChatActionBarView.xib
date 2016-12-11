@@ -15,8 +15,13 @@
             <rect key="frame" x="0.0" y="0.0" width="359" height="73"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohS-63-cfY">
+                    <rect key="frame" x="16" y="9" width="263" height="56"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhs-rt-VM2">
-                    <rect key="frame" x="238" y="16" width="35" height="35"/>
+                    <rect key="frame" x="238" y="20" width="35" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="Eef-oY-OSf"/>
                         <constraint firstAttribute="width" constant="35" id="LZs-bA-j2m"/>
@@ -28,7 +33,7 @@
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SAH-yU-qb0" customClass="UIPlaceHolderTextView">
                     <rect key="frame" x="25" y="20" width="204" height="33"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="0.41850359240000001" blue="0.48318992199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
                     <userDefinedRuntimeAttributes>
@@ -82,7 +87,7 @@
                 <constraint firstItem="pcj-hz-Lel" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PLW-yA-ka2"/>
                 <constraint firstAttribute="trailing" secondItem="vlO-d0-Okt" secondAttribute="trailing" constant="16" id="VHt-em-gKv"/>
                 <constraint firstItem="337-7b-NQI" firstAttribute="centerY" secondItem="vlO-d0-Okt" secondAttribute="centerY" id="WNV-dv-B4X"/>
-                <constraint firstAttribute="bottom" secondItem="lhs-rt-VM2" secondAttribute="bottom" constant="22" id="X2Y-4c-YnP"/>
+                <constraint firstAttribute="bottom" secondItem="lhs-rt-VM2" secondAttribute="bottom" constant="18" id="X2Y-4c-YnP"/>
                 <constraint firstAttribute="trailing" secondItem="SAH-yU-qb0" secondAttribute="trailing" constant="130" id="ih5-TQ-dKi"/>
                 <constraint firstItem="SAH-yU-qb0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="kKU-fZ-NsF"/>
                 <constraint firstAttribute="trailing" secondItem="pcj-hz-Lel" secondAttribute="trailing" id="mSq-a0-gAo"/>
