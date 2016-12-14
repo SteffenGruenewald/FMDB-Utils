@@ -18,6 +18,7 @@ class UserModel{
     var user_status = ""
     var user_imageUrl = ""
     var user_devices : [String] = []
+    var user_ismyfriend = ""
 
 }
 

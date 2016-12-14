@@ -29,9 +29,21 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             txtEmail.text = defaults.value(forKey: Constants.USER_EMAIL) as? String
             txtPassword.text = defaults.value(forKey: Constants.USER_PASSWORD) as? String
 
-            doLogin(email: txtEmail!.text!, password: txtPassword!.text!)
+            showLoadingView()
+            FirebaseUserAuthentication.initUserInfo(userid: defaults.value(forKey: Constants.USER_ID)! as! String, completion: {
+                userid,success in
+                self.hideLoadingView()
+                if(success){
+                    self.gotoMainScene()
+                }
+                else{
+
+                    self.showToastWithDuration(string: "Firebase connection failed", duration: 3.0)
+                }
+            })
         }
         setViewBorders()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,7 +93,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                 }
                 else
                 {
-                    self.showToastWithDuration(string: "Firebase connection failed", duration: 3.0)
+
                 }
                 
             })

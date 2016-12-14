@@ -75,11 +75,10 @@ class FirebaseStorageUtils
 
 extension UIImageView{
 
-    func setImageWith(storageRefString: String, placeholder: UIImage)
+    func setImageWith(storageRefString: String, placeholderImage: UIImage)
     {
         let reference : FIRStorageReference = FIRStorage.storage().reference(forURL: storageRefString)
-
-        self.sd_setImage(with: reference, placeholderImage: placeholder)
+        self.sd_setImage(with: reference, placeholderImage: placeholderImage)
         
     }
 

@@ -149,6 +149,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         print("APNs token retrieved: \(deviceToken)")
         FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.unknown)
+
+
+        if(currentUser.user_id.characters.count > 0)
+        {
+            firebaseUserAuthInstance.setUserDeviceStatus(userid: currentUser.user_id, token: "\(deviceToken)", status: Constants.USER_DEVICE_ONLINE)
+        }
+
     }
 
 }
@@ -156,6 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 /// [START ios_10_message_handling]
 @available(iOS 10, *)
+
 extension AppDelegate : UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

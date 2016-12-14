@@ -17,10 +17,15 @@ class FirebaseRealTimeMessage{
     // var refUser: FIRDatabaseReference!
 
     static var lastReadMessageid = ""
-    static var lastReadMessageNumber = 0
+    var lastReadMessageNumber = 0
+
+    var lastMessageTime = 0
 
     func createCurrentReference(_ roomid: String)
     {
+        messages = [];
+        lastReadMessageNumber = 0
+        lastMessageTime = 0
         ref = FIRDatabase.database().reference(withPath: Constants.FIR_MESSAGEROOM).child(roomid)
         ref.observe(FIRDataEventType.value, with: {
             (snapshot) in
@@ -31,11 +36,6 @@ class FirebaseRealTimeMessage{
             self.parseReceivedMessage(snapshot)
 
         })
-
-
-        let notificationCenter = NotificationCenter.default
-        //notificationCenter.addObserver(self, selector: #selector(sendCloseChatting(_:)), name: NSNotification.Name(rawValue: "CloseChatting"), object: nil)
-
     }
 
 
@@ -43,13 +43,15 @@ class FirebaseRealTimeMessage{
     {
         if(snapshot != nil){
             let childref = snapshot.children.allObjects as? [FIRDataSnapshot]
+
+            NSLog("\(snapshot.value)")
             if((childref?.count)! > 0){
 
-                NSLog("current number - %d , maxnumber - %d", FirebaseRealTimeMessage.lastReadMessageNumber, childref?.count ?? 0)
+                NSLog("current number - %d , maxnumber - %d", self.lastReadMessageNumber, childref?.count ?? 0)
 
-                for i in (FirebaseRealTimeMessage.lastReadMessageNumber)..<(childref?.count)!
+                for i in 0..<(childref?.count)!
                 {
-                    FirebaseRealTimeMessage.lastReadMessageNumber += 1
+                    self.lastReadMessageNumber += 1
                     let postDict = childref?[i].value as? NSDictionary
 
                     if (postDict != nil){
@@ -72,16 +74,42 @@ class FirebaseRealTimeMessage{
 
             break
         case Constants.IS_TEXTMESSAGE:
-
+            if(Int(message.message_time)! > lastMessageTime){
+                messages.append(message)
+                lastMessageTime = Int(message.message_time)!
+                 NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.STATUS_RECEIEVEDMESSAGE), object: nil)
+            }
             break
         case Constants.IS_IMAGEMESSAGE:
+            if(Int(message.message_time)! > lastMessageTime){
+                messages.append(message)
+                lastMessageTime = Int(message.message_time)!
 
+                NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.STATUS_RECEIEVEDMESSAGE), object: nil)
+            }
             break
         default:
             break
         }
     }
 
+    func readChatOnce(completion: @escaping (Bool) -> ()){
+
+        ref.observeSingleEvent(of: .value, with: {(snapshot) in
+            
+        }) {
+            (error) in
+            print(error.localizedDescription)
+        }
+
+    }
+
+    func sendMessage(_ message: MessageModel){
+        let post = MessageUtils.createMessageObject(message)
+        ref.child(message.message_id).setValue(post)
+    }
+
 }
 
 var firebaseRealTimeMessageInstance = FirebaseRealTimeMessage()
+var messages : [MessageModel] = [];

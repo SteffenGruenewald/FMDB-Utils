@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SDWebImage
+//import SDWebImage
 
 class ChattingViewController: BaseViewController {
 
@@ -15,7 +15,35 @@ class ChattingViewController: BaseViewController {
     @IBOutlet weak var imvFriend: UIImageView!
     @IBOutlet weak var lblFriendName: UILabel!
 
-    var friend = UserModel()
+    @IBOutlet weak var tblChatList: UITableView!
+
+    @IBOutlet weak var chatActionBarView: UIView!
+
+    let kChatActionBarOriginalHeight: CGFloat = 55      //ActionBar orginal height
+    let kChatActionBarMaxHeight: CGFloat = 80   //Expandable textview max
+    
+    @IBOutlet weak var inputTextView: UIPlaceHolderTextView!
+
+
+    @IBOutlet weak var typingStatusViewHeightConstraint: NSLayoutConstraint!
+
+    var friend = FriendModel()
+
+    var picker = UIImagePickerController()
+
+
+    var keyboardHeightConstraint: CGFloat = 0.0;  //Constraint of keyboard height
+
+    @IBOutlet weak var actionBarPaddingBottomConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var actionBarHeightContraint: NSLayoutConstraint!
+    var timer : Timer!
+
+    var writingInterval = 0.0
+
+    var isTyping = false
+
+    var itemDataSource:[MessageModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +51,8 @@ class ChattingViewController: BaseViewController {
         // Do any additional setup after loading the view.
 
         initView()
+        keyboardControl()
+        tblChatList.separatorColor = .clear
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,10 +62,19 @@ class ChattingViewController: BaseViewController {
 
     func initView()
     {
-        imvFriend.sd_setImage(with: URL(string: friend.user_imageUrl), placeholderImage: UIImage(named: "ic_user_placeholder"))
-        lblFriendName.text = friend.user_name
+
+        itemDataSource = [];
+        typingStatusViewHeightConstraint.constant = 0.0
+        imvFriend.setImageWith(storageRefString: friend.friend_user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
+        lblFriendName.text = friend.friend_user.user_name
+        firebaseRealTimeMessageInstance.createCurrentReference(friend.friend_roomid)
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(receivedMessage(_:)), name: NSNotification.Name(rawValue: Constants.STATUS_RECEIEVEDMESSAGE), object: nil)
+        tblChatList.estimatedRowHeight = 100
+
     }
-    
+
 
     /*
     // MARK: - Navigation
@@ -51,5 +90,15 @@ class ChattingViewController: BaseViewController {
         self.navigationController?.popViewController(animated: true)
 
     }
+
+    @IBAction func sendButtonTapped(_ sender: Any) {
+        if (inputTextView.text!.characters.count > 0){
+            sendTextMessage(text: inputTextView.text)
+
+            inputTextView.text = ""
+            textViewDidChange(inputTextView)
+        }
+    }
+
 
 }

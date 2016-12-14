@@ -26,15 +26,16 @@
 		3A2F33661DF8FE2B00DEA22C /* FirebaseStorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33651DF8FE2B00DEA22C /* FirebaseStorageUtils.swift */; };
 		3A2F336F1DF9077200DEA22C /* ChatTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F336B1DF9077200DEA22C /* ChatTextCell.swift */; };
 		3A2F33701DF9077200DEA22C /* ChatImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F336C1DF9077200DEA22C /* ChatImageCell.swift */; };
-		3A2F33761DF9080900DEA22C /* ChatActionBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33721DF9080900DEA22C /* ChatActionBarView.swift */; };
-		3A2F33771DF9080900DEA22C /* SendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33731DF9080900DEA22C /* SendButton.swift */; };
-		3A2F33781DF9080900DEA22C /* CameraButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33741DF9080900DEA22C /* CameraButton.swift */; };
-		3A2F33791DF9080900DEA22C /* ChatActionBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2F33751DF9080900DEA22C /* ChatActionBarView.xib */; };
 		3A2F337C1DF908AB00DEA22C /* ChattingViewController+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F337A1DF908AB00DEA22C /* ChattingViewController+ChatAdditions.swift */; };
 		3A2F337D1DF908AB00DEA22C /* UITableView+ChatAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F337B1DF908AB00DEA22C /* UITableView+ChatAdditions.swift */; };
 		3A2F337F1DF908BA00DEA22C /* UIView+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F337E1DF908BA00DEA22C /* UIView+Extesion.swift */; };
 		3A2F33811DF908C800DEA22C /* NSObject+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33801DF908C800DEA22C /* NSObject+String.swift */; };
 		3A2F33851DF958D200DEA22C /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F33841DF958D200DEA22C /* SearchUserViewController.swift */; };
+		3A448A0F1DFF8C990006E1FC /* ChattingViewController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A448A0E1DFF8C990006E1FC /* ChattingViewController+Data.swift */; };
+		3A448A171DFF8CA90006E1FC /* ChattingViewController+Interaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A448A111DFF8CA90006E1FC /* ChattingViewController+Interaction.swift */; };
+		3A448A181DFF8CA90006E1FC /* ChattingViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A448A121DFF8CA90006E1FC /* ChattingViewController+Keyboard.swift */; };
+		3A448A1B1DFF8CA90006E1FC /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A448A151DFF8CA90006E1FC /* ImageDetailViewController.swift */; };
+		3A448A1F1DFF98330006E1FC /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A448A1E1DFF98330006E1FC /* UIPlaceHolderTextView.m */; };
 		3A9A0ECE1DF5EFE500893FE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A9A0ECC1DF5EFE500893FE3 /* LaunchScreen.storyboard */; };
 		3A9A0EE51DF5F31000893FE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A0ED71DF5F31000893FE3 /* AppDelegate.swift */; };
 		3A9A0EE61DF5F31000893FE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A9A0ED81DF5F31000893FE3 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		3A9A0EE91DF5F83E00893FE3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A0EE81DF5F83E00893FE3 /* Constants.swift */; };
 		3A9A0EEB1DF5F8BF00893FE3 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A0EEA1DF5F8BF00893FE3 /* UserModel.swift */; };
 		3A9A0EEE1DF6145F00893FE3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A9A0EED1DF6145F00893FE3 /* GoogleService-Info.plist */; };
+		3AB8117E1DFE3D0300491EA4 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB8117D1DFE3D0300491EA4 /* UserDetailViewController.swift */; };
 		6D09DBBFE08DE53E5CD21CDC /* Pods_FelineFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 971FE799CBFAF4C8F0BD8863 /* Pods_FelineFitness.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,15 +68,18 @@
 		3A2F33651DF8FE2B00DEA22C /* FirebaseStorageUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorageUtils.swift; sourceTree = "<group>"; };
 		3A2F336B1DF9077200DEA22C /* ChatTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTextCell.swift; sourceTree = "<group>"; };
 		3A2F336C1DF9077200DEA22C /* ChatImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatImageCell.swift; sourceTree = "<group>"; };
-		3A2F33721DF9080900DEA22C /* ChatActionBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatActionBarView.swift; sourceTree = "<group>"; };
-		3A2F33731DF9080900DEA22C /* SendButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendButton.swift; sourceTree = "<group>"; };
-		3A2F33741DF9080900DEA22C /* CameraButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraButton.swift; sourceTree = "<group>"; };
-		3A2F33751DF9080900DEA22C /* ChatActionBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatActionBarView.xib; sourceTree = "<group>"; };
 		3A2F337A1DF908AB00DEA22C /* ChattingViewController+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChattingViewController+ChatAdditions.swift"; sourceTree = "<group>"; };
 		3A2F337B1DF908AB00DEA22C /* UITableView+ChatAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+ChatAdditions.swift"; sourceTree = "<group>"; };
 		3A2F337E1DF908BA00DEA22C /* UIView+Extesion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extesion.swift"; sourceTree = "<group>"; };
 		3A2F33801DF908C800DEA22C /* NSObject+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+String.swift"; sourceTree = "<group>"; };
 		3A2F33841DF958D200DEA22C /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserViewController.swift; path = Search/SearchUserViewController.swift; sourceTree = "<group>"; };
+		3A448A0E1DFF8C990006E1FC /* ChattingViewController+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChattingViewController+Data.swift"; sourceTree = "<group>"; };
+		3A448A111DFF8CA90006E1FC /* ChattingViewController+Interaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChattingViewController+Interaction.swift"; sourceTree = "<group>"; };
+		3A448A121DFF8CA90006E1FC /* ChattingViewController+Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ChattingViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		3A448A151DFF8CA90006E1FC /* ImageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
+		3A448A1C1DFF98320006E1FC /* FelineFitness-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FelineFitness-Bridging-Header.h"; path = "Vendor/FelineFitness-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A448A1D1DFF98330006E1FC /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		3A448A1E1DFF98330006E1FC /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		3A9A0EC01DF5EFE500893FE3 /* FelineFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FelineFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9A0ECD1DF5EFE500893FE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A9A0ECF1DF5EFE500893FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +89,7 @@
 		3A9A0EE81DF5F83E00893FE3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3A9A0EEA1DF5F8BF00893FE3 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3A9A0EED1DF6145F00893FE3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3AB8117D1DFE3D0300491EA4 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		971FE799CBFAF4C8F0BD8863 /* Pods_FelineFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FelineFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E674BBBDACCF0AB7EB61A6EE /* Pods-FelineFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FelineFitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FelineFitness/Pods-FelineFitness.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +131,7 @@
 			children = (
 				3A2F33841DF958D200DEA22C /* SearchUserViewController.swift */,
 				3A0AA4661DF95E8000E959B3 /* UserTableViewCell.swift */,
+				3AB8117D1DFE3D0300491EA4 /* UserDetailViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -149,17 +156,6 @@
 				3A0AA4681DF96A7800E959B3 /* ChatHistoryTableViewCell.swift */,
 			);
 			name = Cells;
-			sourceTree = "<group>";
-		};
-		3A2F33681DF9072C00DEA22C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3A2F33721DF9080900DEA22C /* ChatActionBarView.swift */,
-				3A2F33731DF9080900DEA22C /* SendButton.swift */,
-				3A2F33741DF9080900DEA22C /* CameraButton.swift */,
-				3A2F33751DF9080900DEA22C /* ChatActionBarView.xib */,
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 		3A2F33691DF9073C00DEA22C /* ChatHelper */ = {
@@ -244,10 +240,13 @@
 			isa = PBXGroup;
 			children = (
 				3A2F33671DF9072400DEA22C /* Cells */,
-				3A2F33681DF9072C00DEA22C /* Views */,
 				3A2F33691DF9073C00DEA22C /* ChatHelper */,
 				3A0AA46A1DF96C1500E959B3 /* ChatHistoryViewController.swift */,
 				3A2F33471DF86C3500DEA22C /* ChattingViewController.swift */,
+				3A448A111DFF8CA90006E1FC /* ChattingViewController+Interaction.swift */,
+				3A448A121DFF8CA90006E1FC /* ChattingViewController+Keyboard.swift */,
+				3A448A151DFF8CA90006E1FC /* ImageDetailViewController.swift */,
+				3A448A0E1DFF8C990006E1FC /* ChattingViewController+Data.swift */,
 			);
 			path = Chatting;
 			sourceTree = "<group>";
@@ -310,6 +309,8 @@
 		3A9A0EE31DF5F31000893FE3 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				3A448A1D1DFF98330006E1FC /* UIPlaceHolderTextView.h */,
+				3A448A1E1DFF98330006E1FC /* UIPlaceHolderTextView.m */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -326,6 +327,7 @@
 			children = (
 				3A9A0ECF1DF5EFE500893FE3 /* Info.plist */,
 				3A9A0EED1DF6145F00893FE3 /* GoogleService-Info.plist */,
+				3A448A1C1DFF98320006E1FC /* FelineFitness-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -374,7 +376,8 @@
 					3A9A0EBF1DF5EFE500893FE3 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 376KBZ5ZV9;
-						ProvisioningStyle = Manual;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -403,7 +406,6 @@
 			files = (
 				3A9A0ECE1DF5EFE500893FE3 /* LaunchScreen.storyboard in Resources */,
 				3A9A0EEE1DF6145F00893FE3 /* GoogleService-Info.plist in Resources */,
-				3A2F33791DF9080900DEA22C /* ChatActionBarView.xib in Resources */,
 				3A9A0EE61DF5F31000893FE3 /* Assets.xcassets in Resources */,
 				3A2F33521DF86EE000DEA22C /* Main.storyboard in Resources */,
 			);
@@ -467,31 +469,34 @@
 				3A2F337C1DF908AB00DEA22C /* ChattingViewController+ChatAdditions.swift in Sources */,
 				3A0AA4691DF96A7800E959B3 /* ChatHistoryTableViewCell.swift in Sources */,
 				3A2F335C1DF8B9A100DEA22C /* CommonUtils.swift in Sources */,
+				3A448A171DFF8CA90006E1FC /* ChattingViewController+Interaction.swift in Sources */,
 				3A2F335E1DF8B9D900DEA22C /* FriendModel.swift in Sources */,
 				3A2F33851DF958D200DEA22C /* SearchUserViewController.swift in Sources */,
-				3A2F33781DF9080900DEA22C /* CameraButton.swift in Sources */,
+				3A448A1F1DFF98330006E1FC /* UIPlaceHolderTextView.m in Sources */,
 				3A2F33641DF8E61200DEA22C /* DateExtension.swift in Sources */,
 				3A2F33621DF8C4B400DEA22C /* MessageUtils.swift in Sources */,
 				3A2F337F1DF908BA00DEA22C /* UIView+Extesion.swift in Sources */,
+				3AB8117E1DFE3D0300491EA4 /* UserDetailViewController.swift in Sources */,
 				3A2F335A1DF8B7FD00DEA22C /* FirebaseRealTimeMessage.swift in Sources */,
 				3A2F334A1DF86C4E00DEA22C /* FriendsViewController.swift in Sources */,
 				3A2F33461DF86C1D00DEA22C /* SignUpViewController.swift in Sources */,
 				3A2F337D1DF908AB00DEA22C /* UITableView+ChatAdditions.swift in Sources */,
 				3A2F33481DF86C3500DEA22C /* ChattingViewController.swift in Sources */,
+				3A448A1B1DFF8CA90006E1FC /* ImageDetailViewController.swift in Sources */,
 				3A2F336F1DF9077200DEA22C /* ChatTextCell.swift in Sources */,
 				3A2F334C1DF86C6000DEA22C /* MyProfileViewController.swift in Sources */,
-				3A2F33771DF9080900DEA22C /* SendButton.swift in Sources */,
 				3A0AA4671DF95E8000E959B3 /* UserTableViewCell.swift in Sources */,
 				3A2F33661DF8FE2B00DEA22C /* FirebaseStorageUtils.swift in Sources */,
 				3A2F33811DF908C800DEA22C /* NSObject+String.swift in Sources */,
+				3A448A181DFF8CA90006E1FC /* ChattingViewController+Keyboard.swift in Sources */,
 				3A9A0EEB1DF5F8BF00893FE3 /* UserModel.swift in Sources */,
+				3A448A0F1DFF8C990006E1FC /* ChattingViewController+Data.swift in Sources */,
 				3A9A0EE51DF5F31000893FE3 /* AppDelegate.swift in Sources */,
 				3A2F33701DF9077200DEA22C /* ChatImageCell.swift in Sources */,
 				3A2F33601DF8C3C700DEA22C /* MessageModel.swift in Sources */,
 				3A9A0EE71DF5F31000893FE3 /* BaseViewController.swift in Sources */,
 				3A0AA46B1DF96C1500E959B3 /* ChatHistoryViewController.swift in Sources */,
 				3A2F33581DF8B7D200DEA22C /* FirebaseUserAuthentication.swift in Sources */,
-				3A2F33761DF9080900DEA22C /* ChatActionBarView.swift in Sources */,
 				3A2F33441DF86C0C00DEA22C /* LoginViewController.swift in Sources */,
 				3A9A0EE91DF5F83E00893FE3 /* Constants.swift in Sources */,
 			);
@@ -617,15 +622,19 @@
 			baseConfigurationReference = E674BBBDACCF0AB7EB61A6EE /* Pods-FelineFitness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Candi Panadero (376KBZ5ZV9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 376KBZ5ZV9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FelineFitness/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shark.FelineFitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "41f834ec-3768-41a8-b350-9611676e63f7";
-				PROVISIONING_PROFILE_SPECIFIER = FelineFitnessDev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FelineFitness/Vendor/FelineFitness-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -636,15 +645,18 @@
 			baseConfigurationReference = 36E6DF4030D4BF2BFFF2B90C /* Pods-FelineFitness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Candi Panadero (376KBZ5ZV9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 376KBZ5ZV9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FelineFitness/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shark.FelineFitness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "41f834ec-3768-41a8-b350-9611676e63f7";
-				PROVISIONING_PROFILE_SPECIFIER = FelineFitnessDev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "FelineFitness/Vendor/FelineFitness-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

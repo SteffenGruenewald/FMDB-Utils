@@ -67,12 +67,28 @@ class Constants {
     static let USER_ID = "user_id"
     static let USER_EMAIL = "user_email"
     static let USER_NAME = "user_name"
-    static let USER_IMAGEURL = "user_name"
+    static let USER_IMAGEURL = "user_imageURL"
     static let USER_PASSWORD = "user_password"
     static let USER_DEVICES = "user_devices"
     static let USER_DEVICE_STATUS = "user_device_status"
     static let USER_STATUS = "user_status"
 
+
+
+    //friend info keywords
+
+    static let FRIEND_ID = "friend_id"
+    static let FRIEND_LASTMESSAGE = "friend_lastmessage"
+    static let FRIEND_LASTMESSAGETIME = "friend_lastmessagetime"
+    static let FRIEND_ROOMID = "friend_roomid"
+    static let FRIEND_STATUS = "friend_status"
+    static let FRIEND_UNREADMESSAGECOUNT = "friend_unreadmessagecount"
+
+    //friend status values
+
+    static let FRIEND_PENDING = "PENDING"
+    static let FRIEND_FRIEND = "FRIEND"
+    static let FRIEND_UNFRIEND = "UNFRIEND"
 
     //user status values
 
@@ -115,10 +131,19 @@ class Constants {
 
     static let ERROR_FAIL_PROFILEIMAGE = "Profile image upload failed."
 
+    static let ERROR_FAIL_REMOVEFROMCONTACTS = "Failed in remove from contacts"
+
+
+    static let ERROR_FAIL_FRIENDREQUEST = "Failed in request friend"
+
 
     /////////************  Local Image URL ***********//////////
     static let LOCAL_PROFILEIMAGEDIRECTORY = "ProfileImage"
     static let LOCAL_UPLOADIMAGEDIRECTORY = "Upload"
+
+
+    /////////************   Chatting view controller status ***********/////
+    static let STATUS_RECEIEVEDMESSAGE = "message_received"
 
 
 

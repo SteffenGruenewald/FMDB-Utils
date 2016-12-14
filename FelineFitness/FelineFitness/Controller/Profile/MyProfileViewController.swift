@@ -31,5 +31,16 @@ class MyProfileViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func btnLogoutTapped(_ sender: Any) {
+        defaults.removeObject(forKey: Constants.USER_EMAIL)
+        defaults.removeObject(forKey: Constants.USER_PASSWORD)
+        firebaseUserAuthInstance.signOut(completion: {
+            success in
+            if success{
+                self.gotoStartScene()
+            }
+        })
+
+    }
 
 }

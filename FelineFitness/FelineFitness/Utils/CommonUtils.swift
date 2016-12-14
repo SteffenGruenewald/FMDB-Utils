@@ -20,7 +20,7 @@ class CommonUtils{
         return emailTest.evaluate(with: email)
     }
 
-    
+
     //static func s
     static func getSortedUserArrayByName(users: [UserModel]) -> [UserModel]{
         let sortedArray = users.sorted {
@@ -29,6 +29,15 @@ class CommonUtils{
         return sortedArray
     }
 
+
+    //static get sorted friend array
+    static func getSortedFriendArrayByTimes(friends: [FriendModel]) -> [FriendModel]{
+        let sortedArray = friends.sorted {
+            $0.friend_lastmessagetime > $1.friend_lastmessagetime
+        }
+        return sortedArray
+    }
+    
 
     /*
 

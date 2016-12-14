@@ -14,9 +14,10 @@ import UIKit
     @IBOutlet weak var imvSenderImage: UIImageView!
     @IBOutlet weak var lblChatContent: UILabel!
     @IBOutlet weak var lblTime: UILabel!
-    @IBOutlet weak var lblSenderMail: UILabel!
 
 	override func draw(_ rect: CGRect) {
+
+        self.selectionStyle = .none
 
 		let frame = rect
         
@@ -76,6 +77,8 @@ import UIKit
     @IBOutlet weak var lblTime: UILabel!
 
 	override func draw(_ rect: CGRect) {
+
+        self.selectionStyle = .none
 
 		let frame = rect
 

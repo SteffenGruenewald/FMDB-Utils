@@ -47,7 +47,7 @@ class MessageUtils{
     }
 
     static func getMessageId(roomId: String) -> String{
-        return roomId + "\(Date.toMillis(Date()))"
+        return roomId + "\(getGlobalTime())"
     }
 }
 

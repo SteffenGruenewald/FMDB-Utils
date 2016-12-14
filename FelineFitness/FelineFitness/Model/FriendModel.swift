@@ -15,5 +15,7 @@ class FriendModel{
     var friend_roomid = ""
     var friend_lastmessage = ""
     var friend_lastmessagetime = ""
+    var friend_status = ""
+    var friend_unreadmessagecount = ""
 
 }
