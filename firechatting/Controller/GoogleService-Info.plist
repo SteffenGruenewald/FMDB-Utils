@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>641505136932-b0sadrjcut6unq60oa0sbbto4eaa4jsv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.641505136932-b0sadrjcut6unq60oa0sbbto4eaa4jsv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDXTo0N8iAn8HAA2m1pWrf2xxtFEzAq3-4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>641505136932</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.shark.OUT</string>
+	<key>PROJECT_ID</key>
+	<string>firechatting-a9a66</string>
+	<key>STORAGE_BUCKET</key>
+	<string>firechatting-a9a66.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:641505136932:ios:c6140d1c8f55d614</string>
+	<key>DATABASE_URL</key>
+	<string>https://firechatting-a9a66.firebaseio.com</string>
+</dict>
+</plist>
