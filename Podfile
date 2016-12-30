@@ -13,7 +13,6 @@ target ‘OUT’ do
 
 pod 'Alamofire', '~> 4.0'
 pod 'SwiftyJSON'
-pod 'SnapKit'
 pod 'Firebase/Core'
 pod 'FirebaseMessaging'
 pod 'Firebase/Auth'
@@ -22,6 +21,6 @@ pod 'Firebase/Storage'
 pod 'SDWebImage'
 pod 'FirebaseUI/Storage', '~> 0.6'
 pod 'Toast-Swift', '~> 2.0.0'
+pod 'FMDB'
 
-pod 'Kingfisher'
 end

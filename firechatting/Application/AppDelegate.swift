@@ -13,10 +13,11 @@ import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
 import FirebaseAuth
+import CoreLocation
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate {
 
     var window: UIWindow?
 
@@ -57,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
         setBaseUrl()
+        updateTimer()
 
         return true
     }
@@ -74,8 +76,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func updateTimer(){
 
+        Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(updateLocation), userInfo: nil, repeats: true)
+    }
 
+    func updateLocation()
+    {
+        let locationManager = CLLocationManager()
+        locationManager.startUpdatingLocation()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        if(currentUser.user_id.characters.count > 0){
+            firebaseUserAuthInstance.updateUserLocation(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+        }
+        manager.startUpdatingLocation()
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

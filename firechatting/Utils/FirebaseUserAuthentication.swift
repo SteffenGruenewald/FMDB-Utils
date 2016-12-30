@@ -20,6 +20,8 @@ class FirebaseUserAuthentication{
 
     var publicUserRef : FIRDatabaseReference!
 
+
+    //Mark - init Class function : create user and friend references
     func initClass()
     {
         createUserReference(userid: currentUser.user_id)
@@ -27,12 +29,14 @@ class FirebaseUserAuthentication{
 
     }
 
-
+    //create user info reference
     func createUserReference(userid: String){
 
         userRef = FIRDatabase.database().reference(withPath: Constants.FIR_USERINFODIRECTORY).child(userid).child(Constants.FIR_MYINFODIRECTORY)
 
     }
+
+    //create friend info reference
 
     func createMyFriendReference(userid: String){
         friendRef = FIRDatabase.database().reference(withPath: Constants.FIR_USERINFODIRECTORY).child(userid).child(Constants.FIR_FRIENDDIRECTORY)
@@ -48,7 +52,7 @@ class FirebaseUserAuthentication{
         })
     }
 
-
+    // when user signout from device this function will appear
     func signOut(completion: @escaping (Bool) -> ())
     {
         let firebaseAuth = FIRAuth.auth()
@@ -72,6 +76,8 @@ class FirebaseUserAuthentication{
         }
     }
 
+
+    //user register function : this function add user and update user information
     func registerUserInfo(user: UserModel)
     {
         userRef.setValue(getUserInfoObject(user: user))
@@ -83,19 +89,20 @@ class FirebaseUserAuthentication{
         }
     }
 
+    //this function will make user object from user model
     func getUserInfoObject(user: UserModel) -> [String : AnyObject]
     {
-        var post : [String : AnyObject] = [:]
-        post[Constants.USER_ID] = user.user_id as AnyObject!
-        post[Constants.USER_EMAIL] = user.user_emailAddress as AnyObject!
-        post[Constants.USER_PASSWORD] = user.user_password as AnyObject!
-        post[Constants.USER_IMAGEURL] = user.user_imageUrl as AnyObject!
-        post[Constants.USER_NAME] = user.user_name as AnyObject!
-        post[Constants.USER_STATUS] = Constants.USER_ONLINE as AnyObject!
-        return post
+
+        return user.getInfoObject()
     }
 
+    //this function will make friend object from friend model
 
+    func getFriendInfoObject(friend: FriendModel) -> [String: AnyObject]{
+        return friend.getInfoObject()
+    }
+
+    //this function make friend request from server
     func requestFriend(userid: String, completion: @escaping (String) -> ())
     {
         let friendRequestRef = FIRDatabase.database().reference(withPath: Constants.FIR_USERINFODIRECTORY).child(userid).child(Constants.FIR_FRIENDDIRECTORY).child(currentUser.user_id)
@@ -105,7 +112,7 @@ class FirebaseUserAuthentication{
         friend.friend_roomid = currentUser.user_id + userid
         friend.friend_status = Constants.FRIEND_PENDING
         friend.friend_lastmessagetime = getGlobalTime()
-        friend.friend_unreadmessagecount = "1"
+        friend.friend_unreadmessagecount = 1
         friendRequestRef.setValue(getFriendInfoObject(friend: friend), withCompletionBlock: {
             error , ref in
             if error != nil
@@ -116,13 +123,12 @@ class FirebaseUserAuthentication{
             {
                 friend = FriendModel()
 
-                friend.friend_user = self.getUserFromUserid(userid)!
+                friend.friend_user = FirebaseUserAuthentication.getUserFromUserid(userid)!
                 friend.friend_lastmessage = "Already sent request"
                 friend.friend_roomid = currentUser.user_id + userid
                 friend.friend_status = Constants.FRIEND_PENDING
                 friend.friend_lastmessagetime = getGlobalTime()
-                friend.friend_unreadmessagecount = "1"
-                
+                friend.friend_unreadmessagecount = 1
 
                 self.friendRef.child(userid).setValue(self.getFriendInfoObject(friend: friend), withCompletionBlock: {
                     error , ref in
@@ -138,11 +144,10 @@ class FirebaseUserAuthentication{
                 })
 
             }
-
-
         })
     }
 
+    //function for remove friend from contacts
     func removeFriend(userid: String, completion: @escaping (String) ->())
     {
         let friendRequestRef = FIRDatabase.database().reference(withPath: Constants.FIR_USERINFODIRECTORY).child(userid).child(Constants.FIR_FRIENDDIRECTORY).child(currentUser.user_id)
@@ -179,20 +184,8 @@ class FirebaseUserAuthentication{
         })
     }
 
-    func getFriendInfoObject(friend : FriendModel) -> [String : AnyObject]{
 
-        var post : [String : AnyObject] = [:]
-        post[Constants.FRIEND_ID] = friend.friend_user.user_id as AnyObject!
-        post[Constants.FRIEND_ROOMID] = friend.friend_roomid as AnyObject!
-        post[Constants.FRIEND_LASTMESSAGE] = friend.friend_lastmessage as AnyObject!
-        post[Constants.FRIEND_LASTMESSAGETIME] = friend.friend_lastmessagetime as AnyObject!
-        post[Constants.FRIEND_STATUS] = friend.friend_status as AnyObject!
-        post[Constants.FRIEND_UNREADMESSAGECOUNT] = friend.friend_unreadmessagecount as AnyObject!
-        return post
-
-
-    }
-
+    //functions setting user device status
     func setUserDeviceStatus(userid: String, token: String, status: Int)
     {
         userRef.child(Constants.USER_DEVICES).child(token).setValue(status)
@@ -222,6 +215,7 @@ class FirebaseUserAuthentication{
     }
 
 
+    //function parse friend data
     func parseFriendData(_ snapshot: FIRDataSnapshot!)
     {
         if(snapshot != nil){
@@ -234,7 +228,8 @@ class FirebaseUserAuthentication{
 
                     if(postDict != nil){
                         //NSLog("\(postDict)")
-                        let friend = getFriendInfoFromObject(postDict: postDict!)
+                        let friend = FriendModel()
+                        friend.initClass(object: postDict as! [String: AnyObject])
                         friends.append(friend)
                     }
 
@@ -268,7 +263,7 @@ class FirebaseUserAuthentication{
 
 
 
-    func isMyFriend(userid: String) -> String
+    func isMyFriend(userid: String) -> Int
     {
         for friend in myFriends{
             if friend.friend_user.user_id == userid{
@@ -278,20 +273,9 @@ class FirebaseUserAuthentication{
         return Constants.FRIEND_UNFRIEND
     }
 
-    func getFriendInfoFromObject(postDict: NSDictionary) -> FriendModel
-    {
-        let friend = FriendModel()
 
-        friend.friend_user = getUserFromUserid((postDict[Constants.FRIEND_ID] as! String?)!)!
-        friend.friend_roomid = (postDict[Constants.FRIEND_ROOMID] as! String?)!
-        friend.friend_lastmessage = (postDict[Constants.FRIEND_LASTMESSAGE] as! String?)!
-        friend.friend_lastmessagetime = (postDict[Constants.FRIEND_LASTMESSAGETIME] as! String?)!
-        friend.friend_status = (postDict[Constants.FRIEND_STATUS] as! String?)!
-        friend.friend_unreadmessagecount = (postDict[Constants.FRIEND_UNREADMESSAGECOUNT] as! String?)!
-        return friend
-    }
 
-    func getUserFromUserid(_ id: String) -> UserModel?{
+    static func getUserFromUserid(_ id: String) -> UserModel?{
         for user in globalUsersArray{
             if(user.user_id == id)
             {
@@ -327,7 +311,7 @@ class FirebaseUserAuthentication{
                 }
             }
             else{
-                completion("", false)
+                completion("\(error?.localizedDescription)", false)
             }
         })
     }
@@ -352,7 +336,7 @@ class FirebaseUserAuthentication{
     }
 
 
-    static func signUp(username: String, email: String, password: String, profileImage: UIImage?, completion:@escaping (UserModel?, String) -> ())
+    static func signUp(username: String, email: String, password: String, profileImage: UIImage?, firstName: String, lastName: String, completion:@escaping (UserModel?, String) -> ())
     {
         createFIRUser(email: email, password: password, completion: {
             userid,success in
@@ -363,7 +347,8 @@ class FirebaseUserAuthentication{
                 user.user_id = userid
                 user.user_emailAddress = email
                 user.user_password = password
-
+                user.user_firstName = firstName
+                user.user_lastName = lastName
                 currentUser = user
                 addUserProfileImage(userid: userid, profileImage: profileImage, completion: {imageURL, success in
                     if success{
@@ -465,7 +450,7 @@ class FirebaseUserAuthentication{
                 {
                     let postDict = childref?[i].value as? NSDictionary
 
-                    let user = parseUser(snapShotItem: postDict?[Constants.FIR_MYINFODIRECTORY] as? NSDictionary)
+                    let user = parseUser(snapShotItem: (postDict?[Constants.FIR_MYINFODIRECTORY] as? [String: AnyObject])!)
                     if(user.user_id != currentUser.user_id){
                         users.append(user)
                     }
@@ -485,18 +470,15 @@ class FirebaseUserAuthentication{
         }
     }
 
-    static func parseUser(snapShotItem: NSDictionary?) -> UserModel
+    static func parseUser(snapShotItem: [String: AnyObject]) -> UserModel
     {
         let user = UserModel()
-        user.user_id = (snapShotItem?[Constants.USER_ID] as! String?)!
-        user.user_name = (snapShotItem?[Constants.USER_NAME] as! String?)!
-        user.user_imageUrl = (snapShotItem?[Constants.USER_IMAGEURL] as! String?)!
-        user.user_emailAddress = (snapShotItem?[Constants.USER_EMAIL] as! String?)!
-        user.user_status = String(snapShotItem?[Constants.USER_STATUS] as! Int)
-
+        user.initClass(object: snapShotItem)        
         return user
 
     }
+
+
 
 
 
@@ -505,7 +487,7 @@ class FirebaseUserAuthentication{
         FIRDatabase.database().reference(withPath: Constants.FIR_USERINFODIRECTORY).child(userid).child(Constants.FIR_MYINFODIRECTORY).observeSingleEvent(of: .value, with: {(snapshot) in
 
             //NSLog("\(snapshot)")
-            let user = parseUser(snapShotItem: snapshot.value as? NSDictionary)
+            let user = parseUser(snapShotItem: (snapshot.value as? [String: AnyObject])!)
             completion(user)
         }) {
             (error) in
@@ -514,7 +496,10 @@ class FirebaseUserAuthentication{
         }
     }
 
-
+    func updateUserLocation(lat: Double, long: Double){
+        userRef.child(Constants.USER_LATITUDE).setValue(lat)
+        userRef.child(Constants.USER_LONGITUDE).setValue(long)
+    }
 
 
 }

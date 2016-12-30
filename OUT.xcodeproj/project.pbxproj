@@ -44,8 +44,12 @@
 		3A2D848E1E0635860069BFC1 /* NSObject+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84641E0635860069BFC1 /* NSObject+String.swift */; };
 		3A2D848F1E0635860069BFC1 /* UIView+Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84651E0635860069BFC1 /* UIView+Extesion.swift */; };
 		3A2D84901E0635860069BFC1 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84691E0635860069BFC1 /* UIPlaceHolderTextView.m */; };
+		3A3425FD1E15E83000B7C5C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */; };
+		3A3425FF1E15E9C400B7C5C6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3425FE1E15E9C400B7C5C6 /* SettingsViewController.swift */; };
 		3A86729E1E0B33D500BC5C70 /* SetupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86729D1E0B33D500BC5C70 /* SetupPasswordViewController.swift */; };
 		3A8672A01E0B3D7E00BC5C70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A86729F1E0B3D7E00BC5C70 /* GoogleService-Info.plist */; };
+		3A8B4CE81E13F02900081169 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B4CE51E13F02900081169 /* FMDBManager.swift */; };
+		3A8B4CEA1E13F02900081169 /* FMDBManager+GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B4CE71E13F02900081169 /* FMDBManager+GetData.swift */; };
 		B568B101D59A8F4D511FDB9D /* Pods_OUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D30385317A08596E67E491 /* Pods_OUT.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,8 +93,12 @@
 		3A2D84671E0635860069BFC1 /* Firechatting-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Firechatting-Bridging-Header.h"; sourceTree = "<group>"; };
 		3A2D84681E0635860069BFC1 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
 		3A2D84691E0635860069BFC1 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = MapViewController/MapViewController.swift; sourceTree = "<group>"; };
+		3A3425FE1E15E9C400B7C5C6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3A86729D1E0B33D500BC5C70 /* SetupPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupPasswordViewController.swift; sourceTree = "<group>"; };
 		3A86729F1E0B3D7E00BC5C70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3A8B4CE51E13F02900081169 /* FMDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBManager.swift; sourceTree = "<group>"; };
+		3A8B4CE71E13F02900081169 /* FMDBManager+GetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FMDBManager+GetData.swift"; sourceTree = "<group>"; };
 		3A9A0EC01DF5EFE500893FE3 /* OUT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OUT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		527EEEF0E22F440951E84FA1 /* Pods-firechatting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firechatting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-firechatting/Pods-firechatting.debug.xcconfig"; sourceTree = "<group>"; };
 		548202F6DD46EFD980D2BA75 /* Pods-firechatting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firechatting.release.xcconfig"; path = "Pods/Target Support Files/Pods-firechatting/Pods-firechatting.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,14 +134,12 @@
 			isa = PBXGroup;
 			children = (
 				3A2D84341E0635860069BFC1 /* Application */,
-				3A2D84371E0635860069BFC1 /* LaunchScreen.storyboard */,
-				3A2D84391E0635860069BFC1 /* Main.storyboard */,
-				3A2D843B1E0635860069BFC1 /* Controller */,
+				3A8B4CEB1E14949B00081169 /* Base.lproj */,
 				3A2D84571E0635860069BFC1 /* Model */,
+				3A2D843B1E0635860069BFC1 /* Controller */,
 				3A2D845B1E0635860069BFC1 /* Resource */,
 				3A2D845C1E0635860069BFC1 /* Utils */,
 				3A2D84661E0635860069BFC1 /* Vendor */,
-				3A2D846A1E0635860069BFC1 /* View */,
 				3A884F211E08DF9E0070D867 /* Supporting files */,
 			);
 			name = OUT;
@@ -151,6 +157,7 @@
 		3A2D843B1E0635860069BFC1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3A3425FB1E15E7EE00B7C5C6 /* MapviewController */,
 				3A2D843C1E0635860069BFC1 /* Base */,
 				3A2D843E1E0635860069BFC1 /* Chatting */,
 				3A2D844A1E0635860069BFC1 /* Friends */,
@@ -202,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				3A2D84501E0635860069BFC1 /* MyProfileViewController.swift */,
+				3A3425FE1E15E9C400B7C5C6 /* SettingsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -218,8 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				3A2D84581E0635860069BFC1 /* FriendModel.swift */,
-				3A2D84591E0635860069BFC1 /* MessageModel.swift */,
 				3A2D845A1E0635860069BFC1 /* UserModel.swift */,
+				3A2D84591E0635860069BFC1 /* MessageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,12 +243,11 @@
 		3A2D845C1E0635860069BFC1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3A8B4CE41E13F00F00081169 /* FMDBManager */,
+				3A8B4CE31E13EFF400081169 /* FirebaseUtils */,
 				3A2D845D1E0635860069BFC1 /* CommonUtils.swift */,
 				3A2D845E1E0635860069BFC1 /* Constants.swift */,
 				3A2D845F1E0635860069BFC1 /* DateExtension.swift */,
-				3A2D84601E0635860069BFC1 /* FirebaseRealTimeMessage.swift */,
-				3A2D84611E0635860069BFC1 /* FirebaseStorageUtils.swift */,
-				3A2D84621E0635860069BFC1 /* FirebaseUserAuthentication.swift */,
 				3A2D84631E0635860069BFC1 /* MessageUtils.swift */,
 				3A2D84641E0635860069BFC1 /* NSObject+String.swift */,
 				3A2D84651E0635860069BFC1 /* UIView+Extesion.swift */,
@@ -258,11 +265,12 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
-		3A2D846A1E0635860069BFC1 /* View */ = {
+		3A3425FB1E15E7EE00B7C5C6 /* MapviewController */ = {
 			isa = PBXGroup;
 			children = (
+				3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */,
 			);
-			path = View;
+			name = MapviewController;
 			sourceTree = "<group>";
 		};
 		3A6264CF1E09C12400085E7A /* ChattingHistory */ = {
@@ -306,6 +314,34 @@
 			);
 			name = "Supporting files";
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		3A8B4CE31E13EFF400081169 /* FirebaseUtils */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D84601E0635860069BFC1 /* FirebaseRealTimeMessage.swift */,
+				3A2D84611E0635860069BFC1 /* FirebaseStorageUtils.swift */,
+				3A2D84621E0635860069BFC1 /* FirebaseUserAuthentication.swift */,
+			);
+			name = FirebaseUtils;
+			sourceTree = "<group>";
+		};
+		3A8B4CE41E13F00F00081169 /* FMDBManager */ = {
+			isa = PBXGroup;
+			children = (
+				3A8B4CE51E13F02900081169 /* FMDBManager.swift */,
+				3A8B4CE71E13F02900081169 /* FMDBManager+GetData.swift */,
+			);
+			name = FMDBManager;
+			sourceTree = "<group>";
+		};
+		3A8B4CEB1E14949B00081169 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				3A2D84371E0635860069BFC1 /* LaunchScreen.storyboard */,
+				3A2D84391E0635860069BFC1 /* Main.storyboard */,
+			);
+			name = Base.lproj;
 			sourceTree = "<group>";
 		};
 		3A9A0EB71DF5EFE500893FE3 = {
@@ -466,12 +502,14 @@
 				3A2D84741E0635860069BFC1 /* ChattingViewController+ChatAdditions.swift in Sources */,
 				3A2D84841E0635860069BFC1 /* FriendModel.swift in Sources */,
 				3A2D848F1E0635860069BFC1 /* UIView+Extesion.swift in Sources */,
+				3A3425FF1E15E9C400B7C5C6 /* SettingsViewController.swift in Sources */,
 				3A2D847F1E0635860069BFC1 /* SearchUserViewController.swift in Sources */,
 				3A2D846B1E0635860069BFC1 /* AppDelegate.swift in Sources */,
 				3A2D84891E0635860069BFC1 /* DateExtension.swift in Sources */,
 				3A2D848C1E0635860069BFC1 /* FirebaseUserAuthentication.swift in Sources */,
 				3A2D84701E0635860069BFC1 /* ChatHistoryTableViewCell.swift in Sources */,
 				3A2D84811E0635860069BFC1 /* UserTableViewCell.swift in Sources */,
+				3A8B4CE81E13F02900081169 /* FMDBManager.swift in Sources */,
 				3A2D847C1E0635860069BFC1 /* LoginViewController.swift in Sources */,
 				3A2D84771E0635860069BFC1 /* ChattingViewController+Keyboard.swift in Sources */,
 				3A2D84861E0635860069BFC1 /* UserModel.swift in Sources */,
@@ -480,12 +518,14 @@
 				3A2D847A1E0635860069BFC1 /* UITableView+ChatAdditions.swift in Sources */,
 				3A2D84721E0635860069BFC1 /* ChatImageCell.swift in Sources */,
 				3A2D846F1E0635860069BFC1 /* BaseViewController.swift in Sources */,
+				3A8B4CEA1E13F02900081169 /* FMDBManager+GetData.swift in Sources */,
 				3A2D848A1E0635860069BFC1 /* FirebaseRealTimeMessage.swift in Sources */,
 				3A2D84901E0635860069BFC1 /* UIPlaceHolderTextView.m in Sources */,
 				3A2D847D1E0635860069BFC1 /* SignUpViewController.swift in Sources */,
 				3A2D84791E0635860069BFC1 /* ImageDetailViewController.swift in Sources */,
 				3A2D84751E0635860069BFC1 /* ChattingViewController+Data.swift in Sources */,
 				3A2D84711E0635860069BFC1 /* ChatHistoryViewController.swift in Sources */,
+				3A3425FD1E15E83000B7C5C6 /* MapViewController.swift in Sources */,
 				3A2D847E1E0635860069BFC1 /* MyProfileViewController.swift in Sources */,
 				3A2D84801E0635860069BFC1 /* UserDetailViewController.swift in Sources */,
 				3A2D84851E0635860069BFC1 /* MessageModel.swift in Sources */,
@@ -622,7 +662,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 3UTAS954SN;
 				INFOPLIST_FILE = "$(SRCROOT)/firechatting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -645,7 +685,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 3UTAS954SN;
 				INFOPLIST_FILE = "$(SRCROOT)/firechatting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;

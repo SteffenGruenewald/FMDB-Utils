@@ -69,7 +69,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource,UIS
 
         if chatItem.message_type == Constants.IS_TEXTMESSAGE
         {
-            let time = getTimeStringfromGMTTimeMillis(timeString: chatItem.message_time)
+            let time = getTimeStringfromGMTTimeMillis(time: chatItem.message_time)
 
             let timeString = time.description
 
@@ -90,6 +90,9 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource,UIS
                 //Display message received from adviser
                 let cell = tableView.dequeueReusableCell(withIdentifier: "SenderChatTextCell", for: indexPath) as! SenderChatTextCell
                 cell.lblChatContent.text = chatItem.message_content
+
+                //cell.txtChatContent.text = chatItem.message_content
+
                 cell.lblTime.text = timeString//chatItem.message_time
                 cell.imvSenderImage.setImageWith(storageRefString: currentUser.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
                 resultcell = cell as UITableViewCell
@@ -105,7 +108,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource,UIS
 
 
             cell.imvPhoto.sd_setImage(with: URL(string: imageURL))
-            cell.lblTime.text = chatItem.message_time
+            cell.lblTime.text = "\(chatItem.message_time)"
 
             let imageSize = getImageCellSize(sizeString: imageSizeString)
             cell.imageHeightConstraint.constant = imageSize[1]
@@ -114,7 +117,6 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource,UIS
                 cell.imageLeadingContraint.constant = self.view.bounds.size.width - imageSize[0] - 50
                 cell.imageTrailingConstraint.constant = 50
                 cell.lblTime.textAlignment = .right
-
             }
 
             else

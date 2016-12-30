@@ -14,8 +14,16 @@ class SetupPasswordViewController: BaseViewController {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPasswrod: UITextField!
 
+    @IBOutlet weak var txtPassCode1: UITextField!
+    @IBOutlet weak var txtPassCode2: UITextField!
+    @IBOutlet weak var txtPassCode3: UITextField!
+    @IBOutlet weak var txtPassCode4: UITextField!
+    @IBOutlet weak var txtPassCode5: UITextField!
+    @IBOutlet weak var txtPassCode6: UITextField!
+
 
     var user = UserModel()
+
     var profileImage = UIImage()
 
     override func viewDidLoad() {
@@ -30,7 +38,7 @@ class SetupPasswordViewController: BaseViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     /*
@@ -46,12 +54,12 @@ class SetupPasswordViewController: BaseViewController {
 
     func doSignUp()
     {
-
+        self.view.endEditing(true)
         let checkResult = checkValid(securityId: "", password: txtPassword.text!, confirmPasswrod: txtConfirmPasswrod.text!)
 
         if checkResult == Constants.SUCCESS_PROCESS{
             showLoadingView()
-            FirebaseUserAuthentication.signUp(username: user.user_name, email: user.user_emailAddress, password: user.user_password, profileImage: profileImage, completion: {
+            FirebaseUserAuthentication.signUp(username: user.user_name, email: user.user_emailAddress, password: user.user_password, profileImage: profileImage, firstName: user.user_firstName, lastName: user.user_lastName, completion: {
                 user, message in
                 self.hideLoadingView()
                 if user != nil{
@@ -71,6 +79,18 @@ class SetupPasswordViewController: BaseViewController {
     func checkValid(securityId : String, password: String, confirmPasswrod: String) -> String{
 
 
+        var passCode = ""
+        var passCodeConfirm = ""
+        for i in 1...6{
+            passCode = passCode + (self.view.viewWithTag(i) as! UITextField).text!
+            passCodeConfirm = passCodeConfirm + (self.view.viewWithTag(i + 6) as! UITextField).text!
+        }
+        if passCode == passCodeConfirm && passCode.characters.count == 6{
+        }
+        else{
+            return Constants.ERROR_EMPTY_PASSWORD
+        }
+
         if (password.characters.count == 0)
         {
             return Constants.ERROR_EMPTY_PASSWORD
@@ -84,13 +104,28 @@ class SetupPasswordViewController: BaseViewController {
             return Constants.ERROR_CONFIRM_PASSWORD
         }
         user.user_password = password
+        defaults.setValue(passCode, forKey: Constants.USER_PASSCODE)
         return Constants.SUCCESS_PROCESS
     }
 
 
     @IBAction func setUpPasswordButtonTapped(_ sender: Any) {
         doSignUp()
+
     }
+
+    @IBAction func setPasscode(_ sender: UITextField) {
+
+        if (sender.tag < 12){
+            if(sender.text!.characters.count == 1){
+                (self.view.viewWithTag(sender.tag + 1) as! UITextField).becomeFirstResponder()
+            }
+        }
+        else{
+            txtPassword.becomeFirstResponder()
+        }
+    }
+
 
 
 }

@@ -21,10 +21,10 @@ class FirebaseStorageUtils
 
         // Create a storage reference from our storage service
 
-        let fileURL = toURL + "/" + userid  + getGlobalTime() + ".jpg"
+        let fileURL = toURL + "/" + userid  + "\(getGlobalTime())" + ".jpg"
         let storageRef = storage.reference(forURL: fileURL)
         let data = UIImageJPEGRepresentation(image, 0.5)
-        let uploadTask = storageRef.put(data!, metadata: nil){
+        _ = storageRef.put(data!, metadata: nil){
             metadata, error in
             if(error != nil)
             {
@@ -67,10 +67,7 @@ class FirebaseStorageUtils
             }
         }
     }*/
-
-
-
-
+    
 }
 
 extension UIImageView{

@@ -21,6 +21,8 @@ class Constants {
     //Room info
     static let FIR_MESSAGEROOM = "Messages"
 
+    static let DB_NAME = "chatting.db"
+
 
 
     //message item info
@@ -30,12 +32,14 @@ class Constants {
     static let MESSAGE_TIME = "message_time"
     static let MESSAGE_TYPE = "message_type"
     static let MESSAGE_CONTENT = "message_content"
+    static let MESSAGE_READ = "message_read"
+    static let MESSAGE_LOADED = "message_loaded"
 
     //Message types
 
-    static let IS_SYSTEMMESSAGE = "0"
-    static let IS_TEXTMESSAGE = "1"
-    static let IS_IMAGEMESSAGE = "2"
+    static let IS_SYSTEMMESSAGE = 0
+    static let IS_TEXTMESSAGE = 1
+    static let IS_IMAGEMESSAGE = 2
 
     //system messages
 
@@ -65,6 +69,8 @@ class Constants {
     static let FIR_FRIENDDIRECTORY = "Friends"//friend info directory
     //user info keywords
 
+    //saving on firebase
+
     static let USER_ID = "user_id"
     static let USER_EMAIL = "user_email"
     static let USER_NAME = "user_name"
@@ -73,6 +79,12 @@ class Constants {
     static let USER_DEVICES = "user_devices"
     static let USER_DEVICE_STATUS = "user_device_status"
     static let USER_STATUS = "user_status"
+    static let USER_FIRST_NAME = "user_firstname"
+    static let USER_LAST_NAME = "user_lastname"
+    static let USER_PHONE_NUMBER = "user_phonenumber"
+    static let USER_LONGITUDE = "user_longitude"
+    static let USER_LATITUDE = "user_latitude"
+    static let USER_PASSCODE = "user_passcode"
 
 
 
@@ -84,25 +96,25 @@ class Constants {
     static let FRIEND_ROOMID = "friend_roomid"
     static let FRIEND_STATUS = "friend_status"
     static let FRIEND_UNREADMESSAGECOUNT = "friend_unreadmessagecount"
+    static let FRIEND_LONGITUDE = "friend_longitude"
+    static let FRIEND_LATITUDE = "friend_latitude"
 
     //friend status values
 
-    static let FRIEND_PENDING = "PENDING"
-    static let FRIEND_FRIEND = "FRIEND"
-    static let FRIEND_UNFRIEND = "UNFRIEND"
+    static let FRIEND_PENDING = 3       //pending status : you've requested, but not
+    static let FRIEND_FRIEND = 0
+    static let FRIEND_UNFRIEND = 10
+    static let FRIEND_BLOCKED = 8
 
     //user status values
 
-    static let USER_ONLINE = 1
-    static let USER_OFFLINE = 0
-    static let USER_BUSY = 3
+    static let USER_ONLINE = 0
+    static let USER_OFFLINE = 3
+    static let USER_BUSY = 2
 
-    //user device status values
-
-    static let USER_DEVICE_ONLINE = 1
-    static let USER_DEVICE_OFFLINE = 0
-    static let USER_DEVICE_BACKGROUND = 2
-    static let USER_DEVICE_BUSY = 3
+    static let USER_DEVICE_ONLINE = 0
+    static let USER_DEVICE_BACKGROUND = 1
+    static let USER_DEVICE_OFFLINE = 3
 
     ///////////*********  Error Messages *****************///////////////
 
@@ -121,6 +133,8 @@ class Constants {
     static let ERROR_INVALID_EMAIL = "Please input valid email address"
     static let ERROR_EMPTY_PASSWORD = "Please input password"
     static let ERROR_INVALID_PASSWORD = "Password need to have more than 6 characters"
+
+    static let ERROR_WITH_PASSCODE = "Corrct passcode required. Please insert passcode or check it."
     static let ERROR_CONFIRM_PASSWORD = "Password does not match"
     static let ERROR_EMPTY_USERNAME = "Please input username"
     static let ERROR_NO_PROFILEIMAGE = "Please select profile iamge"
@@ -148,12 +162,6 @@ class Constants {
 
     /////////************   Chatting view controller status ***********/////
     static let STATUS_RECEIEVEDMESSAGE = "message_received"
-
-
-
-
-
-
 
 }
 

@@ -30,7 +30,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             txtPassword.text = defaults.value(forKey: Constants.USER_PASSWORD) as? String
 
             showLoadingView()
-            FirebaseUserAuthentication.initUserInfo(userid: defaults.value(forKey: Constants.USER_ID)! as! String, completion: {
+            /*FirebaseUserAuthentication.initUserInfo(userid: defaults.value(forKey: Constants.USER_ID)! as! String, completion: {
                 userid,success in
                 self.hideLoadingView()
                 if(success){
@@ -40,7 +40,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
                     self.showToastWithDuration(string: "Firebase connection failed", duration: 3.0)
                 }
-            })
+            })*/
+            doLogin(email: (defaults.value(forKey: Constants.USER_EMAIL) as? String)!, password: (defaults.value(forKey: Constants.USER_PASSWORD) as? String)!)
         }
         setViewBorders()
 
@@ -81,6 +82,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     func doLogin(email: String, password: String)
     {
+        self.view.endEditing(true)
         let message = checkValid(email: email, password: password)
         if  message == Constants.SUCCESS_PROCESS
         {

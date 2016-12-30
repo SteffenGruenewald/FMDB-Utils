@@ -14,6 +14,7 @@ import UIKit
     @IBOutlet weak var imvSenderImage: UIImageView!
     @IBOutlet weak var lblChatContent: UILabel!
     @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var txtChatContent: UITextField!
 
 	override func draw(_ rect: CGRect) {
 

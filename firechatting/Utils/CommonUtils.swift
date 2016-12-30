@@ -8,9 +8,10 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 
-class CommonUtils{
+class CommonUtils: AnyObject{
 
     static func isValideEmail(_ email: String) -> Bool {
 
@@ -37,8 +38,10 @@ class CommonUtils{
         }
         return sortedArray
     }
-    
 
+
+    //this function uses in making object from model
+    //Every model has table object and it is using for local and firebase communication
     /*
 
     static func saveDataToLocal (srcImageData: Data, filePath: String, fileName: String, resize: Bool) -> String {

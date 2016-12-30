@@ -53,7 +53,6 @@ class FirebaseRealTimeMessage{
                     let postDict = childref?[i].value as? NSDictionary
 
                     if (postDict != nil){
-                        //NSLog("\(postDict)")
                         let message = MessageUtils.parseMessage(snapShotItem: postDict)
                         messageProcess(message: message)
                     }
@@ -71,9 +70,9 @@ class FirebaseRealTimeMessage{
         case Constants.IS_SYSTEMMESSAGE:
             break
         case Constants.IS_TEXTMESSAGE:
-            if(Int64(message.message_time)! > lastMessageTime){
+            if(Int64(message.message_time) > lastMessageTime){
                 messages.append(message)
-                lastMessageTime = Int64(message.message_time)!
+                lastMessageTime = Int64(message.message_time)
 
                 if(!firstLoad){
                     NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.STATUS_RECEIEVEDMESSAGE), object: nil)
@@ -82,9 +81,9 @@ class FirebaseRealTimeMessage{
             }
             break
         case Constants.IS_IMAGEMESSAGE:
-            if(Int64(message.message_time)! > lastMessageTime){
+            if(Int64(message.message_time) > lastMessageTime){
                 messages.append(message)
-                lastMessageTime = Int64(message.message_time)!
+                lastMessageTime = Int64(message.message_time)
 
                 NotificationCenter.default.post(name: Notification.Name(rawValue: Constants.STATUS_RECEIEVEDMESSAGE), object: nil)
             }
@@ -95,7 +94,8 @@ class FirebaseRealTimeMessage{
     }
 
     func readChat(completion: @escaping (Bool, [MessageModel]) -> ()){
-        ref.queryLimited(toLast: 20).observeSingleEvent(of: .value, andPreviousSiblingKeyWith:  {
+        /*ref.queryLimited(toLast: 20)*/
+        ref.observeSingleEvent(of: .value, andPreviousSiblingKeyWith:  {
             snapshot, msg in
             self.parseReceivedMessage(snapshot)
             self.ref.queryLimited(toLast: 1).observe(.value, andPreviousSiblingKeyWith: {
@@ -119,18 +119,15 @@ class FirebaseRealTimeMessage{
             print(error.localizedDescription)
             
         })
-
-
+        
     }
 
 
 
     func sendMessage(_ message: MessageModel, completion:@escaping (Bool) -> ()){
         let post = MessageUtils.createMessageObject(message)
-        NSLog(getGlobalTime())
         ref.child(message.message_id).setValue(post, withCompletionBlock: {
             _,_ in
-            NSLog(getGlobalTime())
             completion(true)
         })
     }

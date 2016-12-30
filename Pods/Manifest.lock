@@ -40,6 +40,9 @@ PODS:
   - FirebaseUI/Storage (0.7.0):
     - Firebase/Storage
     - SDWebImage
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
@@ -56,11 +59,9 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
-  - Kingfisher (3.2.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SnapKit (3.0.2)
   - SwiftyJSON (3.1.1)
   - Toast-Swift (2.0.0)
 
@@ -72,9 +73,8 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseMessaging
   - FirebaseUI/Storage (~> 0.6)
-  - Kingfisher
+  - FMDB
   - SDWebImage
-  - SnapKit
   - SwiftyJSON
   - Toast-Swift (~> 2.0.0)
 
@@ -89,16 +89,15 @@ SPEC CHECKSUMS:
   FirebaseMessaging: acf66347e43c5637c697060c3001d25c809a4131
   FirebaseStorage: c50aa353bf484072704e73b4aff1bd47adb735c4
   FirebaseUI: 6b22f02b8992fd921116b59e8dcda688c4072517
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
-  Kingfisher: 50407d1d5dbc34965009d425a286342ff36a84ea
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
-  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: 01b4fec2122fb0bc0578fe0e2e243cecf88a7dac
+PODFILE CHECKSUM: 61f59cf5a233c239dfe24895c5d1b703c6afb339
 
 COCOAPODS: 1.1.1

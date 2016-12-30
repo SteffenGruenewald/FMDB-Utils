@@ -39,14 +39,14 @@ extension Date{
 
 
 
-func getGlobalTime() -> String
+func getGlobalTime() -> Int64
 {
-    return "\(Date().toMillis())"
+    return Date().toMillis().int64Value
 }
 
-func getTimeStringfromGMTTimeMillis(timeString: String) -> Date
+func getTimeStringfromGMTTimeMillis(time: Int64) -> Date
 {
-    let timeValue = Int64(timeString)
-    return Date.getCurrentTimeFromGlobalMillis(millis: timeValue!)
+
+    return Date.getCurrentTimeFromGlobalMillis(millis: time)
 }
 

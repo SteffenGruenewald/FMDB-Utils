@@ -36,11 +36,7 @@ class ChatHistoryViewController: BaseViewController {
     func getFriends()
     {
         historyArray = myFriends
-        ////NSLog("\(historyArray)")
     }
-
-
-
 
 }
 
@@ -63,8 +59,8 @@ extension ChatHistoryViewController:UITableViewDelegate, UITableViewDataSource{
         cell.imvUserImage.setImageWith(storageRefString: friend.friend_user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
         cell.lblUsername.text = friend.friend_user.user_name
         cell.lblLastMessage.text = friend.friend_lastmessage
-        cell.lblTime.text = friend.friend_lastmessagetime
-
+        cell.lblTime.text = getTimeStringfromGMTTimeMillis(time: friend.friend_lastmessagetime).description
+        
         return cell
     }
 

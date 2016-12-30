@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,22 +24,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Kingfisher.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-OUT.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,7 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3B3BE69168CBA1A4819A9211E38614F4</key>
+		<key>251BAD17812F7EBF6532EACF66F941C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3EE60F334C78AE1E6F1860F641ABF789</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,22 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>808CFA1F65A9854B9497E08B95911CB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8C7C315D093B38C570666675CC8D2837</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>92A91FBB116BC765CC7926571331CB19</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>971DF5262C9217F6E45E7B3374643857</key>
+		<key>97234A930D05742442040029108AF7B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4944FEC314D1A66588651D006273ADE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CF741373F591AE252CC841A6CE5AD7E7</key>
+		<key>C264E0FADC8C9DF1D278F19E506669B4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

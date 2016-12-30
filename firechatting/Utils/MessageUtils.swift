@@ -26,15 +26,15 @@ class MessageUtils{
     {
         let message = MessageModel()
         message.message_id = (snapShotItem?[Constants.MESSAGE_ID] as! String?)!
-        message.message_time = "\(snapShotItem?[Constants.MESSAGE_TIME] as! Int64)"
-        message.message_type = (snapShotItem?[Constants.MESSAGE_TYPE] as! String?)!
+        message.message_time = snapShotItem?[Constants.MESSAGE_TIME] as! Int64
+        message.message_type = snapShotItem?[Constants.MESSAGE_TYPE] as! Int
         message.message_content = (snapShotItem?[Constants.MESSAGE_CONTENT] as! String?)!
         message.message_senderid = (snapShotItem?[Constants.MESSAGE_SENDER_ID] as! String?)!
         message.message_receiverid = (snapShotItem?[Constants.MESSAGE_RECEIVER_ID] as! String?)!
         return message
     }
 
-    static func createSendMessage(messageType: String, messageContent: String, roomId: String) -> MessageModel
+    static func createSendMessage(messageType: Int, messageContent: String, roomId: String) -> MessageModel
     {
         let message = MessageModel()
         message.message_id = getMessageId(roomId: roomId)
@@ -48,6 +48,11 @@ class MessageUtils{
 
     static func getMessageId(roomId: String) -> String{
         return roomId + "\(getGlobalTime())"
+    }
+
+    static func createPostObject(object: AnyObject) -> [String: AnyObject]{
+        let object: [String : AnyObject] = [:]
+        return object
     }
 }
 

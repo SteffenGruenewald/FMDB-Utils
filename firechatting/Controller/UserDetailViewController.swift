@@ -15,7 +15,7 @@ class UserDetailViewController: BaseViewController {
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var btnFriend: UIButton!
 
-    var isMyFriend = ""
+    var isMyFriend = 0
 
     var user = UserModel()
 
