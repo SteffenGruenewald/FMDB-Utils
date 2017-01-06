@@ -31,7 +31,7 @@ class SettingsViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func btnLogoutTapped(_ sender: Any) {
+    @IBAction func btnLogoutTapped(_ sender: UIButton) {
         defaults.removeObject(forKey: Constants.USER_EMAIL)
         defaults.removeObject(forKey: Constants.USER_PASSWORD)
         firebaseUserAuthInstance.signOut(completion: {
@@ -40,6 +40,7 @@ class SettingsViewController: BaseViewController {
                 self.gotoStartScene()
             }
         })
+        myFriends = []
 
     }
 

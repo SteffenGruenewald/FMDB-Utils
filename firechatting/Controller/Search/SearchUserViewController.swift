@@ -37,6 +37,10 @@ class SearchUserViewController: BaseViewController {
 
         tblUserList.separatorColor = .clear
 
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         getUsers()
     }
 

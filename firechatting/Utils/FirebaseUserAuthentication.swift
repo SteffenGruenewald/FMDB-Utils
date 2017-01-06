@@ -499,6 +499,8 @@ class FirebaseUserAuthentication{
     func updateUserLocation(lat: Double, long: Double){
         userRef.child(Constants.USER_LATITUDE).setValue(lat)
         userRef.child(Constants.USER_LONGITUDE).setValue(long)
+        userRef.child(Constants.USER_LOCATIONCHANGEDTIME).setValue(currentUser.user_locationChangedTime)
+        userRef.child(Constants.USER_CURRENTLOCATIONNAME).setValue(currentUser.user_currentLocationName)
     }
 
 

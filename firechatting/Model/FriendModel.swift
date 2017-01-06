@@ -44,11 +44,12 @@ class FriendModel{
     func initClass(object: [String: AnyObject])
     {
         friend_user = FirebaseUserAuthentication.getUserFromUserid((object[Constants.FRIEND_ID] as! String?)!)!
-            friend_roomid = (object[Constants.FRIEND_ROOMID] as! String?)!
-            friend_lastmessage = (object[Constants.FRIEND_LASTMESSAGE] as! String?)!
-            friend_lastmessagetime = (object[Constants.FRIEND_LASTMESSAGETIME] as! Int64?)!
-            friend_status = (object[Constants.FRIEND_STATUS] as! Int?)!
-            friend_unreadmessagecount = (object[Constants.FRIEND_UNREADMESSAGECOUNT] as! Int?)!
+        friend_roomid = (object[Constants.FRIEND_ROOMID] as! String?)!
+        friend_lastmessage = (object[Constants.FRIEND_LASTMESSAGE] as! String?)!
+        friend_lastmessagetime = (object[Constants.FRIEND_LASTMESSAGETIME] as! Int64?)!
+        friend_status = (object[Constants.FRIEND_STATUS] as! Int?)!
+        friend_unreadmessagecount = (object[Constants.FRIEND_UNREADMESSAGECOUNT] as! Int?)!
+
     }
 
 }

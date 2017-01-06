@@ -85,6 +85,8 @@ class Constants {
     static let USER_LONGITUDE = "user_longitude"
     static let USER_LATITUDE = "user_latitude"
     static let USER_PASSCODE = "user_passcode"
+    static let USER_CURRENTLOCATIONNAME = "user_locationname"
+    static let USER_LOCATIONCHANGEDTIME = "user_lacationchangedtime"
 
 
 

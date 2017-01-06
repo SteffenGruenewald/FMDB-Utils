@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
 
     var window: UIWindow?
 
+    let locationManager = CLLocationManager()
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -58,7 +60,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
 
 
         setBaseUrl()
+
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
         updateTimer()
+
+        connectToFcm()
 
         return true
     }
@@ -83,16 +92,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
 
     func updateLocation()
     {
-        let locationManager = CLLocationManager()
-        locationManager.startUpdatingLocation()
+        locationManager.requestLocation()
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations[0]
+
+        let location = locations.first
+        NSLog("latitude == \(location?.coordinate.latitude) , longitude == \(location?.coordinate.longitude)")
         if(currentUser.user_id.characters.count > 0){
-            firebaseUserAuthInstance.updateUserLocation(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+            CLGeocoder().reverseGeocodeLocation(location!, completionHandler: {
+                placemarks, error in
+                var placeMark: CLPlacemark!
+                placeMark = placemarks?.last
+
+
+                var addressString = ""
+
+                if(placeMark != nil){
+                    // Location name
+                    if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
+                        addressString = locationName as String
+                    }
+
+                    if (addressString != currentUser.user_currentLocationName)
+                    {
+                        currentUser.user_currentLocationName = addressString
+                        currentUser.user_locationChangedTime = getGlobalTime()
+                        firebaseUserAuthInstance.updateUserLocation(lat: (location?.coordinate.latitude)! as Double, long: (location?.coordinate.longitude)! as Double)
+                    }
+                }
+
+            })
+
         }
-        manager.startUpdatingLocation()
+        currentUser.user_latitude = (location?.coordinate.latitude)! as Double
+        currentUser.user_longitude = (location?.coordinate.longitude)! as Double
+        manager.stopUpdatingLocation()
+
+        FirebaseUserAuthentication.getAllUsers(completion: {
+            users in
+            globalUsersArray = users
+        })
+        
+    }
+
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -103,7 +149,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        FIRMessaging.messaging().disconnect()
+        //FIRMessaging.messaging().disconnect()
         print("Disconnected from FCM.")
     }
 
@@ -115,7 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 
-        connectToFcm()
+        //connectToFcm()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

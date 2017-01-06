@@ -30,7 +30,6 @@
 		3A2D847F1E0635860069BFC1 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84521E0635860069BFC1 /* SearchUserViewController.swift */; };
 		3A2D84801E0635860069BFC1 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84531E0635860069BFC1 /* UserDetailViewController.swift */; };
 		3A2D84811E0635860069BFC1 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84541E0635860069BFC1 /* UserTableViewCell.swift */; };
-		3A2D84831E0635860069BFC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D84561E0635860069BFC1 /* Info.plist */; };
 		3A2D84841E0635860069BFC1 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84581E0635860069BFC1 /* FriendModel.swift */; };
 		3A2D84851E0635860069BFC1 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84591E0635860069BFC1 /* MessageModel.swift */; };
 		3A2D84861E0635860069BFC1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D845A1E0635860069BFC1 /* UserModel.swift */; };
@@ -50,6 +49,9 @@
 		3A8672A01E0B3D7E00BC5C70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A86729F1E0B3D7E00BC5C70 /* GoogleService-Info.plist */; };
 		3A8B4CE81E13F02900081169 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B4CE51E13F02900081169 /* FMDBManager.swift */; };
 		3A8B4CEA1E13F02900081169 /* FMDBManager+GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B4CE71E13F02900081169 /* FMDBManager+GetData.swift */; };
+		3AAB99C11E1DEE020023D68F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAB99C01E1DEE020023D68F /* MapKit.framework */; };
+		3AAB99CA1E1F47030023D68F /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB99C91E1F47030023D68F /* AnnotationView.swift */; };
+		3AAB99CC1E1F47660023D68F /* StarbuckAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB99CB1E1F47660023D68F /* StarbuckAnnotation.swift */; };
 		B568B101D59A8F4D511FDB9D /* Pods_OUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D30385317A08596E67E491 /* Pods_OUT.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,9 @@
 		3A8B4CE51E13F02900081169 /* FMDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBManager.swift; sourceTree = "<group>"; };
 		3A8B4CE71E13F02900081169 /* FMDBManager+GetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FMDBManager+GetData.swift"; sourceTree = "<group>"; };
 		3A9A0EC01DF5EFE500893FE3 /* OUT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OUT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AAB99C01E1DEE020023D68F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3AAB99C91E1F47030023D68F /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationView.swift; path = MapViewController/AnnotationView.swift; sourceTree = "<group>"; };
+		3AAB99CB1E1F47660023D68F /* StarbuckAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarbuckAnnotation.swift; path = MapViewController/StarbuckAnnotation.swift; sourceTree = "<group>"; };
 		527EEEF0E22F440951E84FA1 /* Pods-firechatting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firechatting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-firechatting/Pods-firechatting.debug.xcconfig"; sourceTree = "<group>"; };
 		548202F6DD46EFD980D2BA75 /* Pods-firechatting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firechatting.release.xcconfig"; path = "Pods/Target Support Files/Pods-firechatting/Pods-firechatting.release.xcconfig"; sourceTree = "<group>"; };
 		768A64EED856D4C58441B6AF /* Pods-OUT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OUT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OUT/Pods-OUT.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAB99C11E1DEE020023D68F /* MapKit.framework in Frameworks */,
 				B568B101D59A8F4D511FDB9D /* Pods_OUT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */,
+				3AAB99C91E1F47030023D68F /* AnnotationView.swift */,
+				3AAB99CB1E1F47660023D68F /* StarbuckAnnotation.swift */,
 			);
 			name = MapviewController;
 			sourceTree = "<group>";
@@ -365,6 +373,7 @@
 		F90E6B9545F48BE550D2C40D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AAB99C01E1DEE020023D68F /* MapKit.framework */,
 				B1D30385317A08596E67E491 /* Pods_OUT.framework */,
 			);
 			name = Frameworks;
@@ -400,14 +409,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Huijing;
 				TargetAttributes = {
 					3A9A0EBF1DF5EFE500893FE3 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 3UTAS954SN;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -437,7 +454,6 @@
 				3A2D846E1E0635860069BFC1 /* Main.storyboard in Resources */,
 				3A2D846C1E0635860069BFC1 /* Assets.xcassets in Resources */,
 				3A8672A01E0B3D7E00BC5C70 /* GoogleService-Info.plist in Resources */,
-				3A2D84831E0635860069BFC1 /* Info.plist in Resources */,
 				3A2D846D1E0635860069BFC1 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,8 +549,10 @@
 				3A2D84781E0635860069BFC1 /* ChattingViewController.swift in Sources */,
 				3A2D84871E0635860069BFC1 /* CommonUtils.swift in Sources */,
 				3A2D84761E0635860069BFC1 /* ChattingViewController+Interaction.swift in Sources */,
+				3AAB99CA1E1F47030023D68F /* AnnotationView.swift in Sources */,
 				3A2D848E1E0635860069BFC1 /* NSObject+String.swift in Sources */,
 				3A2D848D1E0635860069BFC1 /* MessageUtils.swift in Sources */,
+				3AAB99CC1E1F47660023D68F /* StarbuckAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +596,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -629,6 +648,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -659,18 +679,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 768A64EED856D4C58441B6AF /* Pods-OUT.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3UTAS954SN;
 				INFOPLIST_FILE = "$(SRCROOT)/firechatting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shark.OUT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "335429c9-1f16-4831-be9e-7b46f39b0751";
-				PROVISIONING_PROFILE_SPECIFIER = OUT_DIST_PROVISION;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "firechatting/Vendor/Firechatting-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -682,18 +703,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D867E486399908DDEB20825F /* Pods-OUT.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 3UTAS954SN;
 				INFOPLIST_FILE = "$(SRCROOT)/firechatting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shark.OUT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "335429c9-1f16-4831-be9e-7b46f39b0751";
-				PROVISIONING_PROFILE_SPECIFIER = OUT_DIST_PROVISION;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "firechatting/Vendor/Firechatting-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

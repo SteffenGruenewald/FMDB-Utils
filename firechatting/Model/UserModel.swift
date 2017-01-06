@@ -25,6 +25,8 @@ class UserModel{
     var user_ismyfriend = false
     var user_longitude = 0.0
     var user_latitude = 0.0
+    var user_currentLocationName = ""
+    var user_locationChangedTime: Int64 = 0
 
 
     static let localTableName = Constants.FIR_USERINFODIRECTORY
@@ -38,7 +40,9 @@ class UserModel{
                                    Constants.USER_STATUS: "INT",
                                    Constants.USER_IMAGEURL: "VARCHAR(255)",
                                    Constants.USER_LONGITUDE: "DOUBLE",
-                                   Constants.USER_LATITUDE: "DOUBLE"]
+                                   Constants.USER_LATITUDE: "DOUBLE",
+                                   Constants.USER_CURRENTLOCATIONNAME: "VARCHAR(255)",
+                                   Constants.USER_LOCATIONCHANGEDTIME: "BIGINT"]
 
     func getInfoObject() -> [String: AnyObject]
     {
@@ -66,6 +70,11 @@ class UserModel{
         user_imageUrl = object[Constants.USER_IMAGEURL] as! String
         user_longitude = object[Constants.USER_LONGITUDE] as! Double
         user_latitude = object[Constants.USER_LATITUDE] as! Double
+        if(object[Constants.USER_LOCATIONCHANGEDTIME] != nil){
+            user_currentLocationName = object[Constants.USER_CURRENTLOCATIONNAME] as! String
+            user_locationChangedTime = object[Constants.USER_LOCATIONCHANGEDTIME] as! Int64
+        }
+        
     }
 
 }
