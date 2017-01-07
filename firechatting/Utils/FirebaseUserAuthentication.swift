@@ -503,6 +503,11 @@ class FirebaseUserAuthentication{
         userRef.child(Constants.USER_CURRENTLOCATIONNAME).setValue(currentUser.user_currentLocationName)
     }
 
+    func updateUserInfo(user: UserModel){
+        userRef.child(Constants.USER_OUTSTATUS).setValue(currentUser.user_outStatus)
+        userRef.child(Constants.USER_MAPMESSAGE).setValue(currentUser.user_mapMessage)
+    }
+
 
 }
 

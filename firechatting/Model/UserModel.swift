@@ -27,6 +27,8 @@ class UserModel{
     var user_latitude = 0.0
     var user_currentLocationName = ""
     var user_locationChangedTime: Int64 = 0
+    var user_mapMessage = ""
+    var user_outStatus = true
 
 
     static let localTableName = Constants.FIR_USERINFODIRECTORY
@@ -42,7 +44,11 @@ class UserModel{
                                    Constants.USER_LONGITUDE: "DOUBLE",
                                    Constants.USER_LATITUDE: "DOUBLE",
                                    Constants.USER_CURRENTLOCATIONNAME: "VARCHAR(255)",
-                                   Constants.USER_LOCATIONCHANGEDTIME: "BIGINT"]
+                                   Constants.USER_LOCATIONCHANGEDTIME: "BIGINT",
+                                   Constants.USER_MAPMESSAGE: "TEXT",
+                                   Constants.USER_OUTSTATUS: "TINYINT"
+
+    ]
 
     func getInfoObject() -> [String: AnyObject]
     {
@@ -57,6 +63,8 @@ class UserModel{
         post[Constants.USER_IMAGEURL] = user_imageUrl as AnyObject?
         post[Constants.USER_LONGITUDE] = user_longitude as AnyObject?
         post[Constants.USER_LATITUDE] = user_latitude as AnyObject?
+        post[Constants.USER_MAPMESSAGE] = user_mapMessage as AnyObject?
+        post[Constants.USER_OUTSTATUS] = user_outStatus as AnyObject?
         return post
     }
 
@@ -73,6 +81,13 @@ class UserModel{
         if(object[Constants.USER_LOCATIONCHANGEDTIME] != nil){
             user_currentLocationName = object[Constants.USER_CURRENTLOCATIONNAME] as! String
             user_locationChangedTime = object[Constants.USER_LOCATIONCHANGEDTIME] as! Int64
+        }
+        if(object[Constants.USER_MAPMESSAGE] != nil)
+        {
+            user_mapMessage = object[Constants.USER_MAPMESSAGE] as! String
+        }
+        if (object[Constants.USER_OUTSTATUS] != nil){
+            user_outStatus = object[Constants.USER_OUTSTATUS] as! Bool
         }
         
     }

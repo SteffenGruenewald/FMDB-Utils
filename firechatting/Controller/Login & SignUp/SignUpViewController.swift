@@ -27,9 +27,13 @@ class SignUpViewController: BaseViewController , UITextFieldDelegate{
     var profileImage : UIImage!
 
     var picker = UIImagePickerController()
+
+
+    var fromSettings = false
     
     @IBOutlet weak var tblContentView: UITableView!
 
+    @IBOutlet weak var btnSave: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +41,21 @@ class SignUpViewController: BaseViewController , UITextFieldDelegate{
         setViewBorders()
 
         // Do any additional setup after loading the view.
+
+        if(fromSettings){
+
+            imvProfile.setImageWith(storageRefString: currentUser.user_imageUrl, placeholderImage: #imageLiteral(resourceName: "ic_user_placeholder"))
+
+            txtUsername.text = currentUser.user_name
+            txtFirstName.text = currentUser.user_firstName
+            txtLastName.text = currentUser.user_lastName
+            txtPhoneNumber.text = "\(currentUser.user_phonenumber)"
+            txtEmailAddress.text = currentUser.user_emailAddress
+
+            emailAddressView.isHidden = true
+            //txtEmailAddress.text = currentUser.user_emailAddress
+            btnSave.setTitle("Update Profile", for: .normal)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +67,7 @@ class SignUpViewController: BaseViewController , UITextFieldDelegate{
 
     func setViewBorders()
     {
+
         usernameView.layer.borderColor = UIColor.white.cgColor
         usernameView.layer.borderWidth = 2
         emailView.layer.borderColor = UIColor.white.cgColor
@@ -63,7 +83,7 @@ class SignUpViewController: BaseViewController , UITextFieldDelegate{
 
 
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func profileImageTapped(_ sender: Any) {
@@ -71,7 +91,12 @@ class SignUpViewController: BaseViewController , UITextFieldDelegate{
     }
 
     @IBAction func btnSignUpTapped(_ sender: Any) {
-        gotoPasswordPage()
+        if(fromSettings){
+            saveProfile()
+        }
+        else{
+            gotoPasswordPage()
+        }
     }
 
 
@@ -104,6 +129,7 @@ class SignUpViewController: BaseViewController , UITextFieldDelegate{
             setPasswordVC.user.user_name = txtUsername.text!
             setPasswordVC.user.user_emailAddress = txtEmailAddress.text!
             setPasswordVC.user.user_firstName = txtFirstName.text!
+            setPasswordVC.user.user_phonenumber = Int64(txtPhoneNumber.text!)!
             setPasswordVC.user.user_lastName = txtLastName.text!
             setPasswordVC.profileImage = profileImage
             self.navigationController?.pushViewController(setPasswordVC, animated: true)
@@ -112,6 +138,29 @@ class SignUpViewController: BaseViewController , UITextFieldDelegate{
             showToastWithDuration(string: message, duration: 3.0)
         }
 
+    }
+
+    func saveProfile(){
+        let message = checkValid(username: txtUsername.text!, email: txtEmailAddress.text!, firstname: txtFirstName.text!, lastname: txtLastName.text!, image: profileImage)
+        if(message == Constants.SUCCESS_PROCESS){
+            showLoadingView()
+            FirebaseUserAuthentication.addUserProfileImage(userid: currentUser.user_id, profileImage: profileImage, completion: {
+                imageUrl, success in
+                self.hideLoadingView()
+                if (success){
+                    currentUser.user_name = self.txtUsername.text!
+                    currentUser.user_emailAddress = self.txtEmailAddress.text!
+                    currentUser.user_firstName = self.txtFirstName.text!
+                    currentUser.user_phonenumber = Int64(self.txtPhoneNumber.text!)!
+                    currentUser.user_lastName = self.txtLastName.text!
+                    currentUser.user_imageUrl = imageUrl
+                    firebaseUserAuthInstance.registerUserInfo(user: currentUser)
+                }
+            })
+        }
+        else{
+            showToastWithDuration(string: message, duration: 3.0)
+        }
     }
 
 

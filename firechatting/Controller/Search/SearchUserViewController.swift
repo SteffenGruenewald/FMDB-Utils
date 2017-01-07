@@ -96,6 +96,7 @@ extension SearchUserViewController:UITableViewDelegate, UITableViewDataSource{
 
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "UserDetailViewController") as! UserDetailViewController
         detailVC.user = searchUsersArray[rowIndex]
+        detailVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailVC, animated: true)
 
     }

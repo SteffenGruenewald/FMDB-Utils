@@ -27,6 +27,10 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
 
         lblName.text = currentUser.user_firstName + " " + currentUser.user_lastName
         imvFriend.setImageWith(storageRefString: currentUser.user_imageUrl, placeholderImage: UIImage(named:"icon_user_placeholder")!)
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
 
 
@@ -47,7 +51,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
             mapView.addAnnotation(info)
         }
 
-        setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentUser.user_latitude, longitude: currentUser.user_longitude), spanRadius : 1609*50, animated: true)
+        setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentUser.user_latitude, longitude: currentUser.user_longitude), spanRadius : 1609.00*(UserDefaults.standard.value(forKey: "distance") as! Double), animated: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -87,8 +91,8 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
 
         annotationView?.layer.cornerRadius = 15
         annotationView?.layer.masksToBounds = true
-        annotationView?.layer.borderWidth = 1.5
-        annotationView?.layer.borderColor = UIColor.white.cgColor
+        /*annotationView?.layer.borderWidth = 1.5
+        annotationView?.layer.borderColor = UIColor.white.cgColor*/
         annotationView?.image = image
         return annotationView
 
@@ -116,7 +120,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.white
         NSLog(currentFriend.user_currentLocationName)
-        label.frame = CGRect(x: 15 - label.intrinsicContentSize.width/2, y: -15, width: label.intrinsicContentSize.width, height: 15)
+        label.frame = CGRect(x: 15 - label.intrinsicContentSize.width/2, y: -15, width: label.intrinsicContentSize.width, height: label.intrinsicContentSize.height)
 
         view.layer.masksToBounds = false
         view.addSubview(label)
@@ -135,5 +139,45 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
         }
     }
 
+
+    func keyboardWillShow(_ notification: Notification)
+    {
+        self.keyboardControl(notification, isShowing: true)
+    }
+
+    func keyboardWillHide(_ notification: Notification)
+    {
+        self.keyboardControl(notification, isShowing: false)
+    }
+
+    func keyboardControl(_ notification: Notification, isShowing: Bool)
+    {
+        var userInfo = notification.userInfo!
+        let keyboardRect = (userInfo[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue
+        let curve = (userInfo[UIKeyboardAnimationCurveUserInfoKey]! as AnyObject).uint32Value
+
+        /*let convertedFrame = self.view.convert(keyboardRect!, from: nil)
+        let heightOffset = self.view.bounds.size.height - convertedFrame.origin.y*/
+        let options = UIViewAnimationOptions(rawValue: UInt(curve!) << 16 | UIViewAnimationOptions.beginFromCurrentState.rawValue)
+        let duration = (userInfo[UIKeyboardAnimationDurationUserInfoKey]! as AnyObject).doubleValue
+
+
+        UIView.animate(
+            withDuration: duration!,
+            delay: 0,
+            options: options,
+            animations: {
+                if(isShowing){
+                    self.view.frame.origin.y = -(keyboardRect?.height)! + 49
+                }
+                else{
+                    self.view.frame.origin.y = 0
+                }
+
+        },
+            completion: { bool in
+
+        })
+    }
 
 }

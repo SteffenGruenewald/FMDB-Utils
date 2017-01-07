@@ -67,6 +67,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         locationManager.requestLocation()
         updateTimer()
 
+        UserDefaults.standard.set(25, forKey: "distance")
+
         connectToFcm()
 
         return true
