@@ -45,6 +45,7 @@
 		3A2D84901E0635860069BFC1 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84691E0635860069BFC1 /* UIPlaceHolderTextView.m */; };
 		3A3425FD1E15E83000B7C5C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */; };
 		3A3425FF1E15E9C400B7C5C6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3425FE1E15E9C400B7C5C6 /* SettingsViewController.swift */; };
+		3A8374221E21EECE00A59F77 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8374211E21EECE00A59F77 /* SwipeViewController.swift */; };
 		3A86729E1E0B33D500BC5C70 /* SetupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86729D1E0B33D500BC5C70 /* SetupPasswordViewController.swift */; };
 		3A8672A01E0B3D7E00BC5C70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A86729F1E0B3D7E00BC5C70 /* GoogleService-Info.plist */; };
 		3A8B4CE81E13F02900081169 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8B4CE51E13F02900081169 /* FMDBManager.swift */; };
@@ -97,6 +98,7 @@
 		3A2D84691E0635860069BFC1 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = MapViewController/MapViewController.swift; sourceTree = "<group>"; };
 		3A3425FE1E15E9C400B7C5C6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3A8374211E21EECE00A59F77 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeViewController.swift; path = MapViewController/SwipeViewController.swift; sourceTree = "<group>"; };
 		3A86729D1E0B33D500BC5C70 /* SetupPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupPasswordViewController.swift; sourceTree = "<group>"; };
 		3A86729F1E0B3D7E00BC5C70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A8B4CE51E13F02900081169 /* FMDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMDBManager.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */,
 				3AAB99C91E1F47030023D68F /* AnnotationView.swift */,
 				3AAB99CB1E1F47660023D68F /* StarbuckAnnotation.swift */,
+				3A8374211E21EECE00A59F77 /* SwipeViewController.swift */,
 			);
 			name = MapviewController;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				3A2D846F1E0635860069BFC1 /* BaseViewController.swift in Sources */,
 				3A8B4CEA1E13F02900081169 /* FMDBManager+GetData.swift in Sources */,
 				3A2D848A1E0635860069BFC1 /* FirebaseRealTimeMessage.swift in Sources */,
+				3A8374221E21EECE00A59F77 /* SwipeViewController.swift in Sources */,
 				3A2D84901E0635860069BFC1 /* UIPlaceHolderTextView.m in Sources */,
 				3A2D847D1E0635860069BFC1 /* SignUpViewController.swift in Sources */,
 				3A2D84791E0635860069BFC1 /* ImageDetailViewController.swift in Sources */,

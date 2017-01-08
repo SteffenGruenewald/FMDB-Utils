@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CarbonKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,12 +52,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>21D5C0C4AF1AEF5C887E797E8BE26CCA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>251BAD17812F7EBF6532EACF66F941C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3EE60F334C78AE1E6F1860F641ABF789</key>
+		<key>352F3CCD20CDBC5C9822654BDACCE6D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>808CFA1F65A9854B9497E08B95911CB3</key>
+		<key>7AFB4D721BA3F585AF4B0CE1FD24CE5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>97234A930D05742442040029108AF7B4</key>
+		<key>9BA05B607B5EE26140A4141AA88E16C4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C264E0FADC8C9DF1D278F19E506669B4</key>
+		<key>FEE2DB836C9E2D2148490A510AC6F247</key>
 		<dict>
 			<key>primary</key>
 			<true/>

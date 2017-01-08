@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.0.1)
+  - CarbonKit (2.1.9)
   - Firebase/Auth (3.9.0):
     - Firebase/Core
     - FirebaseAuth (= 3.0.6)
@@ -67,6 +68,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - CarbonKit
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -80,6 +82,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  CarbonKit: af16a9c0d2b6c908a5985fe4633424d38c9bfc0a
   Firebase: ff77ffb77b317c3720fef57a60e9335cebf962e6
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseAuth: 96e9674ff31d6e1f826d53e26aa003a57cab0295
@@ -98,6 +101,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: 61f59cf5a233c239dfe24895c5d1b703c6afb339
+PODFILE CHECKSUM: b628cf1e729536d976d20c93e6ace026c8c6e9b1
 
 COCOAPODS: 1.1.1

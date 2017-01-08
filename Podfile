@@ -22,5 +22,6 @@ pod 'SDWebImage'
 pod 'FirebaseUI/Storage', '~> 0.6'
 pod 'Toast-Swift', '~> 2.0.0'
 pod 'FMDB'
+pod 'CarbonKit'
 
 end
