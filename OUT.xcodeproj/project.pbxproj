@@ -55,6 +55,7 @@
 		B568B101D59A8F4D511FDB9D /* Pods_OUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D30385317A08596E67E491 /* Pods_OUT.framework */; };
 		F64649791E238C0F004FE312 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F64649781E238C0F004FE312 /* Assets.xcassets */; };
 		F6C589B91E247F0A006A9CC8 /* OuttickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C589B81E247F0A006A9CC8 /* OuttickerViewController.swift */; };
+		F6C9B4BC1E27B5BB00EF7FCB /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9B4BB1E27B5BB00EF7FCB /* MediaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		D867E486399908DDEB20825F /* Pods-OUT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OUT.release.xcconfig"; path = "Pods/Target Support Files/Pods-OUT/Pods-OUT.release.xcconfig"; sourceTree = "<group>"; };
 		F64649781E238C0F004FE312 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = firechatting/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F6C589B81E247F0A006A9CC8 /* OuttickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OuttickerViewController.swift; sourceTree = "<group>"; };
+		F6C9B4BB1E27B5BB00EF7FCB /* MediaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaView.swift; path = Chatting/MediaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				F6C589B81E247F0A006A9CC8 /* OuttickerViewController.swift */,
+				F6C9B4BB1E27B5BB00EF7FCB /* MediaView.swift */,
 			);
 			name = Outticker;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C9B4BC1E27B5BB00EF7FCB /* MediaView.swift in Sources */,
 				3A2D84881E0635860069BFC1 /* Constants.swift in Sources */,
 				3A86729E1E0B33D500BC5C70 /* SetupPasswordViewController.swift in Sources */,
 				3A2D84741E0635860069BFC1 /* ChattingViewController+ChatAdditions.swift in Sources */,
