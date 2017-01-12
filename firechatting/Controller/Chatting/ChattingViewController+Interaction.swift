@@ -78,7 +78,7 @@ extension ChattingViewController{
     func sendTextMessage(text: String){
 
         
-        firebaseRealTimeMessageInstance.sendMessage(MessageUtils.createSendMessage(messageType: Constants.IS_TEXTMESSAGE, messageContent: text, roomId: friend.friend_roomid), completion: {
+        firebaseRealTimeMessageInstance.sendMessage(MessageUtils.createSendMessage(messageType: Constants.IS_TEXTMESSAGE, messageContent: text, roomId: currentRoomid), completion: {
             success in
         })
     }

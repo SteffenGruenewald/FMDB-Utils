@@ -178,6 +178,8 @@ var myFriends : [FriendModel] = []
 var currentFriend = UserModel()
 //all users in server
 var globalUsersArray : [UserModel] = []
+//current roomid
+var currentRoomid = ""
 
 
 

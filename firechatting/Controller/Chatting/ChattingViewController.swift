@@ -27,7 +27,7 @@ class ChattingViewController: BaseViewController {
 
     @IBOutlet weak var typingStatusViewHeightConstraint: NSLayoutConstraint!
 
-    var friend = FriendModel()
+    var friend = UserModel()
 
     var picker = UIImagePickerController()
 
@@ -50,33 +50,37 @@ class ChattingViewController: BaseViewController {
         self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
 
-        initView()
-        keyboardControl()
-        tblChatList.separatorColor = .clear
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        initView()
+        keyboardControl()
+        tblChatList.separatorColor = .clear
+    }
 
     func initView()
     {
+        if(currentRoomid.characters.count > 0){
+            friend = currentFriend
+            itemDataSource = [];
+            typingStatusViewHeightConstraint.constant = 0.0
+            imvFriend.setImageWith(storageRefString: friend.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
+            lblFriendName.text = friend.user_name
+            
+            firebaseRealTimeMessageInstance.createCurrentReference(currentRoomid)
 
-        itemDataSource = [];
-        typingStatusViewHeightConstraint.constant = 0.0
-        imvFriend.setImageWith(storageRefString: friend.friend_user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
-        lblFriendName.text = friend.friend_user.user_name
+            readChatOnce()
 
-        currentFriend = friend.friend_user;
-        firebaseRealTimeMessageInstance.createCurrentReference(friend.friend_roomid)
-
-        readChatOnce()
-
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(receivedMessage(_:)), name: NSNotification.Name(rawValue: Constants.STATUS_RECEIEVEDMESSAGE), object: nil)
-        tblChatList.estimatedRowHeight = 100
-
+            let notificationCenter = NotificationCenter.default
+            notificationCenter.addObserver(self, selector: #selector(receivedMessage(_:)), name: NSNotification.Name(rawValue: Constants.STATUS_RECEIEVEDMESSAGE), object: nil)
+            tblChatList.estimatedRowHeight = 100
+        }
     }
 
 
@@ -91,7 +95,7 @@ class ChattingViewController: BaseViewController {
     */
     @IBAction func backButtonTapped(_ sender: Any) {
 
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
 
     }
 

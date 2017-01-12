@@ -10,8 +10,9 @@ import UIKit
 import MapKit
 import FirebaseStorageUI
 
-class MapViewController: BaseViewController, MKMapViewDelegate {
 
+class MapViewController: BaseViewController, MKMapViewDelegate{
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var txtmessageContentView: UITextView!
     @IBOutlet weak var imvFriend: UIImageView!
@@ -20,7 +21,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.isNavigationBarHidden = true        // Do any additional setup after loading the view
+               // Do any additional setup after loading the view
         //mapView.delegate = self
         mapView.showsBuildings = true
         mapView.showsUserLocation = true
@@ -31,6 +32,8 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        
+       
     }
 
 
@@ -110,6 +113,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
         }
         let starbucksAnnotation = view.annotation as! StarbuckAnnotation
         currentFriend = starbucksAnnotation.friend.friend_user
+        currentRoomid = starbucksAnnotation.friend.friend_roomid
 
         lblName.text = currentFriend.user_firstName + " " + currentFriend.user_lastName
         imvFriend.setImageWith(storageRefString: currentFriend.user_imageUrl, placeholderImage: UIImage(named:"icon_user_placeholder")!)
@@ -179,5 +183,5 @@ class MapViewController: BaseViewController, MKMapViewDelegate {
 
         })
     }
-
+   
 }

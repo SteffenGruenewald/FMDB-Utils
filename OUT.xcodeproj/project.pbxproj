@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A2D846B1E0635860069BFC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84351E0635860069BFC1 /* AppDelegate.swift */; };
-		3A2D846C1E0635860069BFC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D84361E0635860069BFC1 /* Assets.xcassets */; };
 		3A2D846D1E0635860069BFC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D84371E0635860069BFC1 /* LaunchScreen.storyboard */; };
 		3A2D846E1E0635860069BFC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A2D84391E0635860069BFC1 /* Main.storyboard */; };
 		3A2D846F1E0635860069BFC1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D843D1E0635860069BFC1 /* BaseViewController.swift */; };
@@ -54,11 +53,12 @@
 		3AAB99CA1E1F47030023D68F /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB99C91E1F47030023D68F /* AnnotationView.swift */; };
 		3AAB99CC1E1F47660023D68F /* StarbuckAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB99CB1E1F47660023D68F /* StarbuckAnnotation.swift */; };
 		B568B101D59A8F4D511FDB9D /* Pods_OUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D30385317A08596E67E491 /* Pods_OUT.framework */; };
+		F64649791E238C0F004FE312 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F64649781E238C0F004FE312 /* Assets.xcassets */; };
+		F6C589B91E247F0A006A9CC8 /* OuttickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C589B81E247F0A006A9CC8 /* OuttickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3A2D84351E0635860069BFC1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A2D84361E0635860069BFC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		3A2D84381E0635860069BFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A2D843A1E0635860069BFC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A2D843D1E0635860069BFC1 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +112,8 @@
 		768A64EED856D4C58441B6AF /* Pods-OUT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OUT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OUT/Pods-OUT.debug.xcconfig"; sourceTree = "<group>"; };
 		B1D30385317A08596E67E491 /* Pods_OUT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OUT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D867E486399908DDEB20825F /* Pods-OUT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OUT.release.xcconfig"; path = "Pods/Target Support Files/Pods-OUT/Pods-OUT.release.xcconfig"; sourceTree = "<group>"; };
+		F64649781E238C0F004FE312 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = firechatting/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		F6C589B81E247F0A006A9CC8 /* OuttickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OuttickerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		3A2D843B1E0635860069BFC1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F6C589B71E247E10006A9CC8 /* Outticker */,
 				3A3425FB1E15E7EE00B7C5C6 /* MapviewController */,
 				3A2D843C1E0635860069BFC1 /* Base */,
 				3A2D843E1E0635860069BFC1 /* Chatting */,
@@ -243,7 +246,7 @@
 		3A2D845B1E0635860069BFC1 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				3A2D84361E0635860069BFC1 /* Assets.xcassets */,
+				F64649781E238C0F004FE312 /* Assets.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -373,6 +376,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F6C589B71E247E10006A9CC8 /* Outticker */ = {
+			isa = PBXGroup;
+			children = (
+				F6C589B81E247F0A006A9CC8 /* OuttickerViewController.swift */,
+			);
+			name = Outticker;
+			sourceTree = "<group>";
+		};
 		F90E6B9545F48BE550D2C40D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,9 +466,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A2D846E1E0635860069BFC1 /* Main.storyboard in Resources */,
-				3A2D846C1E0635860069BFC1 /* Assets.xcassets in Resources */,
 				3A8672A01E0B3D7E00BC5C70 /* GoogleService-Info.plist in Resources */,
 				3A2D846D1E0635860069BFC1 /* LaunchScreen.storyboard in Resources */,
+				F64649791E238C0F004FE312 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +544,7 @@
 				3A2D84771E0635860069BFC1 /* ChattingViewController+Keyboard.swift in Sources */,
 				3A2D84861E0635860069BFC1 /* UserModel.swift in Sources */,
 				3A2D847B1E0635860069BFC1 /* FriendsViewController.swift in Sources */,
+				F6C589B91E247F0A006A9CC8 /* OuttickerViewController.swift in Sources */,
 				3A2D84731E0635860069BFC1 /* ChatTextCell.swift in Sources */,
 				3A2D847A1E0635860069BFC1 /* UITableView+ChatAdditions.swift in Sources */,
 				3A2D84721E0635860069BFC1 /* ChatImageCell.swift in Sources */,

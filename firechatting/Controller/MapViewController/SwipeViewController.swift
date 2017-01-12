@@ -9,12 +9,25 @@
 import UIKit
 import CarbonKit
 
-class SwipeViewController: UIViewController {
+class SwipeViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
 
+    
+    let items = ["1", "2", "3"]
+    var carbonTabSwipeNavigation = CarbonTabSwipeNavigation()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.isNavigationBarHidden = true 
         // Do any additional setup after loading the view.
+        
+        carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items:items, delegate : self)
+        
+        //        carbonTabSwipeNavigation.insertIntoRootViewController(self)
+        carbonTabSwipeNavigation.insert(intoRootViewController: self, andTargetView: self.view)
+        carbonTabSwipeNavigation.setTabBarHeight(0)
+        //self.tabBarController?.tabBar.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,5 +45,33 @@ class SwipeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    //Mark: - CarbonTabSwipeNavigation Delegate
+    // required
+    
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController{
+        switch index {
+            
+        case 0:
+            return (self.storyboard?.instantiateViewController(withIdentifier: "MapViewController"))!
+        case 1:
+            return (self.storyboard?.instantiateViewController(withIdentifier: "OuttickerViewController"))!
+        default:
+            return (self.storyboard?.instantiateViewController(withIdentifier: "ChattingViewController"))!
+        }
+    }
+    
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, willMoveAt index: UInt){
+        
+        switch index {
+       
+        case 0:
+        self.tabBarController?.tabBar.isHidden = false
+        case 1:
+        self.tabBarController?.tabBar.isHidden = true
+        default:
+        self.tabBarController?.tabBar.isHidden = true
+        }
+    }
+    
+    
 }

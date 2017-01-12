@@ -79,7 +79,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource,UIS
                 //Display message sent by self
 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiverChatTextCell", for: indexPath) as! ReceiverChatTextCell
-                cell.imvReceiverProfile.setImageWith(storageRefString: friend.friend_user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
+                cell.imvReceiverProfile.setImageWith(storageRefString: friend.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
                 cell.lblChatContent.text = chatItem.message_content
                 cell.lblTime.text = timeString//chatItem.message_time
                 resultcell = cell as UITableViewCell

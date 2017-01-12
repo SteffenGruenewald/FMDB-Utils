@@ -67,7 +67,8 @@ extension ChatHistoryViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let friend = historyArray[indexPath.row]
         let chattingViewController = self.storyboard?.instantiateViewController(withIdentifier: "ChattingViewController") as! ChattingViewController
-        chattingViewController.friend = friend
+        chattingViewController.friend = friend.friend_user
+        currentRoomid = friend.friend_roomid
         chattingViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(chattingViewController, animated: true)
 
