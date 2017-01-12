@@ -58,9 +58,44 @@ class FirebaseStorageUtils
                 // Metadata contains file metadata such as size, content-type, and download URL.
                 _ = metadata!.downloadURL()
             }
-        }    }
- 
-    /*
+        }
+    }
+  
+    
+    static func downloadFile(from: String,  filename: String ,completion: @escaping (URL, Bool) -> ())
+    {
+        // Create a reference to the file you want to download
+        let storageRef = storage.reference(forURL: Constants.FIR_STORAGE_BASE_URL + "/" + from + "/" + filename)
+        
+        var savedFilePath = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])" + "/" + from + "/" + filename
+        
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: savedFilePath) {
+            savedFilePath = "file:" + savedFilePath
+            let localURL = URL(string: savedFilePath)!
+            completion(localURL, true)
+            return
+        } else {
+            print("FILE NOT AVAILABLE")
+        }
+        
+        savedFilePath = "file:" + savedFilePath
+        
+        let localURL = URL(string: savedFilePath)!
+        
+        // Download to the local filesystem
+        _ = storageRef.write(toFile: localURL) { url, error in
+            if error != nil {
+                // Uh-oh, an error occurred!
+                completion(localURL as URL, false)
+            } else {
+                // Local file URL for "images/island.jpg" is returned
+                completion(localURL as URL , true)
+            }
+        }
+    }
+
+  /*
     static func downloadFile(fromURL: String, filename: String ,completion: @escaping (Bool) -> ())
     {
         // Create a reference to the file you want to download
@@ -89,7 +124,8 @@ class FirebaseStorageUtils
                 // Local file URL for "images/island.jpg" is returned
             }
         }
-    }*/
+    }
+    */
     
 }
 

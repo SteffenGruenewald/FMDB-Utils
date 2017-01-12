@@ -22,12 +22,15 @@ class OuttickerViewController: BaseViewController {
     
     var imagePicker : UIImagePickerController!
     
-    
 
+    @IBOutlet weak var mediaView: MediaView!
+    
     //////
     @IBOutlet weak var recordVideoButton: UIButton!
     
-    let maximumSecondsLengthRecordVideo = 6.0
+    let maximumSecondsLengthRecordVideo = 16.0
+    
+    var urlString : String!
     
 
 
@@ -37,7 +40,7 @@ class OuttickerViewController: BaseViewController {
         // Do any additional setup after loading the view.
        //            imvOutticker.setImageWith(storageRefString: currentUser.user_imageUrl, placeholderImage: #imageLiteral(resourceName: "ic_user_placeholder"))
         
-     
+ //   downloadingVideo(userid: currentUser.user_id, profileImage: outtickerImage)
        
     }
 
@@ -47,7 +50,15 @@ class OuttickerViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        urlString = "gs://firechatting-a9a66.appspot.com/UploadFiles/uAz1aUooQxYM4NnPsshCEu6gibo21484240766417.mp4"
+    //urlString = "gs://firechatting-a9a66.appspot.com/UploadFiles/uAz1aUooQxYM4NnPsshCEu6gibo21484239094879.jpg"
+        
+        setMediaView()
+        
+    }
     
 // outticker Image Button Tapped
     
@@ -61,6 +72,12 @@ class OuttickerViewController: BaseViewController {
     @IBAction func outtickerVideoTapped(_ sender: UIButton) {
  
         selectVideoSource()
+    }
+    
+    func setMediaView()
+    {
+        
+        mediaView.setMedia(urlstring: urlString)
     }
     
     func saveOuttickerImage(userid: String, profileImage: UIImage?){
@@ -116,6 +133,8 @@ extension OuttickerViewController:  UINavigationControllerDelegate, UIImagePicke
             let url = info[UIImagePickerControllerMediaURL] as! URL
             
             NSLog(url.debugDescription)
+          //  mediaView.localUrl = url
+          //  mediaView.setVideoPlayer()
             playVideo(url: url)
             saveOuttickerVideo(userid: currentUser.user_id, url: url)
             
@@ -152,18 +171,9 @@ extension OuttickerViewController:  UINavigationControllerDelegate, UIImagePicke
         videoOutticker.addSubview(imvVideoPlayBtn)
       
         player.play()
-       /*
-        let item = AVPlayerItem(url: url)
-        NotificationCenter.default.addObserver(self,selector:Selector(("playerDidFinishPlaying")), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: item)
-
-        imvVideoPlayBtn.isHidden = true
-        
-        func playerDidFinishPlaying(note: NSNotification) {
-            imvVideoPlayBtn.isHidden = false
-            NSLog("player stop")
-        }*/
         
     }
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
@@ -246,4 +256,10 @@ extension OuttickerViewController:  UINavigationControllerDelegate, UIImagePicke
     }
 
 
+}
+
+extension OuttickerViewController: MediaViewDelegate{
+    func mediaViewDidTapped(_ mediaView: MediaView){
+        
+    }
 }
