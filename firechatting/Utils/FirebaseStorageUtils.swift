@@ -33,11 +33,32 @@ class FirebaseStorageUtils
             else{
                 //let downloadURL = metadata?.downloadURL()?.absoluteString
                 completion(fileURL, true)
+                
             }
         }
     }
 
-
+    static func uploadVideo(toURL: String,userid: String, url: URL, completion: @escaping (String, Bool) -> ())
+    {
+        // Get a reference to the storage service, using the default Firebase App
+        
+        // Create a storage reference from our storage service
+        
+        let fileURL = toURL + "/" + userid  + "\(getGlobalTime())" + ".mp4"
+        let storageRef = storage.reference(forURL: fileURL)
+        // File located on disk
+        let localFile = url
+        
+        // Create a reference to the file you want to upload
+        // Upload the file to the path "images/rivers.jpg"
+        _ = storageRef.putFile(localFile, metadata: nil) { metadata, error in
+            if error != nil {
+                // Uh-oh, an error occurred!
+            } else {
+                // Metadata contains file metadata such as size, content-type, and download URL.
+                _ = metadata!.downloadURL()
+            }
+        }    }
  
     /*
     static func downloadFile(fromURL: String, filename: String ,completion: @escaping (Bool) -> ())

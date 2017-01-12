@@ -62,9 +62,9 @@ class OuttickerViewController: BaseViewController {
  
         selectVideoSource()
     }
- 
+    
     func saveOuttickerImage(userid: String, profileImage: UIImage?){
- 
+        
         if(userid.characters.count > 0 && profileImage != nil)
         {
             FirebaseStorageUtils.uploadImage(toURL: Constants.FIR_STORAGE_IMAGEUPLOADDIRECTORY,userid: userid, image: profileImage!, completion: {
@@ -78,6 +78,22 @@ class OuttickerViewController: BaseViewController {
             })
         }
     }
+    
+    func saveOuttickerVideo(userid: String, url:URL?){
+        
+        if(userid.characters.count > 0 && url != nil)
+        {
+            FirebaseStorageUtils.uploadVideo(toURL: Constants.FIR_STORAGE_IMAGEUPLOADDIRECTORY, userid: userid, url: url!, completion: {
+                vidoeURL, success in
+                if success{
+                    
+                }
+                else{
+                    
+                }
+            })        }
+    }
+    
     
  /*   @IBAction func videoPlayBtnTapped(_ sender: UIButton) {
         
@@ -101,6 +117,7 @@ extension OuttickerViewController:  UINavigationControllerDelegate, UIImagePicke
             
             NSLog(url.debugDescription)
             playVideo(url: url)
+            saveOuttickerVideo(userid: currentUser.user_id, url: url)
             
            
         }else{
