@@ -29,25 +29,26 @@ class UserModel{
     var user_locationChangedTime: Int64 = 0
     var user_mapMessage = ""
     var user_outStatus = true
+    var user_outFileName = ""
 
 
     static let localTableName = Constants.FIR_USERINFODIRECTORY
     static let localTablePrimaryKey = Constants.USER_ID
-    static let localTableObject = [Constants.USER_ID: "VARCHAR(255)",
-                                   Constants.USER_NAME: "VARCHAR(255)",
-                                   Constants.USER_FIRST_NAME: "VARCHAR(255)",
-                                   Constants.USER_LAST_NAME: "VARCHAR(255)",
+    static let localTableObject = [Constants.USER_ID: "TEXT",
+                                   Constants.USER_NAME: "TEXT",
+                                   Constants.USER_FIRST_NAME: "TEXT",
+                                   Constants.USER_LAST_NAME: "TEXT",
                                    Constants.USER_PHONE_NUMBER: "BIGINT",
-                                   Constants.USER_EMAIL: "VARCHAR(255)",
+                                   Constants.USER_EMAIL: "TEXT",
                                    Constants.USER_STATUS: "INT",
-                                   Constants.USER_IMAGEURL: "VARCHAR(255)",
+                                   Constants.USER_IMAGEURL: "TEXT",
                                    Constants.USER_LONGITUDE: "DOUBLE",
                                    Constants.USER_LATITUDE: "DOUBLE",
-                                   Constants.USER_CURRENTLOCATIONNAME: "VARCHAR(255)",
+                                   Constants.USER_CURRENTLOCATIONNAME: "TEXT",
                                    Constants.USER_LOCATIONCHANGEDTIME: "BIGINT",
                                    Constants.USER_MAPMESSAGE: "TEXT",
-                                   Constants.USER_OUTSTATUS: "TINYINT"
-
+                                   Constants.USER_OUTSTATUS: "TINYINT",
+                                   Constants.USER_OUTFILENAME: "TEXT"
     ]
 
     func getInfoObject() -> [String: AnyObject]
@@ -65,19 +66,25 @@ class UserModel{
         post[Constants.USER_LATITUDE] = user_latitude as AnyObject?
         post[Constants.USER_MAPMESSAGE] = user_mapMessage as AnyObject?
         post[Constants.USER_OUTSTATUS] = user_outStatus as AnyObject?
+        post[Constants.USER_OUTFILENAME] = user_outFileName as AnyObject?
         return post
     }
 
     func initClass(object: [String: AnyObject]){
+        //NSLog("\(object)")
         user_id = object[Constants.USER_ID] as! String
         user_name = object[Constants.USER_NAME] as! String
         user_firstName = object[Constants.USER_FIRST_NAME] as! String
         user_lastName = object[Constants.USER_LAST_NAME] as! String
         user_phonenumber = object[Constants.USER_PHONE_NUMBER] as! Int64
+        user_emailAddress = object[Constants.USER_EMAIL] as! String
         user_status = object[Constants.USER_STATUS] as! Int
         user_imageUrl = object[Constants.USER_IMAGEURL] as! String
         user_longitude = object[Constants.USER_LONGITUDE] as! Double
         user_latitude = object[Constants.USER_LATITUDE] as! Double
+        if(object[Constants.USER_MAPMESSAGE] != nil){
+            user_mapMessage = object[Constants.USER_MAPMESSAGE] as! String
+        }
         if(object[Constants.USER_LOCATIONCHANGEDTIME] != nil){
             user_currentLocationName = object[Constants.USER_CURRENTLOCATIONNAME] as! String
             user_locationChangedTime = object[Constants.USER_LOCATIONCHANGEDTIME] as! Int64
@@ -89,7 +96,9 @@ class UserModel{
         if (object[Constants.USER_OUTSTATUS] != nil){
             user_outStatus = object[Constants.USER_OUTSTATUS] as! Bool
         }
-        
+        if(object[Constants.USER_OUTFILENAME] != nil){
+            user_outFileName = object[Constants.USER_OUTFILENAME] as! String
+        }
     }
 
 }

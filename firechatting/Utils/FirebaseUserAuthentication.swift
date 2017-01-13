@@ -92,7 +92,6 @@ class FirebaseUserAuthentication{
     //this function will make user object from user model
     func getUserInfoObject(user: UserModel) -> [String : AnyObject]
     {
-
         return user.getInfoObject()
     }
 
