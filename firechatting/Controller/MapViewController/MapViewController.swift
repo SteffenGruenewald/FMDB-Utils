@@ -117,6 +117,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate{
 
         lblName.text = currentFriend.user_firstName + " " + currentFriend.user_lastName
         imvFriend.setImageWith(storageRefString: currentFriend.user_imageUrl, placeholderImage: UIImage(named:"icon_user_placeholder")!)
+        txtmessageContentView.text = currentFriend.user_mapMessage
 
 
         let label = UILabel()

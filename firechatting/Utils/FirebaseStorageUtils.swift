@@ -54,9 +54,11 @@ class FirebaseStorageUtils
         _ = storageRef.putFile(localFile, metadata: nil) { metadata, error in
             if error != nil {
                 // Uh-oh, an error occurred!
+                completion("", false)
             } else {
                 // Metadata contains file metadata such as size, content-type, and download URL.
-                _ = metadata!.downloadURL()
+
+                completion(fileURL, true)
             }
         }
     }

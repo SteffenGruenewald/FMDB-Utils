@@ -52,12 +52,12 @@ class OuttickerViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        urlString = "gs://firechatting-a9a66.appspot.com/UploadFiles/uAz1aUooQxYM4NnPsshCEu6gibo21484240766417.mp4"
-    //urlString = "gs://firechatting-a9a66.appspot.com/UploadFiles/uAz1aUooQxYM4NnPsshCEu6gibo21484239094879.jpg"
-        
+        urlString = currentFriend.user_outFileName
         setMediaView()
-        
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        mediaView.removeSubViewsAndLayers()
     }
     
 // outticker Image Button Tapped
@@ -76,7 +76,6 @@ class OuttickerViewController: BaseViewController {
     
     func setMediaView()
     {
-        
         mediaView.setMedia(urlstring: urlString)
     }
     
@@ -97,18 +96,24 @@ class OuttickerViewController: BaseViewController {
     }
     
     func saveOuttickerVideo(userid: String, url:URL?){
+
+        showLoadingView()
         
         if(userid.characters.count > 0 && url != nil)
         {
             FirebaseStorageUtils.uploadVideo(toURL: Constants.FIR_STORAGE_IMAGEUPLOADDIRECTORY, userid: userid, url: url!, completion: {
                 vidoeURL, success in
+                self.hideLoadingView()
                 if success{
-                    
+                    currentUser.user_outFileName = vidoeURL
+                    firebaseUserAuthInstance.registerUserInfo(user: currentUser)
+                    self.showToastWithDuration(string: "File Uploaded successfully", duration: 3.0)
                 }
                 else{
-                    
+                    self.showToastWithDuration(string: "File Upload Failed", duration: 3.0)
                 }
-            })        }
+            })
+        }
     }
     
     

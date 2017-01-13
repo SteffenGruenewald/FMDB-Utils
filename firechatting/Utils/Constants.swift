@@ -89,6 +89,7 @@ class Constants {
     static let USER_LOCATIONCHANGEDTIME = "user_lacationchangedtime"
     static let USER_MAPMESSAGE = "user_mapmessage"
     static let USER_OUTSTATUS = "user_outstatus"
+    static let USER_OUTFILENAME = "user_outFileName"
 
 
 
