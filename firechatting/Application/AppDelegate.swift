@@ -125,17 +125,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
                 }
 
             })
+            currentUser.user_latitude = (location?.coordinate.latitude)! as Double
+            currentUser.user_longitude = (location?.coordinate.longitude)! as Double
+            
+            
+            FirebaseUserAuthentication.getAllUsers(completion: {
+                users in
+                globalUsersArray = users
+            })
 
         }
-        currentUser.user_latitude = (location?.coordinate.latitude)! as Double
-        currentUser.user_longitude = (location?.coordinate.longitude)! as Double
         manager.stopUpdatingLocation()
-
-        FirebaseUserAuthentication.getAllUsers(completion: {
-            users in
-            globalUsersArray = users
-        })
-        
     }
 
 
