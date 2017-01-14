@@ -224,7 +224,6 @@ class FirebaseUserAuthentication{
                 var friends :[FriendModel] = []
                 for ref in childref!{
                     let postDict = ref.value as? NSDictionary
-
                     if(postDict != nil){
                         //NSLog("\(postDict)")
                         let friend = FriendModel()
