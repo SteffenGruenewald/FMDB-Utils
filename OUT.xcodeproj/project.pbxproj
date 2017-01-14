@@ -56,8 +56,6 @@
 		F6C589B91E247F0A006A9CC8 /* OuttickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C589B81E247F0A006A9CC8 /* OuttickerViewController.swift */; };
 		F6C9B4BC1E27B5BB00EF7FCB /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9B4BB1E27B5BB00EF7FCB /* MediaView.swift */; };
 		F6C9B4BE1E28DA9C00EF7FCB /* MyFriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9B4BD1E28DA9C00EF7FCB /* MyFriendListViewController.swift */; };
-		F6C9B4C01E292C4A00EF7FCB /* FriendsOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9B4BF1E292C4A00EF7FCB /* FriendsOutTableViewCell.swift */; };
-		F6C9B4C21E292C8C00EF7FCB /* MyfriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C9B4C11E292C8C00EF7FCB /* MyfriendsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,8 +116,6 @@
 		F6C589B81E247F0A006A9CC8 /* OuttickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OuttickerViewController.swift; sourceTree = "<group>"; };
 		F6C9B4BB1E27B5BB00EF7FCB /* MediaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaView.swift; path = Chatting/MediaView.swift; sourceTree = "<group>"; };
 		F6C9B4BD1E28DA9C00EF7FCB /* MyFriendListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFriendListViewController.swift; sourceTree = "<group>"; };
-		F6C9B4BF1E292C4A00EF7FCB /* FriendsOutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsOutTableViewCell.swift; sourceTree = "<group>"; };
-		F6C9B4C11E292C8C00EF7FCB /* MyfriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyfriendsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,8 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				F6C9B4BD1E28DA9C00EF7FCB /* MyFriendListViewController.swift */,
-				F6C9B4BF1E292C4A00EF7FCB /* FriendsOutTableViewCell.swift */,
-				F6C9B4C11E292C8C00EF7FCB /* MyfriendsTableViewCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -548,14 +542,12 @@
 				3A2D84891E0635860069BFC1 /* DateExtension.swift in Sources */,
 				3A2D848C1E0635860069BFC1 /* FirebaseUserAuthentication.swift in Sources */,
 				3A2D84701E0635860069BFC1 /* ChatHistoryTableViewCell.swift in Sources */,
-				F6C9B4C21E292C8C00EF7FCB /* MyfriendsTableViewCell.swift in Sources */,
 				3A2D84811E0635860069BFC1 /* UserTableViewCell.swift in Sources */,
 				3A8B4CE81E13F02900081169 /* FMDBManager.swift in Sources */,
 				3A2D847C1E0635860069BFC1 /* LoginViewController.swift in Sources */,
 				3A2D84771E0635860069BFC1 /* ChattingViewController+Keyboard.swift in Sources */,
 				3A2D84861E0635860069BFC1 /* UserModel.swift in Sources */,
 				F6C589B91E247F0A006A9CC8 /* OuttickerViewController.swift in Sources */,
-				F6C9B4C01E292C4A00EF7FCB /* FriendsOutTableViewCell.swift in Sources */,
 				F6C9B4BE1E28DA9C00EF7FCB /* MyFriendListViewController.swift in Sources */,
 				3A2D84731E0635860069BFC1 /* ChatTextCell.swift in Sources */,
 				3A2D847A1E0635860069BFC1 /* UITableView+ChatAdditions.swift in Sources */,
@@ -711,15 +703,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 3UTAS954SN;
 				INFOPLIST_FILE = "$(SRCROOT)/firechatting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shark.OUT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ce924d71-ef3f-41da-9903-01b61bce1725";
-				PROVISIONING_PROFILE_SPECIFIER = OUT_DEV_PROVISION;
+				PROVISIONING_PROFILE = "335429c9-1f16-4831-be9e-7b46f39b0751";
+				PROVISIONING_PROFILE_SPECIFIER = OUT_DIST_PROVISION;
 				SWIFT_OBJC_BRIDGING_HEADER = "firechatting/Vendor/Firechatting-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -735,15 +727,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 3UTAS954SN;
 				INFOPLIST_FILE = "$(SRCROOT)/firechatting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shark.OUT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ce924d71-ef3f-41da-9903-01b61bce1725";
-				PROVISIONING_PROFILE_SPECIFIER = OUT_DEV_PROVISION;
+				PROVISIONING_PROFILE = "335429c9-1f16-4831-be9e-7b46f39b0751";
+				PROVISIONING_PROFILE_SPECIFIER = OUT_DIST_PROVISION;
 				SWIFT_OBJC_BRIDGING_HEADER = "firechatting/Vendor/Firechatting-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
