@@ -72,16 +72,37 @@ class UserModel{
 
     func initClass(object: [String: AnyObject]){
         //NSLog("\(object)")
+        
+        if(object[Constants.USER_ID] != nil){
         user_id = object[Constants.USER_ID] as! String
+        }
+        if(object[Constants.USER_NAME] != nil){
         user_name = object[Constants.USER_NAME] as! String
+        }
+        if(object[Constants.USER_FIRST_NAME] != nil){
         user_firstName = object[Constants.USER_FIRST_NAME] as! String
+        }
+        if(object[Constants.USER_LAST_NAME] != nil){
         user_lastName = object[Constants.USER_LAST_NAME] as! String
+        }
+        if(object[Constants.USER_PHONE_NUMBER] != nil){
         user_phonenumber = object[Constants.USER_PHONE_NUMBER] as! Int64
+        }
+        if(object[Constants.USER_EMAIL] != nil){
         user_emailAddress = object[Constants.USER_EMAIL] as! String
+        }
+        if(object[Constants.USER_STATUS] != nil){
         user_status = object[Constants.USER_STATUS] as! Int
+        }
+        if(object[Constants.USER_IMAGEURL] != nil){
         user_imageUrl = object[Constants.USER_IMAGEURL] as! String
+        }
+        if(object[Constants.USER_LONGITUDE] != nil){
         user_longitude = object[Constants.USER_LONGITUDE] as! Double
+        }
+        if(object[Constants.USER_LATITUDE] != nil){
         user_latitude = object[Constants.USER_LATITUDE] as! Double
+        }
         if(object[Constants.USER_MAPMESSAGE] != nil){
             user_mapMessage = object[Constants.USER_MAPMESSAGE] as! String
         }
