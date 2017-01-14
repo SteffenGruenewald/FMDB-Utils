@@ -41,12 +41,13 @@ class MyFriendListViewController: BaseViewController {
         myFriendsArray = []
         unFriendsArray = []
         for user in globalUsersArray{
-            if (firebaseUserAuthInstance.isMyFriend(userid: user.user_id) == Constants.FRIEND_FRIEND)
+            if (firebaseUserAuthInstance.isMyFriend(userid: user.user_id) == Constants.FRIEND_UNFRIEND)
             {
-                myFriendsArray.append(user)
+                unFriendsArray.append(user)
             }
             else{
-                unFriendsArray.append(user)
+
+                myFriendsArray.append(user)
             }
         }
     }
@@ -91,11 +92,13 @@ extension MyFriendListViewController:UITableViewDelegate, UITableViewDataSource{
 
             let user = unFriendsArray[indexPath.row]
             cell.lblUsername.text = user.user_firstName + " " + user.user_lastName
+            cell.imvUser.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
         } else {
             print("Hi")
       
             let user = myFriendsArray[indexPath.row]
             cell.lblUsername.text = user.user_firstName + " " + user.user_lastName
+            cell.imvUser.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
         }
         return cell
     }
