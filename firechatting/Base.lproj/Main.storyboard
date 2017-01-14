@@ -2016,11 +2016,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zor-Nj-h9b" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzP-r0-EsS">
+                                        <rect key="frame" x="20" y="23" width="34" height="30"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="PTh-xd-5N4" eventType="touchUpInside" id="QuJ-ia-P6D"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDs-Ju-yOI">
+                                        <rect key="frame" x="142" y="25" width="131" height="26"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.26721748020000002" blue="0.28171187450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="EKs-Pc-Tj1"/>
+                                    <constraint firstItem="bDs-Ju-yOI" firstAttribute="centerX" secondItem="zor-Nj-h9b" secondAttribute="centerX" id="JHk-2r-hzM"/>
+                                    <constraint firstItem="bDs-Ju-yOI" firstAttribute="centerY" secondItem="zor-Nj-h9b" secondAttribute="centerY" multiplier="1.2" id="Mfl-nb-DIO"/>
+                                    <constraint firstItem="OzP-r0-EsS" firstAttribute="leading" secondItem="zor-Nj-h9b" secondAttribute="leading" constant="20" id="RQt-VY-8r5"/>
+                                    <constraint firstItem="OzP-r0-EsS" firstAttribute="centerY" secondItem="bDs-Ju-yOI" secondAttribute="centerY" id="zRE-B2-HZe"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqy-BO-dto" userLabel="FriendsOutView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="334.66666666666669"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="305.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="friends Out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3n-sF-TC7">
-                                        <rect key="frame" x="10" y="50" width="85.666666666666671" height="30"/>
+                                        <rect key="frame" x="10" y="50" width="86" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Kmk-ZX-FMN"/>
                                         </constraints>
@@ -2029,7 +2057,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jU2-bP-HkL" userLabel="TblFriendsOut">
-                                        <rect key="frame" x="0.0" y="90" width="414" height="244.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="90" width="414" height="215.66666666666669"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FriendsOutTableViewCell" rowHeight="52" id="IDu-Jp-T2d" customClass="FriendsOutTableViewCell" customModule="OUT" customModuleProvider="target">
@@ -2083,10 +2111,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="blD-Wy-mrE" userLabel="MyFriendsView">
-                                <rect key="frame" x="0.0" y="334.66666666666674" width="414" height="401.33333333333326"/>
+                                <rect key="frame" x="0.0" y="369.33333333333326" width="414" height="366.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATj-pX-tNj">
-                                        <rect key="frame" x="10" y="10" width="84.666666666666671" height="30"/>
+                                        <rect key="frame" x="10" y="10" width="85" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="D8g-JV-VyW"/>
                                         </constraints>
@@ -2095,7 +2123,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VaF-cU-O8y" userLabel="TblMyFriends">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="351.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="316.66666666666669"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyfriendsTableViewCell" id="GZG-NS-r6X" customClass="MyfriendsTableViewCell" customModule="OUT" customModuleProvider="target">
@@ -2151,18 +2179,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zor-Nj-h9b" firstAttribute="top" secondItem="WQG-3f-lrz" secondAttribute="top" id="69S-8H-tIg"/>
                             <constraint firstAttribute="trailing" secondItem="blD-Wy-mrE" secondAttribute="trailing" id="6HD-r4-5uX"/>
+                            <constraint firstAttribute="trailing" secondItem="zor-Nj-h9b" secondAttribute="trailing" id="Klc-CU-VPP"/>
                             <constraint firstItem="blD-Wy-mrE" firstAttribute="height" secondItem="qqy-BO-dto" secondAttribute="height" multiplier="1.2" id="LaT-bm-eXZ"/>
                             <constraint firstItem="qqy-BO-dto" firstAttribute="leading" secondItem="WQG-3f-lrz" secondAttribute="leading" id="Mev-X1-Rar"/>
                             <constraint firstAttribute="trailing" secondItem="qqy-BO-dto" secondAttribute="trailing" id="NVA-4K-jg6"/>
-                            <constraint firstItem="qqy-BO-dto" firstAttribute="top" secondItem="WQG-3f-lrz" secondAttribute="top" id="Oeb-aZ-8CG"/>
                             <constraint firstItem="blD-Wy-mrE" firstAttribute="top" secondItem="qqy-BO-dto" secondAttribute="bottom" id="RDk-64-6F8"/>
                             <constraint firstItem="blD-Wy-mrE" firstAttribute="leading" secondItem="WQG-3f-lrz" secondAttribute="leading" id="RoX-bD-GQ7"/>
+                            <constraint firstItem="qqy-BO-dto" firstAttribute="top" secondItem="uVO-z8-la1" secondAttribute="bottom" id="b1R-zP-hl9"/>
+                            <constraint firstItem="zor-Nj-h9b" firstAttribute="leading" secondItem="WQG-3f-lrz" secondAttribute="leading" id="qgq-bs-nVP"/>
                             <constraint firstAttribute="bottom" secondItem="blD-Wy-mrE" secondAttribute="bottom" id="vxx-Ul-2fd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ip1-ta-6W5"/>
                     <connections>
+                        <outlet property="btnBack" destination="OzP-r0-EsS" id="JKs-WS-NIb"/>
                         <outlet property="tblFriendsOut" destination="jU2-bP-HkL" id="rB9-0I-cC2"/>
                         <outlet property="tblMyfriends" destination="VaF-cU-O8y" id="3te-C3-VOt"/>
                     </connections>
