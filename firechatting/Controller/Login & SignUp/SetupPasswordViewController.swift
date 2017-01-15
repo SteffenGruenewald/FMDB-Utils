@@ -65,7 +65,8 @@ class SetupPasswordViewController: BaseViewController {
                 if user != nil{
                     currentUser = user!
                     firebaseUserAuthInstance.initClass()
-                    self.gotoMainScene()
+                    self.gotoSwipeViewScene()
+                    
                 }
                 self.showToastWithDuration(string: message, duration: 3.0)
             })

@@ -91,7 +91,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                 userid, success in
                 self.hideLoadingView()
                 if success{
-                    self.gotoMainScene()
+                    self.gotoSwipeViewScene()
                 }
                 else
                 {

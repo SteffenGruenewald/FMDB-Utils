@@ -13,66 +13,27 @@ class MyFriendListViewController: BaseViewController {
     
     @IBOutlet weak var tblFriendsOut: UITableView!
     @IBOutlet weak var tblMyfriends: UITableView!
-<<<<<<< HEAD
-    @IBOutlet weak var btnBack: UIButton!
-    var myFriendsArray: [FriendModel] = []
-    
-=======
 
     var myFriendsArray: [UserModel] = []
     var unFriendsArray: [UserModel] = []
 
 
->>>>>>> a170ee1e7e363c9507b756f913c0cb6357939989
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        // Do any additional setup after loading the view.
         self.navigationController?.isNavigationBarHidden = true
-<<<<<<< HEAD
-        
-        let viewControllers = self.navigationController?.viewControllers
-        
-        
-        if viewControllers?.count == 1
-        {
-            btnBack.isHidden = true
-        }
-        else
-        {
-            btnBack.isHidden = false
-        }
-=======
 
 
->>>>>>> a170ee1e7e363c9507b756f913c0cb6357939989
         // Do any additional setup after loading the view.
         
         tblFriendsOut.separatorColor = .clear
         tblMyfriends.separatorColor = .clear
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        getFriendsOut()
-        getFriends()
-    }
-        
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-<<<<<<< HEAD
-    func getFriendsOut(){
-        
-        self.myFriendsArray = myFriends
-        self.tblMyfriends.reloadData()
-    }
-    func getFriends() {
-        
-    }
-=======
 
     override func viewWillAppear(_ animated: Bool) {
         setLists()
@@ -95,8 +56,11 @@ class MyFriendListViewController: BaseViewController {
     }
 
 
+    @IBAction func backBtnTapped(_ sender: Any) {
 
->>>>>>> a170ee1e7e363c9507b756f913c0cb6357939989
+       _ = self.navigationController?.popViewController(animated: true)
+    }
+
     
 
     /*
@@ -114,16 +78,6 @@ class MyFriendListViewController: BaseViewController {
 extension MyFriendListViewController:UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-<<<<<<< HEAD
-        
-        if tableView == tblFriendsOut{
-      
-            return 10
-        } else {
-         
-            return myFriendsArray.count
-        }
-=======
         var count = 0
         if(tblMyfriends == tableView){
             count = myFriendsArray.count
@@ -133,7 +87,6 @@ extension MyFriendListViewController:UITableViewDelegate, UITableViewDataSource{
         }
       
         return count
->>>>>>> a170ee1e7e363c9507b756f913c0cb6357939989
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -149,19 +102,10 @@ extension MyFriendListViewController:UITableViewDelegate, UITableViewDataSource{
             cell.imvUser.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
         } else {
             print("Hi")
-<<<<<<< HEAD
-             let user_myFriends = myFriendsArray[indexPath.row]
-            let cell:MyfriendsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MyfriendsTableViewCell") as! MyfriendsTableViewCell
-            cell.imvMyfriends.setImageWith(storageRefString: user_myFriends.friend_user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
-            cell.lblMyfriendsUserName.text = user_myFriends.friend_user.user_name
-            
-            return cell
-=======
       
             let user = myFriendsArray[indexPath.row]
             cell.lblUsername.text = user.user_firstName + " " + user.user_lastName
             cell.imvUser.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
->>>>>>> a170ee1e7e363c9507b756f913c0cb6357939989
         }
         return cell
     }

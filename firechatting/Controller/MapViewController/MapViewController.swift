@@ -184,5 +184,22 @@ class MapViewController: BaseViewController, MKMapViewDelegate{
 
         })
     }
+
+    @IBAction func settingBtnTapped(_ sender: Any) {
+        let settingViewCon = self.storyboard?.instantiateViewController(withIdentifier: "SettingsViewController")
+        
+        self.navigationController?.pushViewController(settingViewCon!, animated:true)
+    }
+
+    @IBAction func gotoSearchUserTapped(_ sender: Any) {
+        let searchUserViewCon = self.storyboard?.instantiateViewController(withIdentifier: "SearchUserViewController")
+        
+        self.navigationController?.pushViewController(searchUserViewCon!, animated:true)
+    }
    
+    @IBAction func gotoFriendBtnTapped(_ sender: Any) {
+        let myFriendViewCon = self.storyboard?.instantiateViewController(withIdentifier: "MyFriendListViewController")
+        
+        self.navigationController?.pushViewController(myFriendViewCon!, animated:true)
+    }
 }

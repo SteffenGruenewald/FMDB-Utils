@@ -52,10 +52,11 @@ class BaseViewController: UIViewController {
     }
 
 
-    func gotoMainScene()
+    func gotoSwipeViewScene()
     {
-        let mainTabBar = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBar")
-        self.present(mainTabBar!, animated: true, completion: nil)
+        let swipeViewCon = self.storyboard?.instantiateViewController(withIdentifier: "SwipeViewController")
+     
+        self.navigationController?.pushViewController(swipeViewCon!, animated:true)
     }
 
     func gotoStartScene()
