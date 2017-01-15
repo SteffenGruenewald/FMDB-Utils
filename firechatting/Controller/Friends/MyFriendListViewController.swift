@@ -25,6 +25,9 @@ class MyFriendListViewController: BaseViewController {
 
 
         // Do any additional setup after loading the view.
+        
+        tblFriendsOut.separatorColor = .clear
+        tblMyfriends.separatorColor = .clear
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +56,10 @@ class MyFriendListViewController: BaseViewController {
     }
 
 
+    @IBAction func backBtnTapped(_ sender: Any) {
+
+       _ = self.navigationController?.popViewController(animated: true)
+    }
 
     
 

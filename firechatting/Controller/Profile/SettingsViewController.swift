@@ -77,5 +77,8 @@ class SettingsViewController: BaseViewController, UITextViewDelegate {
         profileSettingVC.fromSettings = true
         self.navigationController?.pushViewController(profileSettingVC, animated: true)
     }
+    @IBAction func backBtnTapped(_ sender: Any) {
+        _ = self.navigationController?.popViewController(animated:true)
+    }
 
 }

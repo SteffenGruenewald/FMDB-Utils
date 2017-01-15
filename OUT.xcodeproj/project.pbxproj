@@ -192,7 +192,6 @@
 		3A2D843E1E0635860069BFC1 /* Chatting */ = {
 			isa = PBXGroup;
 			children = (
-				3A6264CF1E09C12400085E7A /* ChattingHistory */,
 				3A6264D01E09C13300085E7A /* ChattingVIewController */,
 			);
 			path = Chatting;
@@ -209,6 +208,7 @@
 		3A2D844C1E0635860069BFC1 /* Login & SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				3A6264CF1E09C12400085E7A /* ChattingHistory */,
 				3A2D844D1E0635860069BFC1 /* LoginViewController.swift */,
 				3A2D844E1E0635860069BFC1 /* SignUpViewController.swift */,
 				3A86729D1E0B33D500BC5C70 /* SetupPasswordViewController.swift */,
@@ -296,6 +296,7 @@
 				3A2D843F1E0635860069BFC1 /* ChatHistoryTableViewCell.swift */,
 			);
 			name = ChattingHistory;
+			path = ../Chatting;
 			sourceTree = "<group>";
 		};
 		3A6264D01E09C13300085E7A /* ChattingVIewController */ = {
