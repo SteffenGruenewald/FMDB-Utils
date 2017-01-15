@@ -30,6 +30,8 @@ class UserModel{
     var user_mapMessage = ""
     var user_outStatus = true
     var user_outFileName = ""
+    
+  //  var user_friendModel : [FriendModel] = []
 
 
     static let localTableName = Constants.FIR_USERINFODIRECTORY

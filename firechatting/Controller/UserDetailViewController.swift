@@ -62,7 +62,7 @@ class UserDetailViewController: BaseViewController {
         if  isMyFriend == Constants.FRIEND_UNFRIEND
         {
             showLoadingView()
-            firebaseUserAuthInstance.requestFriend(userid: user.user_id, completion: {
+            firebaseUserAuthInstance.requestFriend(userid: user.user_id,friendStatus:Constants.FRIEND_PENDING,completion: {
                 message in
                 self.hideLoadingView()
                 if message == Constants.SUCCESS_PROCESS
@@ -93,7 +93,7 @@ class UserDetailViewController: BaseViewController {
     }
 
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
 }

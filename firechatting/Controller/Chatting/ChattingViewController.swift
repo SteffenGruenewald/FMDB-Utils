@@ -93,11 +93,7 @@ class ChattingViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func backButtonTapped(_ sender: Any) {
 
-        _ = self.navigationController?.popViewController(animated: true)
-
-    }
 
     @IBAction func sendButtonTapped(_ sender: Any) {
         if (inputTextView.text!.characters.count > 0){

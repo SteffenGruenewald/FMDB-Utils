@@ -1,73 +1,47 @@
 //
-//  MyFriendListViewController.swift
+//  AddedMeFriendsListViewController.swift
 //  OUT
 //
-//  Created by MidnightSun on 1/13/17.
+//  Created by MidnightSun on 1/15/17.
 //  Copyright © 2017 Huijing. All rights reserved.
 //
 
 import UIKit
 
-class MyFriendListViewController: BaseViewController {
-    
-    
-    @IBOutlet weak var tblFriendsOut: UITableView!
-    @IBOutlet weak var tblMyfriends: UITableView!
+class AddedMeFriendsListViewController: BaseViewController {
 
+    @IBOutlet weak var tblAddedMeFriends: UITableView!
     var myFriendsArray: [UserModel] = []
-    var unFriendsArray: [UserModel] = []
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.isNavigationBarHidden = true
-
-
         // Do any additional setup after loading the view.
         
-        tblFriendsOut.separatorColor = .clear
-        tblMyfriends.separatorColor = .clear
+        self.navigationController?.isNavigationBarHidden = true
+        tblAddedMeFriends.separatorColor = .clear
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         setLists()
     }
-
+    
     func setLists()
     {
         myFriendsArray = []
-        unFriendsArray = []
+       
         for user in globalUsersArray{
-            if (firebaseUserAuthInstance.isMyFriend(userid: user.user_id) == Constants.FRIEND_UNFRIEND)
-            {
-                unFriendsArray.append(user)
-            }
-            else{
-
+       
+                
                 myFriendsArray.append(user)
-            }
+         
         }
     }
-
-
-    @IBAction func backBtnTapped(_ sender: Any) {
-        
-            _ = self.navigationController?.popViewController(animated: true)
-    }
-
-    @IBAction func nextBtnTapped(_ sender: Any) {
-        let addMeFrinedsViewCon = self.storyboard?.instantiateViewController(withIdentifier: "AddedMeFriendsListViewController")
-        
-        self.navigationController?.pushViewController(addMeFrinedsViewCon!, animated:true)
-    }
-    
-
     /*
     // MARK: - Navigation
 
@@ -78,19 +52,26 @@ class MyFriendListViewController: BaseViewController {
     }
     */
 
+
+    @IBAction func backBtnTapped(_ sender: Any) {
+          _ = self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func nextBtnTapped(_ sender: Any) {
+        
+        let addFrinedsViewCon = self.storyboard?.instantiateViewController(withIdentifier: "AddFriendsViewController")
+        
+        self.navigationController?.pushViewController(addFrinedsViewCon!, animated:true)
+    }
+    
 }
 
-extension MyFriendListViewController:UITableViewDelegate, UITableViewDataSource{
+extension AddedMeFriendsListViewController:UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
-        if(tblMyfriends == tableView){
-            count = myFriendsArray.count
-        }
-        else{
-            count = unFriendsArray.count
-        }
-      
+        
+        count = myFriendsArray.count
+    
         return count
     }
     
@@ -100,28 +81,24 @@ extension MyFriendListViewController:UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell") as! UserTableViewCell
-        if tableView == tblFriendsOut{
-
-            let user = unFriendsArray[indexPath.row]
-            cell.lblUsername.text = user.user_firstName + " " + user.user_lastName
-            cell.imvUser.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
-        } else {
-            print("Hi")
       
+            print("Hi")
+            
             let user = myFriendsArray[indexPath.row]
             cell.lblUsername.text = user.user_firstName + " " + user.user_lastName
             cell.imvUser.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
-        }
+      
         return cell
     }
     
-
-  
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         print("selected")
         
     }
- 
+    
     
 }
+

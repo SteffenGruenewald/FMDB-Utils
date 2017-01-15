@@ -110,6 +110,16 @@ class Constants {
     static let FRIEND_FRIEND = 0
     static let FRIEND_UNFRIEND = 10
     static let FRIEND_BLOCKED = 8
+    static let FRIEND_BLOCK = 9
+    static let FRIEND_RECEIVED = 1
+    static let FRIEND_REMOVED = 7
+    
+    //friend event status
+    
+    static let FRIEND_EVENT_REQUEST = 0
+    static let FRIEND_EVENT_ACCEPT = 1
+    static let FRIEND_EVENT_REMOVE = 2
+    static let FRIEND_EVENT_BLOCK = 3
 
     //user status values
 

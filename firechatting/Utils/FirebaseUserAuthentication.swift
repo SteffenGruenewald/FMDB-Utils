@@ -26,14 +26,12 @@ class FirebaseUserAuthentication{
     {
         createUserReference(userid: currentUser.user_id)
         createMyFriendReference(userid: currentUser.user_id)
-
     }
 
     //create user info reference
     func createUserReference(userid: String){
-
+        
         userRef = FIRDatabase.database().reference(withPath: Constants.FIR_USERINFODIRECTORY).child(userid).child(Constants.FIR_MYINFODIRECTORY)
-
     }
 
     //create friend info reference
@@ -102,14 +100,40 @@ class FirebaseUserAuthentication{
     }
 
     //this function make friend request from server
-    func requestFriend(userid: String, completion: @escaping (String) -> ())
+    func requestFriend(userid: String,friendStatus: Int, completion: @escaping (String) -> ())
     {
+        var friend_status = 0
+        var my_status = 0
+        
+        switch friendStatus {
+        case Constants.FRIEND_EVENT_REQUEST:
+            friend_status = Constants.FRIEND_RECEIVED
+            my_status =  Constants.FRIEND_PENDING
+            break
+        case Constants.FRIEND_EVENT_ACCEPT:
+            friend_status = Constants.FRIEND_FRIEND
+            my_status = Constants.FRIEND_FRIEND
+            break
+        case Constants.FRIEND_EVENT_REMOVE:
+            friend_status = Constants.FRIEND_REMOVED
+            my_status = Constants.FRIEND_REMOVED
+            break
+        case Constants.FRIEND_EVENT_BLOCK:
+            friend_status = Constants.FRIEND_BLOCKED
+            my_status = Constants.FRIEND_BLOCK
+            break
+        default:
+            break
+        }
+        
+        
+        
         let friendRequestRef = FIRDatabase.database().reference(withPath: Constants.FIR_USERINFODIRECTORY).child(userid).child(Constants.FIR_FRIENDDIRECTORY).child(currentUser.user_id)
         var friend = FriendModel()
         friend.friend_user.user_id = currentUser.user_id
         friend.friend_lastmessage = currentUser.user_name + " wants to add you to contacts"
         friend.friend_roomid = currentUser.user_id + userid
-        friend.friend_status = Constants.FRIEND_PENDING
+        friend.friend_status = friend_status
         friend.friend_lastmessagetime = getGlobalTime()
         friend.friend_unreadmessagecount = 1
         friendRequestRef.setValue(getFriendInfoObject(friend: friend), withCompletionBlock: {
@@ -125,7 +149,7 @@ class FirebaseUserAuthentication{
                 friend.friend_user = FirebaseUserAuthentication.getUserFromUserid(userid)!
                 friend.friend_lastmessage = "Already sent request"
                 friend.friend_roomid = currentUser.user_id + userid
-                friend.friend_status = Constants.FRIEND_PENDING
+                friend.friend_status = my_status
                 friend.friend_lastmessagetime = getGlobalTime()
                 friend.friend_unreadmessagecount = 1
 
@@ -149,6 +173,8 @@ class FirebaseUserAuthentication{
     //function for remove friend from contacts
     func removeFriend(userid: String, completion: @escaping (String) ->())
     {
+        
+
         let friendRequestRef = FIRDatabase.database().reference(withPath: Constants.FIR_USERINFODIRECTORY).child(userid).child(Constants.FIR_FRIENDDIRECTORY).child(currentUser.user_id)
 
         friendRequestRef.removeValue(completionBlock: { (error, refer) in
@@ -270,7 +296,13 @@ class FirebaseUserAuthentication{
         }
         return Constants.FRIEND_UNFRIEND
     }
-
+    
+  /*  func addMeAsFriend(userid: String) -> Int {
+        
+        
+           
+        
+    }*/
 
 
     static func getUserFromUserid(_ id: String) -> UserModel?{
