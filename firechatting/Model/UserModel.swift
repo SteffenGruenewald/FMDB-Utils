@@ -16,7 +16,7 @@ class UserModel{
     var user_name = ""
     var user_firstName = ""
     var user_lastName = ""
-    var user_phonenumber : Int64 = 0
+    var user_phonenumber : String = ""
     var user_securitycode : Int64 = 0
     var user_emailAddress = ""
     var user_status = 0
@@ -40,7 +40,7 @@ class UserModel{
                                    Constants.USER_NAME: "TEXT",
                                    Constants.USER_FIRST_NAME: "TEXT",
                                    Constants.USER_LAST_NAME: "TEXT",
-                                   Constants.USER_PHONE_NUMBER: "BIGINT",
+                                   Constants.USER_PHONE_NUMBER: "TEXT",
                                    Constants.USER_EMAIL: "TEXT",
                                    Constants.USER_STATUS: "INT",
                                    Constants.USER_IMAGEURL: "TEXT",
@@ -67,6 +67,7 @@ class UserModel{
         post[Constants.USER_LONGITUDE] = user_longitude as AnyObject?
         post[Constants.USER_LATITUDE] = user_latitude as AnyObject?
         post[Constants.USER_MAPMESSAGE] = user_mapMessage as AnyObject?
+        post[Constants.USER_PHONE_NUMBER] = user_phonenumber as AnyObject?
         post[Constants.USER_OUTSTATUS] = user_outStatus as AnyObject?
         post[Constants.USER_OUTFILENAME] = user_outFileName as AnyObject?
         return post
@@ -88,7 +89,7 @@ class UserModel{
         user_lastName = object[Constants.USER_LAST_NAME] as! String
         }
         if(object[Constants.USER_PHONE_NUMBER] != nil){
-        user_phonenumber = object[Constants.USER_PHONE_NUMBER] as! Int64
+        user_phonenumber = object[Constants.USER_PHONE_NUMBER] as! String
         }
         if(object[Constants.USER_EMAIL] != nil){
         user_emailAddress = object[Constants.USER_EMAIL] as! String

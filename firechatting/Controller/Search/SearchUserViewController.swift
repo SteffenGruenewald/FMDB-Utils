@@ -56,10 +56,23 @@ class SearchUserViewController: BaseViewController {
 
     }
 
-    func getStringMatchUsers(_ keyword: String)
-    {
+    func getMatchUsers(with: String, users: [UserModel]) -> [UserModel]{
 
+        if(with.characters.count == 0)
+        {
+            return users
+        }
+
+        var result: [UserModel] = []
+        for user in users{
+            let string = user.user_name
+            if(string.lowercased().contains(with.lowercased())){
+                result.append(user)
+            }
+        }
+        return result
     }
+
     @IBAction func backButtonTapped(_ sender: Any) {
         
        _ = self.navigationController?.popViewController(animated: true)
@@ -97,7 +110,7 @@ extension SearchUserViewController:UITableViewDelegate, UITableViewDataSource{
 
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "UserDetailViewController") as! UserDetailViewController
         detailVC.user = searchUsersArray[rowIndex]
-        detailVC.hidesBottomBarWhenPushed = true
+        //detailVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(detailVC, animated: true)
 
     }
@@ -109,7 +122,8 @@ extension SearchUserViewController:UITableViewDelegate, UITableViewDataSource{
 extension SearchUserViewController: UISearchBarDelegate{
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        getStringMatchUsers(searchText)
+        searchUsersArray = getMatchUsers(with: searchBar.text!, users: globalUsersArray)
+        self.tblUserList.reloadData()
     }
 
 

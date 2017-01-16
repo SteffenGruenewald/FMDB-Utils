@@ -11,12 +11,16 @@ import MapKit
 import FirebaseStorageUI
 
 
-class MapViewController: BaseViewController, MKMapViewDelegate{
+class MapViewController: BaseViewController{
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var txtmessageContentView: UITextView!
     @IBOutlet weak var imvFriend: UIImageView!
     @IBOutlet weak var lblName: UILabel!
+
+    @IBOutlet weak var tblFriends: UITableView!
+
+    var outFriendsArray : [FriendModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +42,16 @@ class MapViewController: BaseViewController, MKMapViewDelegate{
 
 
     override func viewWillAppear(_ animated: Bool) {
+        outFriendsArray = firebaseUserAuthInstance.getOutFriends(friends: myFriends)
         arrangeFriends()
     }
 
 
     func arrangeFriends() {
         var index = 0
+
         mapView.removeAnnotations(mapView.annotations)
-        for friend in myFriends{
+        for friend in outFriendsArray{
             index += 1
             let info = StarbuckAnnotation(coordinate: CLLocationCoordinate2D(latitude: friend.friend_user.user_latitude, longitude: friend.friend_user.user_longitude))
             info.friend = friend
@@ -55,6 +61,8 @@ class MapViewController: BaseViewController, MKMapViewDelegate{
         }
 
         setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentUser.user_latitude, longitude: currentUser.user_longitude), spanRadius : 1609.00*(UserDefaults.standard.value(forKey: "distance") as! Double), animated: true)
+
+        tblFriends.reloadData()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -70,78 +78,6 @@ class MapViewController: BaseViewController, MKMapViewDelegate{
         let span = 2.0 * spanRadius
         let region = MKCoordinateRegionMakeWithDistance(location, span, span)
         mapView.setRegion(region, animated: animated)
-    }
-
-
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation
-        {
-            return nil
-        }
-        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
-        if annotationView == nil{
-            annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
-            annotationView?.canShowCallout = false
-        }else{
-            annotationView?.annotation = annotation
-        }
-
-        let imageView = UIImageView()
-        let customAnnotation = annotation as! StarbuckAnnotation
-
-        imageView.setImageWith(storageRefString: customAnnotation.friend.friend_user.user_imageUrl, placeholderImage: UIImage(named:"ic_user_placeholder")!)
-        let image = CommonUtils.resizeImage(image: imageView.image!, targetSize: CGSize(width: 30, height: 30))
-
-        annotationView?.layer.cornerRadius = 15
-        annotationView?.layer.masksToBounds = true
-        /*annotationView?.layer.borderWidth = 1.5
-        annotationView?.layer.borderColor = UIColor.white.cgColor*/
-        annotationView?.image = image
-        return annotationView
-
-    }
-
-
-    func mapView(_ mapView: MKMapView,
-                 didSelect view: MKAnnotationView)
-    {
-        // 1
-        if view.annotation is MKUserLocation
-        {
-            // Don't proceed with custom callout
-            return
-        }
-        let starbucksAnnotation = view.annotation as! StarbuckAnnotation
-        currentFriend = starbucksAnnotation.friend.friend_user
-        currentRoomid = starbucksAnnotation.friend.friend_roomid
-
-        lblName.text = currentFriend.user_firstName + " " + currentFriend.user_lastName
-        imvFriend.setImageWith(storageRefString: currentFriend.user_imageUrl, placeholderImage: UIImage(named:"icon_user_placeholder")!)
-        txtmessageContentView.text = currentFriend.user_mapMessage
-
-
-        let label = UILabel()
-        label.text = currentFriend.user_currentLocationName + " (\(CommonUtils.getTimeString(from: (getGlobalTime() - currentFriend.user_locationChangedTime)/1000)))"
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = UIColor.white
-        NSLog(currentFriend.user_currentLocationName)
-        label.frame = CGRect(x: 15 - label.intrinsicContentSize.width/2, y: -15, width: label.intrinsicContentSize.width, height: label.intrinsicContentSize.height)
-
-        view.layer.masksToBounds = false
-        view.addSubview(label)
-
-    }
-
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-        if view.isKind(of: AnnotationView.self)
-        {
-            for subview in view.subviews
-            {
-                subview.removeFromSuperview()
-            }
-
-            view.layer.masksToBounds = true
-        }
     }
 
 
@@ -191,7 +127,7 @@ class MapViewController: BaseViewController, MKMapViewDelegate{
         self.navigationController?.pushViewController(settingViewCon!, animated:true)
     }
 
-    @IBAction func gotoSearchUserTapped(_ sender: Any) {
+    @IBAction func gotoSearchUserTapped(_ sender: UIButton) {
         let searchUserViewCon = self.storyboard?.instantiateViewController(withIdentifier: "SearchUserViewController")
         
         self.navigationController?.pushViewController(searchUserViewCon!, animated:true)
@@ -201,5 +137,116 @@ class MapViewController: BaseViewController, MKMapViewDelegate{
         let myFriendViewCon = self.storyboard?.instantiateViewController(withIdentifier: "MyFriendListViewController")
         
         self.navigationController?.pushViewController(myFriendViewCon!, animated:true)
+    }
+}
+
+
+extension MapViewController: MKMapViewDelegate{
+
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation
+        {
+            return nil
+        }
+        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
+        if annotationView == nil{
+            annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+            annotationView?.canShowCallout = false
+        }else{
+            annotationView?.annotation = annotation
+        }
+
+        let imageView = UIImageView()
+        let customAnnotation = annotation as! StarbuckAnnotation
+
+        imageView.setImageWith(storageRefString: customAnnotation.friend.friend_user.user_imageUrl, placeholderImage: UIImage(named:"ic_user_placeholder")!)
+        let image = CommonUtils.resizeImage(image: imageView.image!, targetSize: CGSize(width: 30, height: 30))
+
+        annotationView?.layer.cornerRadius = 15
+        annotationView?.layer.masksToBounds = true
+        /*annotationView?.layer.borderWidth = 1.5
+         annotationView?.layer.borderColor = UIColor.white.cgColor*/
+        annotationView?.image = image
+        return annotationView
+
+    }
+
+
+    func mapView(_ mapView: MKMapView,
+                 didSelect view: MKAnnotationView)
+    {
+        // 1
+        if view.annotation is MKUserLocation
+        {
+            // Don't proceed with custom callout
+            return
+        }
+        let starbucksAnnotation = view.annotation as! StarbuckAnnotation
+        currentFriend = starbucksAnnotation.friend.friend_user
+        currentRoomid = starbucksAnnotation.friend.friend_roomid
+
+        lblName.text = currentFriend.user_firstName + " " + currentFriend.user_lastName
+        imvFriend.setImageWith(storageRefString: currentFriend.user_imageUrl, placeholderImage: UIImage(named:"icon_user_placeholder")!)
+        txtmessageContentView.text = currentFriend.user_mapMessage
+
+
+        let label = UILabel()
+        label.text = currentFriend.user_currentLocationName + " (\(CommonUtils.getTimeString(from: (getGlobalTime() - currentFriend.user_locationChangedTime)/1000)))"
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = UIColor.white
+        NSLog(currentFriend.user_currentLocationName)
+        label.frame = CGRect(x: 15 - label.intrinsicContentSize.width/2, y: -15, width: label.intrinsicContentSize.width, height: label.intrinsicContentSize.height)
+
+        view.layer.masksToBounds = false
+        view.addSubview(label)
+
+        tblFriends.isHidden = true
+
+    }
+
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        if view.isKind(of: AnnotationView.self)
+        {
+            for subview in view.subviews
+            {
+                subview.removeFromSuperview()
+            }
+            view.layer.masksToBounds = true
+        }
+    }
+
+}
+
+
+extension MapViewController: UITableViewDelegate, UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return outFriendsArray.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let index = indexPath.row
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell") as! UserTableViewCell
+        let user = outFriendsArray[index].friend_user
+        cell.imvUser.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named: "icon_user_placeholder")!)
+        cell.lblUsername.text = user.user_firstName + " " + user.user_lastName
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "UserDetailViewController") as! UserDetailViewController
+        detailVC.user = outFriendsArray[index].friend_user
+        //detailVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
     }
 }

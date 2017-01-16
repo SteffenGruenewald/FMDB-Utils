@@ -146,6 +146,7 @@ class Constants {
 
     static let ERROR_EMPTY_EMAIL = "Please input email address"
     static let ERROR_INVALID_EMAIL = "Please input valid email address"
+    static let ERROR_EMPTY_PASSCODE = "Please input passcode for security"
     static let ERROR_EMPTY_PASSWORD = "Please input password"
     static let ERROR_INVALID_PASSWORD = "Password need to have more than 6 characters"
 

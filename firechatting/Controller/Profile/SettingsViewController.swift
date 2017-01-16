@@ -44,6 +44,7 @@ class SettingsViewController: BaseViewController, UITextViewDelegate {
     @IBAction func btnLogoutTapped(_ sender: UIButton) {
         defaults.removeObject(forKey: Constants.USER_EMAIL)
         defaults.removeObject(forKey: Constants.USER_PASSWORD)
+        defaults.removeObject(forKey: Constants.USER_ID)
         firebaseUserAuthInstance.signOut(completion: {
             success in
             if success{

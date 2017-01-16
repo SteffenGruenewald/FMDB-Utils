@@ -68,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
         updateTimer()
 
         UserDefaults.standard.set(25, forKey: "distance")
-
         connectToFcm()
 
         return true
@@ -132,7 +131,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,CLLocationManagerDelegate 
             FirebaseUserAuthentication.getAllUsers(completion: {
                 users in
                 globalUsersArray = users
+                var friendsArray : [FriendModel] = []
+                for friend in myFriends{
+                    let user = FirebaseUserAuthentication.getUserFromUserid(friend.friend_user.user_id)
+                    if user != nil{
+                        friend.friend_user = user!
+                        friendsArray.append(friend)
+                    }
+                }
+                myFriends = friendsArray
             })
+
 
         }
         manager.stopUpdatingLocation()

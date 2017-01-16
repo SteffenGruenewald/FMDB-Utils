@@ -43,6 +43,7 @@
 		3A2D84901E0635860069BFC1 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2D84691E0635860069BFC1 /* UIPlaceHolderTextView.m */; };
 		3A3425FD1E15E83000B7C5C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */; };
 		3A3425FF1E15E9C400B7C5C6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3425FE1E15E9C400B7C5C6 /* SettingsViewController.swift */; };
+		3A60BAFC1E2CAED000F552E7 /* PassCodeCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A60BAFB1E2CAED000F552E7 /* PassCodeCheckViewController.swift */; };
 		3A8374221E21EECE00A59F77 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8374211E21EECE00A59F77 /* SwipeViewController.swift */; };
 		3A86729E1E0B33D500BC5C70 /* SetupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86729D1E0B33D500BC5C70 /* SetupPasswordViewController.swift */; };
 		3A8672A01E0B3D7E00BC5C70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A86729F1E0B3D7E00BC5C70 /* GoogleService-Info.plist */; };
@@ -100,6 +101,7 @@
 		3A2D84691E0635860069BFC1 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = MapViewController/MapViewController.swift; sourceTree = "<group>"; };
 		3A3425FE1E15E9C400B7C5C6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3A60BAFB1E2CAED000F552E7 /* PassCodeCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassCodeCheckViewController.swift; sourceTree = "<group>"; };
 		3A8374211E21EECE00A59F77 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeViewController.swift; path = MapViewController/SwipeViewController.swift; sourceTree = "<group>"; };
 		3A86729D1E0B33D500BC5C70 /* SetupPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupPasswordViewController.swift; sourceTree = "<group>"; };
 		3A86729F1E0B3D7E00BC5C70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -173,12 +175,12 @@
 		3A2D843B1E0635860069BFC1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F6C589B71E247E10006A9CC8 /* Outticker */,
-				3A3425FB1E15E7EE00B7C5C6 /* MapviewController */,
 				3A2D843C1E0635860069BFC1 /* Base */,
+				3A2D844C1E0635860069BFC1 /* Login & SignUp */,
+				3A3425FB1E15E7EE00B7C5C6 /* MapviewController */,
+				F6C589B71E247E10006A9CC8 /* Outticker */,
 				3A2D843E1E0635860069BFC1 /* Chatting */,
 				3A2D844A1E0635860069BFC1 /* Friends */,
-				3A2D844C1E0635860069BFC1 /* Login & SignUp */,
 				3A2D844F1E0635860069BFC1 /* Profile */,
 				3A2D84511E0635860069BFC1 /* Search */,
 			);
@@ -218,6 +220,7 @@
 				3A2D844D1E0635860069BFC1 /* LoginViewController.swift */,
 				3A2D844E1E0635860069BFC1 /* SignUpViewController.swift */,
 				3A86729D1E0B33D500BC5C70 /* SetupPasswordViewController.swift */,
+				3A60BAFB1E2CAED000F552E7 /* PassCodeCheckViewController.swift */,
 			);
 			path = "Login & SignUp";
 			sourceTree = "<group>";
@@ -440,7 +443,7 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 3UTAS954SN;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -572,6 +575,7 @@
 				3A3425FD1E15E83000B7C5C6 /* MapViewController.swift in Sources */,
 				3A2D847E1E0635860069BFC1 /* MyProfileViewController.swift in Sources */,
 				3A2D84801E0635860069BFC1 /* UserDetailViewController.swift in Sources */,
+				3A60BAFC1E2CAED000F552E7 /* PassCodeCheckViewController.swift in Sources */,
 				3A2D84851E0635860069BFC1 /* MessageModel.swift in Sources */,
 				F618448E1E2B649100B1DC5D /* AddedMeFriendsListViewController.swift in Sources */,
 				3A2D848B1E0635860069BFC1 /* FirebaseStorageUtils.swift in Sources */,
@@ -713,14 +717,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3UTAS954SN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/firechatting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shark.OUT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ce924d71-ef3f-41da-9903-01b61bce1725";
-				PROVISIONING_PROFILE_SPECIFIER = OUT_DEV_PROVISION;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "firechatting/Vendor/Firechatting-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -737,14 +741,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3UTAS954SN;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/firechatting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shark.OUT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ce924d71-ef3f-41da-9903-01b61bce1725";
-				PROVISIONING_PROFILE_SPECIFIER = OUT_DEV_PROVISION;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "firechatting/Vendor/Firechatting-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

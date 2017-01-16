@@ -37,11 +37,13 @@ class BaseViewController: UIViewController {
 
     func showLoadingView()
     {
+        self.view.isUserInteractionEnabled = false
         self.view.makeToastActivity(.center)
     }
 
     func hideLoadingView()
     {
+        self.view.isUserInteractionEnabled = true
         self.view.hideToastActivity()
     }
 

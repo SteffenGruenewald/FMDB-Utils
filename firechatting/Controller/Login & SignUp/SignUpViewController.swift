@@ -67,7 +67,6 @@ class SignUpViewController: BaseViewController , UITextFieldDelegate{
 
     func setViewBorders()
     {
-
         usernameView.layer.borderColor = UIColor.white.cgColor
         usernameView.layer.borderWidth = 2
         emailView.layer.borderColor = UIColor.white.cgColor
@@ -129,7 +128,7 @@ class SignUpViewController: BaseViewController , UITextFieldDelegate{
             setPasswordVC.user.user_name = txtUsername.text!
             setPasswordVC.user.user_emailAddress = txtEmailAddress.text!
             setPasswordVC.user.user_firstName = txtFirstName.text!
-            setPasswordVC.user.user_phonenumber = Int64(txtPhoneNumber.text!)!
+            setPasswordVC.user.user_phonenumber = txtPhoneNumber.text!
             setPasswordVC.user.user_lastName = txtLastName.text!
             setPasswordVC.profileImage = profileImage
             self.navigationController?.pushViewController(setPasswordVC, animated: true)
@@ -151,7 +150,7 @@ class SignUpViewController: BaseViewController , UITextFieldDelegate{
                     currentUser.user_name = self.txtUsername.text!
                     currentUser.user_emailAddress = self.txtEmailAddress.text!
                     currentUser.user_firstName = self.txtFirstName.text!
-                    currentUser.user_phonenumber = Int64(self.txtPhoneNumber.text!)!
+                    currentUser.user_phonenumber = self.txtPhoneNumber.text!
                     currentUser.user_lastName = self.txtLastName.text!
                     currentUser.user_imageUrl = imageUrl
                     firebaseUserAuthInstance.registerUserInfo(user: currentUser)

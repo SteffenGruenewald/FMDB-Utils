@@ -256,12 +256,22 @@ class FirebaseUserAuthentication{
                         friend.initClass(object: postDict as! [String: AnyObject])
                         friends.append(friend)
                     }
-
                     myFriends = CommonUtils.getSortedFriendArrayByTimes(friends: friends)
                 }
             }
         }
     }
+
+    func getOutFriends(friends: [FriendModel]) -> [FriendModel] {
+        var result : [FriendModel] = []
+        for friend in friends{
+            if(friend.friend_user.user_outStatus){
+                result.append(friend)
+            }
+        }
+        return result
+    }
+
 
     func readFriendOnce(completion:@escaping (Bool) -> ())
     {
@@ -366,7 +376,7 @@ class FirebaseUserAuthentication{
     }
 
 
-    static func signUp(username: String, email: String, password: String, profileImage: UIImage?, firstName: String, lastName: String, completion:@escaping (UserModel?, String) -> ())
+    static func signUp(username: String, email: String, password: String, profileImage: UIImage?, firstName: String, lastName: String, phoneNumber: String, completion:@escaping (UserModel?, String) -> ())
     {
         createFIRUser(email: email, password: password, completion: {
             userid,success in
@@ -379,6 +389,7 @@ class FirebaseUserAuthentication{
                 user.user_password = password
                 user.user_firstName = firstName
                 user.user_lastName = lastName
+                user.user_phonenumber = phoneNumber
                 currentUser = user
                 addUserProfileImage(userid: userid, profileImage: profileImage, completion: {imageURL, success in
                     if success{

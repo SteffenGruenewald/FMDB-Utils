@@ -19,7 +19,6 @@ class SwipeViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.isNavigationBarHidden = true 
         // Do any additional setup after loading the view.
         
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items:items, delegate : self)
