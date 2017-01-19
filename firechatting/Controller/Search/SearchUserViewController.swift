@@ -25,14 +25,7 @@ class SearchUserViewController: BaseViewController {
         let viewControllers = self.navigationController?.viewControllers
 
 
-        if viewControllers?.count == 1
-        {
-            btnBack.isHidden = true
-        }
-        else
-        {
-            btnBack.isHidden = false
-        }
+        
         // Do any additional setup after loading the view.
 
         tblUserList.separatorColor = .clear
@@ -51,7 +44,12 @@ class SearchUserViewController: BaseViewController {
 
     func getUsers()
     {
-        self.searchUsersArray = globalUsersArray
+        for user in globalUsersArray{
+            if (firebaseUserAuthInstance.isMyFriend(userid: user.user_id) == Constants.FRIEND_UNFRIEND)
+            {
+                searchUsersArray.append(user)
+            }
+        }
         self.tblUserList.reloadData()
 
     }
@@ -77,6 +75,12 @@ class SearchUserViewController: BaseViewController {
         
        _ = self.navigationController?.popViewController(animated: true)
     }
+
+    @IBAction func gotoFriendsPage(_ sender: Any) {
+        let friendsVC = self.storyboard?.instantiateViewController(withIdentifier: "MyFriendListViewController")
+        self.navigationController?.pushViewController(friendsVC!, animated: true)
+    }
+
 
 }
 
@@ -117,7 +121,6 @@ extension SearchUserViewController:UITableViewDelegate, UITableViewDataSource{
 
 
 }
-
 
 extension SearchUserViewController: UISearchBarDelegate{
 

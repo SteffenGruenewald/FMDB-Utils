@@ -18,7 +18,7 @@ class MapViewController: BaseViewController{
     @IBOutlet weak var imvFriend: UIImageView!
     @IBOutlet weak var lblName: UILabel!
 
-    @IBOutlet weak var tblFriends: UITableView!
+    @IBOutlet weak var contentView: UIView!
 
     var outFriendsArray : [FriendModel] = []
 
@@ -28,22 +28,30 @@ class MapViewController: BaseViewController{
                // Do any additional setup after loading the view
         //mapView.delegate = self
         mapView.showsBuildings = true
-        mapView.showsUserLocation = true
 
-        lblName.text = currentUser.user_firstName + " " + currentUser.user_lastName
-        imvFriend.setImageWith(storageRefString: currentUser.user_imageUrl, placeholderImage: UIImage(named:"icon_user_placeholder")!)
+
+        
 
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
-        
        
     }
 
 
     override func viewWillAppear(_ animated: Bool) {
+        if currentUser.user_outStatus {
+            mapView.showsUserLocation = true
+        }
         outFriendsArray = firebaseUserAuthInstance.getOutFriends(friends: myFriends)
         arrangeFriends()
+
+        if currentFriend.user_id.characters.count > 0{
+            setFriendData(user: currentFriend)
+        }
+        else{
+            setFriendData(user: currentUser)
+        }
     }
 
 
@@ -60,9 +68,11 @@ class MapViewController: BaseViewController{
             mapView.addAnnotation(info)
         }
 
-        setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentUser.user_latitude, longitude: currentUser.user_longitude), spanRadius : 1609.00*(UserDefaults.standard.value(forKey: "distance") as! Double), animated: true)
+        if currentUser.user_outStatus {
+            setRegionForLocation(location : CLLocationCoordinate2D(latitude: currentUser.user_latitude, longitude: currentUser.user_longitude), spanRadius : 1609.00*(UserDefaults.standard.value(forKey: "distance") as! Double), animated: true)
+        }
 
-        tblFriends.reloadData()
+
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -138,6 +148,13 @@ class MapViewController: BaseViewController{
         
         self.navigationController?.pushViewController(myFriendViewCon!, animated:true)
     }
+
+    func setFriendData(user: UserModel){
+
+        lblName.text = user.user_firstName + " " + user.user_lastName
+        imvFriend.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named:"icon_user_placeholder")!)
+        txtmessageContentView.text = user.user_mapMessage
+    }
 }
 
 
@@ -186,9 +203,7 @@ extension MapViewController: MKMapViewDelegate{
         currentFriend = starbucksAnnotation.friend.friend_user
         currentRoomid = starbucksAnnotation.friend.friend_roomid
 
-        lblName.text = currentFriend.user_firstName + " " + currentFriend.user_lastName
-        imvFriend.setImageWith(storageRefString: currentFriend.user_imageUrl, placeholderImage: UIImage(named:"icon_user_placeholder")!)
-        txtmessageContentView.text = currentFriend.user_mapMessage
+        setFriendData(user: currentFriend)
 
 
         let label = UILabel()
@@ -200,8 +215,6 @@ extension MapViewController: MKMapViewDelegate{
 
         view.layer.masksToBounds = false
         view.addSubview(label)
-
-        tblFriends.isHidden = true
 
     }
 
@@ -219,34 +232,3 @@ extension MapViewController: MKMapViewDelegate{
 }
 
 
-extension MapViewController: UITableViewDelegate, UITableViewDataSource{
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return outFriendsArray.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = indexPath.row
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell") as! UserTableViewCell
-        let user = outFriendsArray[index].friend_user
-        cell.imvUser.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named: "icon_user_placeholder")!)
-        cell.lblUsername.text = user.user_firstName + " " + user.user_lastName
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.row
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "UserDetailViewController") as! UserDetailViewController
-        detailVC.user = outFriendsArray[index].friend_user
-        //detailVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(detailVC, animated: true)
-    }
-
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 56
-    }
-}

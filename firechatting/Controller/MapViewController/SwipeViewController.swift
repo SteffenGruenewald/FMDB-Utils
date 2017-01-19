@@ -33,6 +33,10 @@ class SwipeViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
 
     /*
@@ -51,7 +55,7 @@ class SwipeViewController: UIViewController, CarbonTabSwipeNavigationDelegate {
         switch index {
             
         case 0:
-            return (self.storyboard?.instantiateViewController(withIdentifier: "MapViewController"))!
+            return (self.storyboard?.instantiateViewController(withIdentifier: "HomeContentViewController"))!
         case 1:
             return (self.storyboard?.instantiateViewController(withIdentifier: "OuttickerViewController"))!
         default:

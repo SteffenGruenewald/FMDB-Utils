@@ -20,6 +20,7 @@ class AddedMeFriendsListViewController: BaseViewController {
         
         self.navigationController?.isNavigationBarHidden = true
         tblAddedMeFriends.separatorColor = .clear
+        setLists()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,13 +35,11 @@ class AddedMeFriendsListViewController: BaseViewController {
     func setLists()
     {
         myFriendsArray = []
-       
-        for user in globalUsersArray{
-       
-                
-                myFriendsArray.append(user)
-         
+        for friend in myFriends{
+            myFriendsArray.append(friend.friend_user)
         }
+
+        tblAddedMeFriends.reloadData()
     }
     /*
     // MARK: - Navigation

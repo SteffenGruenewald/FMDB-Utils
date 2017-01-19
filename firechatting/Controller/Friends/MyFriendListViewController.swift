@@ -53,6 +53,9 @@ class MyFriendListViewController: BaseViewController {
                 myFriendsArray.append(user)
             }
         }
+
+        tblFriendsOut.reloadData()
+        tblMyfriends.reloadData()
     }
 
 
@@ -106,20 +109,34 @@ extension MyFriendListViewController:UITableViewDelegate, UITableViewDataSource{
             cell.lblUsername.text = user.user_firstName + " " + user.user_lastName
             cell.imvUser.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
         } else {
-            print("Hi")
-      
             let user = myFriendsArray[indexPath.row]
             cell.lblUsername.text = user.user_firstName + " " + user.user_lastName
             cell.imvUser.setImageWith(storageRefString: user.user_imageUrl, placeholderImage: UIImage(named: "ic_user_placeholder")!)
         }
         return cell
     }
-    
-
   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        print("selected")
+        let index = indexPath.row
+        if (tableView == tblFriendsOut)
+        {
+            let user = unFriendsArray[index]
+            let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "UserDetailViewController") as! UserDetailViewController
+            detailVC.user = user
+            //detailVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(detailVC, animated: true)
+
+        }
+        if (tableView == tblMyfriends)
+        {
+            let user = myFriendsArray[index]
+            let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "UserDetailViewController") as! UserDetailViewController
+            detailVC.user = user
+            //detailVC.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(detailVC, animated: true)
+
+        }
         
     }
  

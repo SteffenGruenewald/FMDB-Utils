@@ -8,6 +8,9 @@
 
 import UIKit
 import LocalAuthentication
+import FacebookCore
+import FacebookLogin
+
 
 class LoginViewController: BaseViewController, UITextFieldDelegate {
 
@@ -101,11 +104,18 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         {
             if (passcodeDetected){
                 showLoadingView()
+
                 FirebaseUserAuthentication.signIn(email: email, password: password, completion: {
                     userid, success in
                     self.hideLoadingView()
+
                     if success{
-                        self.gotoSwipeViewScene()
+                        if self.passcodeDetected{
+                            self.gotoSwipeViewScene()
+                        }
+                        else{
+                            self.checkPassCodeDetected()
+                        }
                     }
                     else
                     {
@@ -198,18 +208,19 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
                 if( success ) {
                     self.passcodeDetected = true
+
+                    self.view.isUserInteractionEnabled = true
                     if (self.defaults.value(forKey: Constants.USER_EMAIL) != nil)
                     {
                         self.txtEmail.text = self.defaults.value(forKey: Constants.USER_EMAIL) as? String
                         self.txtPassword.text = self.defaults.value(forKey: Constants.USER_PASSWORD) as? String
-                        self.view.isUserInteractionEnabled = true
 
                         let userid = self.defaults.value(forKey: Constants.USER_ID) as! String
 
 
                         self.getUserInfoAndGotoMainScene(userid: userid)
 
-                        //doLogin(email: (defaults.value(forKey: Constants.USER_EMAIL) as? String)!, password: (defaults.value(forKey: Constants.USER_PASSWORD) as? String)!)                        
+                        //doLogin(email: (defaults.value(forKey: Constants.USER_EMAIL) as? String)!, password: (defaults.value(forKey: Constants.USER_PASSWORD) as? String)!)
                     }
 
                 }else {
@@ -272,7 +283,10 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in 
+            self.checkTouchID()
+        })
+
         alertVC.addAction(okAction)
 
         DispatchQueue.main.async { () -> Void in
@@ -288,7 +302,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     func showAlertViewAfterEvaluatingPolicyWithMessage( _ message:String ){
 
         showAlertWithTitle("Error", message: message)
-        
+
+
     }
     
     
@@ -299,6 +314,76 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func facebookLoginButtonTapped(_ sender: UIButton) {
+        let loginManager = LoginManager()
+
+        loginManager.logIn([.publicProfile , .email, .userFriends], viewController: self, completion: {
+            loginResult in
+            switch loginResult {
+            case .failed(let error):
+                print(error)
+            case .cancelled:
+                print("User cancelled login.")
+            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                print("Logged in!")
+                self.getFBUserInfo()
+            }
+        })
+
+
+    }
+
+    func getFBUserInfo() {
+
+        showLoadingView()
+        let request = GraphRequest(graphPath: "me", parameters: ["fields":"id, name, first_name, last_name, picture.type(large), email"], accessToken: AccessToken.current, httpMethod: .GET, apiVersion: FacebookCore.GraphAPIVersion.defaultVersion)
+        request.start { (response, result) in
+
+            switch result {
+            case .success(let value):
+                let result = value.dictionaryValue
+                let resultData: [String: AnyObject] = result as! [String: AnyObject]
+
+
+                let user = UserModel()
+                user.user_id = "fb" + (resultData["id"] as! String)
+
+                user.user_firstName = resultData["first_name"] as! String
+                user.user_lastName = resultData["last_name"] as! String
+                user.user_emailAddress = resultData["email"] as! String
+                user.user_imageUrl = (((resultData["picture"] as! [String: AnyObject])["data"] as! [String: AnyObject])["url"] as? String)!
+                currentUser = user
+                FirebaseUserAuthentication.loginWithFacebook(user: user, completion: {
+                    success in
+                    self.hideLoadingView()
+                    if success{
+
+
+
+                        UserDefaults.standard.set(user.user_emailAddress, forKey: Constants.USER_EMAIL)
+                        UserDefaults.standard.set("", forKey: Constants.USER_PASSWORD)
+                        UserDefaults.standard.set(user.user_id, forKey: Constants.USER_ID)
+
+
+                        if (self.passcodeDetected){
+                            self.gotoSwipeViewScene()
+                        }
+                        else{
+                            UserDefaults.standard.set(false, forKey: "passcode_detected")
+                            self.checkPassCodeDetected()
+                        }
+                    }
+
+                })
+
+            case .failed(let error):
+                print(error)
+                self.hideLoadingView()
+            }
+        }
+    }
+
+
 
 
 }

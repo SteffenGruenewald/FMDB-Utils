@@ -135,8 +135,14 @@ extension UIImageView{
 
     func setImageWith(storageRefString: String, placeholderImage: UIImage)
     {
-        let reference : FIRStorageReference = FIRStorage.storage().reference(forURL: storageRefString)
-        self.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        if storageRefString.hasPrefix("https://fb")
+        {
+            self.sd_setImage(with: URL(string: storageRefString), placeholderImage: placeholderImage)
+        }
+        else{
+            let reference : FIRStorageReference = FIRStorage.storage().reference(forURL: storageRefString)
+            self.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        }
         
     }
 

@@ -23,5 +23,8 @@ pod 'FirebaseUI/Storage', '~> 0.6'
 pod 'Toast-Swift', '~> 2.0.0'
 pod 'FMDB'
 pod 'CarbonKit'
+pod ‘FacebookCore’
+pod ‘FacebookLogin’
+pod ‘FacebookShare’
 
 end

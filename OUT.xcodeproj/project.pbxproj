@@ -44,6 +44,8 @@
 		3A3425FD1E15E83000B7C5C6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */; };
 		3A3425FF1E15E9C400B7C5C6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3425FE1E15E9C400B7C5C6 /* SettingsViewController.swift */; };
 		3A60BAFC1E2CAED000F552E7 /* PassCodeCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A60BAFB1E2CAED000F552E7 /* PassCodeCheckViewController.swift */; };
+		3A68BD181E302CEF00580372 /* FriendsParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A68BD171E302CEF00580372 /* FriendsParentViewController.swift */; };
+		3A78B4611E2D7DA30019C661 /* HomeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A78B4601E2D7DA30019C661 /* HomeContentViewController.swift */; };
 		3A8374221E21EECE00A59F77 /* SwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8374211E21EECE00A59F77 /* SwipeViewController.swift */; };
 		3A86729E1E0B33D500BC5C70 /* SetupPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A86729D1E0B33D500BC5C70 /* SetupPasswordViewController.swift */; };
 		3A8672A01E0B3D7E00BC5C70 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A86729F1E0B3D7E00BC5C70 /* GoogleService-Info.plist */; };
@@ -80,7 +82,7 @@
 		3A2D844D1E0635860069BFC1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3A2D844E1E0635860069BFC1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3A2D84501E0635860069BFC1 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
-		3A2D84521E0635860069BFC1 /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
+		3A2D84521E0635860069BFC1 /* SearchUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchUserViewController.swift; path = ../Search/SearchUserViewController.swift; sourceTree = "<group>"; };
 		3A2D84531E0635860069BFC1 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailViewController.swift; path = ../UserDetailViewController.swift; sourceTree = "<group>"; };
 		3A2D84541E0635860069BFC1 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserTableViewCell.swift; path = ../UserTableViewCell.swift; sourceTree = "<group>"; };
 		3A2D84561E0635860069BFC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -102,6 +104,8 @@
 		3A3425FC1E15E83000B7C5C6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = MapViewController/MapViewController.swift; sourceTree = "<group>"; };
 		3A3425FE1E15E9C400B7C5C6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3A60BAFB1E2CAED000F552E7 /* PassCodeCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassCodeCheckViewController.swift; sourceTree = "<group>"; };
+		3A68BD171E302CEF00580372 /* FriendsParentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsParentViewController.swift; sourceTree = "<group>"; };
+		3A78B4601E2D7DA30019C661 /* HomeContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeContentViewController.swift; path = MapViewController/HomeContentViewController.swift; sourceTree = "<group>"; };
 		3A8374211E21EECE00A59F77 /* SwipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeViewController.swift; path = MapViewController/SwipeViewController.swift; sourceTree = "<group>"; };
 		3A86729D1E0B33D500BC5C70 /* SetupPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupPasswordViewController.swift; sourceTree = "<group>"; };
 		3A86729F1E0B3D7E00BC5C70 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 				F6C9B4BD1E28DA9C00EF7FCB /* MyFriendListViewController.swift */,
 				F618448D1E2B649100B1DC5D /* AddedMeFriendsListViewController.swift */,
 				F618448F1E2B785600B1DC5D /* AddFriendsViewController.swift */,
+				3A68BD171E302CEF00580372 /* FriendsParentViewController.swift */,
+				3A2D84521E0635860069BFC1 /* SearchUserViewController.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -239,7 +245,6 @@
 			children = (
 				3A2D84531E0635860069BFC1 /* UserDetailViewController.swift */,
 				3A2D84541E0635860069BFC1 /* UserTableViewCell.swift */,
-				3A2D84521E0635860069BFC1 /* SearchUserViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				3AAB99C91E1F47030023D68F /* AnnotationView.swift */,
 				3AAB99CB1E1F47660023D68F /* StarbuckAnnotation.swift */,
 				3A8374211E21EECE00A59F77 /* SwipeViewController.swift */,
+				3A78B4601E2D7DA30019C661 /* HomeContentViewController.swift */,
 			);
 			name = MapviewController;
 			sourceTree = "<group>";
@@ -443,7 +449,7 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 3UTAS954SN;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -546,6 +552,7 @@
 				3A2D84741E0635860069BFC1 /* ChattingViewController+ChatAdditions.swift in Sources */,
 				3A2D84841E0635860069BFC1 /* FriendModel.swift in Sources */,
 				3A2D848F1E0635860069BFC1 /* UIView+Extesion.swift in Sources */,
+				3A78B4611E2D7DA30019C661 /* HomeContentViewController.swift in Sources */,
 				F61844901E2B785600B1DC5D /* AddFriendsViewController.swift in Sources */,
 				3A3425FF1E15E9C400B7C5C6 /* SettingsViewController.swift in Sources */,
 				3A2D847F1E0635860069BFC1 /* SearchUserViewController.swift in Sources */,
@@ -571,6 +578,7 @@
 				3A2D847D1E0635860069BFC1 /* SignUpViewController.swift in Sources */,
 				3A2D84791E0635860069BFC1 /* ImageDetailViewController.swift in Sources */,
 				3A2D84751E0635860069BFC1 /* ChattingViewController+Data.swift in Sources */,
+				3A68BD181E302CEF00580372 /* FriendsParentViewController.swift in Sources */,
 				3A2D84711E0635860069BFC1 /* ChatHistoryViewController.swift in Sources */,
 				3A3425FD1E15E83000B7C5C6 /* MapViewController.swift in Sources */,
 				3A2D847E1E0635860069BFC1 /* MyProfileViewController.swift in Sources */,
@@ -653,7 +661,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -699,7 +707,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -716,15 +724,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 3UTAS954SN;
 				INFOPLIST_FILE = "$(SRCROOT)/firechatting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shark.OUT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "335429c9-1f16-4831-be9e-7b46f39b0751";
+				PROVISIONING_PROFILE_SPECIFIER = OUT_DIST_PROVISION;
 				SWIFT_OBJC_BRIDGING_HEADER = "firechatting/Vendor/Firechatting-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -740,15 +748,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Hammond (3UTAS954SN)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 3UTAS954SN;
 				INFOPLIST_FILE = "$(SRCROOT)/firechatting/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shark.OUT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "335429c9-1f16-4831-be9e-7b46f39b0751";
+				PROVISIONING_PROFILE_SPECIFIER = OUT_DIST_PROVISION;
 				SWIFT_OBJC_BRIDGING_HEADER = "firechatting/Vendor/Firechatting-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

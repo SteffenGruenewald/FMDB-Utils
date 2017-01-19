@@ -9,12 +9,47 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CarbonKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FBSDKCoreKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKLoginKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FBSDKShareKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FacebookCore.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FacebookLogin.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FacebookShare.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,7 +87,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>21D5C0C4AF1AEF5C887E797E8BE26CCA</key>
+		<key>18C73F88906F577EA35729644D323F90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +97,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>332F91393FB1DE033D370B4CEDDD5FCF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>352F3CCD20CDBC5C9822654BDACCE6D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>44CAD6CE523055ED339E87154473A254</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>593E9479C06FB200807D11AB29EB50BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5B5AC3C06B783F8674FDB4C0F900B56A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7AFB4D721BA3F585AF4B0CE1FD24CE5A</key>
+		<key>7335E9C9689F3B8A16F063A884748533</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9BA05B607B5EE26140A4141AA88E16C4</key>
+		<key>90F64AC98C2FA2F260A7BABC51DD8D4E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A7FEAA14E89971698ACA148F7F7202F2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +152,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEE2DB836C9E2D2148490A510AC6F247</key>
+		<key>CDD387E20A742DC0CFAEA39F606F3D2A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DDBCFDE490CDFDABF6F16A26F346932D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DFBDFFD17047C6B11CBD00B1BEB521FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

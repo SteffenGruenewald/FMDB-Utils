@@ -157,11 +157,11 @@ class FirebaseUserAuthentication{
                     error , ref in
 
                     if error != nil{
-
                         completion(Constants.ERROR_FAIL_FRIENDREQUEST)
                     }
                     else
                     {
+
                         completion(Constants.SUCCESS_PROCESS)
                     }
                 })
@@ -418,6 +418,17 @@ class FirebaseUserAuthentication{
                 completion(nil, Constants.ERROR_REGISTRATION_FAIL)
             }
         })
+    }
+
+    static func loginWithFacebook(user: UserModel, completion: @escaping(Bool) ->()){
+        firebaseUserAuthInstance.createUserReference(userid: user.user_id)
+        firebaseUserAuthInstance.registerUserInfo(user: user)
+        getAllUsers(completion: {
+            users in
+            globalUsersArray = CommonUtils.getSortedUserArrayByName(users: users)
+            completion(true)
+        })
+
     }
 
     static func initUserInfo(userid: String, completion: @escaping(String, Bool) -> ()){
